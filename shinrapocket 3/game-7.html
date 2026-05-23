@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/jpeg" href="app_icon.jpg">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>しんらポケット — 持ち運べるボードゲーム | Shinra Pocket</title>
+<meta name="description" content="ケース・輪っか・コイン。3つの道具から、無限の遊びが生まれる。年齢も言葉も超えて、その場で遊べるボードゲーム。">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=DM+Mono:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#F5C842;--silver:#C0C8D0;--ink:#0E0E0E;--paper:#FAFAF7;--mist:#F0EFE8;--dim:#8a8a7a;--accent:#E8A020}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:'Zen Kaku Gothic New',sans-serif;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem;background:rgba(14,14,14,.97);border-bottom:1px solid rgba(245,200,66,.06)}
+.nav-logo img{height:36px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-link{color:var(--paper);opacity:.38;text-decoration:none;font-size:.72rem;letter-spacing:.1em;font-family:'DM Mono',monospace;text-transform:uppercase;transition:opacity .2s}
+.nav-link:hover{opacity:1}
+.nav-cta{background:var(--gold);color:var(--ink);padding:.45rem 1.2rem;font-family:'DM Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(245,200,66,.06) 0%,transparent 70%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(245,200,66,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(245,200,66,.025) 1px,transparent 1px);background-size:60px 60px}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.28em;color:var(--gold);opacity:.7;text-transform:uppercase;margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:.6rem}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:inline-block;width:1.5rem;height:1px;background:var(--gold);opacity:.4}
+h1.hero-title{font-family:'Shippori Mincho',serif;font-size:clamp(2.4rem,6vw,5rem);font-weight:800;line-height:1.15;margin-bottom:1.2rem}
+.hero-title .t1{display:block;color:var(--paper)}
+.hero-title .t2{display:block;-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--gold),var(--accent));-webkit-background-clip:text;background-clip:text}
+.hero-desc{font-size:1rem;color:var(--paper);opacity:.5;line-height:1.9;max-width:480px;margin:0 auto 2.5rem;font-weight:300}
+.hero-cta-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{background:var(--gold);color:var(--ink);border:none;padding:.95rem 2.6rem;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-decoration:none;display:inline-block;transition:transform .2s,box-shadow .2s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,200,66,.3)}
+.btn-ghost{background:transparent;color:var(--paper);border:1px solid rgba(250,250,247,.2);padding:.95rem 2.6rem;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.9rem;font-weight:300;letter-spacing:.06em;text-decoration:none;display:inline-block;transition:border-color .2s}
+.btn-ghost:hover{border-color:rgba(250,250,247,.7)}
+.hero-proof{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap}
+.proof-item{text-align:center}
+.proof-num{font-family:'DM Mono',monospace;font-size:1.6rem;color:var(--gold);display:block;font-weight:500}
+.proof-label{font-size:.68rem;color:var(--dim);letter-spacing:.08em;font-weight:300}
+
+/* ===== CASE ANIMATION SECTION ===== */
+
+
+
+
+/* ケース本体 */
+
+
+
+
+
+/* コイン */
+
+
+.flying-coin .fc-num{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--gold);line-height:1}
+
+
+/* テキストオーバーレイ */
+
+
+
+
+
+/* フェーズラベル */
+
+
+
+/* WHAT */
+.what-sec{padding:6rem 2rem;max-width:900px;margin:0 auto;text-align:center}
+.sec-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;opacity:.6}
+h2.sec-title{font-family:'Shippori Mincho',serif;font-size:clamp(1.7rem,4vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:1.2rem}
+.sec-lead{font-size:.92rem;color:var(--dim);line-height:1.95;font-weight:300;max-width:580px;margin:0 auto}
+
+/* 3 ITEMS */
+.items-sec{background:#080808;padding:5rem 2rem}
+.items-inner{max-width:1000px;margin:0 auto}
+.items-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(245,200,66,.08);margin-top:3rem}
+.item-card{background:#080808;padding:2.5rem 2rem;text-align:center;transition:background .3s}
+.item-card:hover{background:#0f0f0f}
+.item-photo-wrap{height:140px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}.item-photo{max-height:130px;max-width:100%;object-fit:contain;filter:drop-shadow(0 4px 16px rgba(0,0,0,.4))}
+.item-name{font-family:'Shippori Mincho',serif;font-size:1.2rem;font-weight:700;margin-bottom:.6rem;color:var(--gold)}
+.item-desc{font-size:.8rem;color:var(--dim);line-height:1.85;font-weight:300}
+
+/* HOW */
+.how-sec{padding:6rem 2rem;max-width:1000px;margin:0 auto}
+.steps{display:flex;flex-direction:column;gap:0;margin-top:3rem}
+.step{display:grid;grid-template-columns:64px 1fr;gap:2rem;align-items:start;padding:2rem 0;border-bottom:1px solid rgba(245,200,66,.07)}
+.step:last-child{border-bottom:none}
+.step-num{font-family:'DM Mono',monospace;font-size:2rem;color:var(--gold);opacity:.25;font-weight:500;line-height:1}
+.step-title{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.step-body{font-size:.82rem;color:var(--dim);line-height:1.85;font-weight:300}
+
+/* ELEMENTS */
+.elem-sec{background:var(--mist);padding:5rem 2rem}
+.elem-inner{max-width:1000px;margin:0 auto}
+.elem-sec .sec-label{color:var(--accent)}
+.elem-sec h2.sec-title{color:var(--ink)}
+.elem-sec .sec-lead{color:#777}
+.elem-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(14,14,14,.12);margin-top:2.5rem}
+.elem-card{background:var(--mist);padding:1.8rem 1.2rem;text-align:center;transition:background .2s}
+.elem-card:hover{background:#e5e4dd}
+.elem-icon{font-size:1.8rem;display:block;margin-bottom:.6rem}
+.elem-name{font-family:'Shippori Mincho',serif;font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.3rem}
+.elem-word{font-size:.7rem;color:#999;font-weight:300}
+
+/* COIN DETAIL */
+.coin-detail-sec{background:#060606;padding:6rem 2rem}
+.coin-detail-inner{max-width:1000px;margin:0 auto}
+.coin-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
+.coin-photo{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:1px solid rgba(245,200,66,.12)}
+.coin-info{}
+.coin-rule-list{list-style:none;margin-top:1.5rem;display:flex;flex-direction:column;gap:.8rem}
+.coin-rule-list li{font-size:.82rem;color:var(--dim);line-height:1.85;font-weight:300;padding-left:1.2rem;position:relative}
+.coin-rule-list li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:.5}
+.coin-face{display:flex;gap:1.5rem;margin-top:1.8rem;flex-wrap:wrap}
+.face-card{border:1px solid rgba(245,200,66,.1);padding:1rem 1.4rem;flex:1;min-width:120px}
+.face-label{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.18em;color:var(--gold);opacity:.55;text-transform:uppercase;margin-bottom:.5rem}
+.face-icons{font-size:1.2rem;line-height:1.6}
+.face-desc{font-size:.72rem;color:var(--dim);margin-top:.3rem;font-weight:300}
+
+/* MODES */
+.modes-sec{padding:6rem 2rem;max-width:1000px;margin:0 auto}
+.modes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.mode-card{border:1px solid rgba(245,200,66,.09);padding:2rem 1.6rem;transition:border-color .3s}
+.mode-card:hover{border-color:rgba(245,200,66,.35)}
+.mode-tag{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.2em;color:var(--gold);opacity:.55;text-transform:uppercase;margin-bottom:.7rem}
+.mode-title{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.mode-players{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--dim);margin-bottom:.7rem;letter-spacing:.06em}
+.mode-desc{font-size:.78rem;color:var(--dim);line-height:1.8;font-weight:300}
+
+/* VOICES */
+.voices-sec{padding:6rem 2rem;max-width:1000px;margin:0 auto}
+.voices-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:0}
+.voice-card{border:1px solid rgba(245,200,66,.08);padding:1.8rem 1.6rem}
+.voice-text{font-family:'Shippori Mincho',serif;font-size:.95rem;line-height:1.85;margin-bottom:1rem;font-weight:400}
+
+.voice-who{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em}
+
+/* CTA */
+.cta-sec{background:linear-gradient(135deg,rgba(245,200,66,.08),rgba(232,160,32,.04));border-top:1px solid rgba(245,200,66,.1);border-bottom:1px solid rgba(245,200,66,.1);padding:6rem 2rem;text-align:center}
+.cta-title{font-family:'Shippori Mincho',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;line-height:1.3;margin-bottom:1rem}
+.cta-sub{font-size:.88rem;color:var(--dim);line-height:1.9;margin-bottom:2.5rem;font-weight:300}
+.cta-price{font-family:'DM Mono',monospace;font-size:1.1rem;color:var(--gold);margin-bottom:2rem;letter-spacing:.05em}
+.cta-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* FAQ */
+.faq-sec{padding:5rem 2rem;max-width:720px;margin:0 auto}
+.faq-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid rgba(245,200,66,.07);padding:1.5rem 0}
+.faq-q{font-family:'Shippori Mincho',serif;font-size:.98rem;font-weight:600;margin-bottom:.6rem;color:var(--paper)}
+.faq-a{font-size:.8rem;color:var(--dim);line-height:1.85;font-weight:300}
+
+/* FOOTER */
+footer{padding:3rem;border-top:1px solid rgba(245,200,66,.06);max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.footer-tagline{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:600;color:var(--paper)}
+.footer-tagline span{color:var(--gold)}
+.footer-links{display:flex;gap:1.2rem;margin-top:.5rem;flex-wrap:wrap}
+.footer-links a{color:var(--paper);opacity:.28;text-decoration:none;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;transition:opacity .2s}
+.footer-links a:hover{opacity:.8}
+.footer-copy{font-size:.6rem;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:.1em}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+
+  .nav-link{display:none}
+  .elem-grid{grid-template-columns:repeat(3,1fr);font-size:.7rem}
+  #coin-row{gap:.3rem}
+  #coin-row>div>div{width:44px;height:44px;font-size:1rem}}
+  .modes-grid{grid-template-columns:1fr}
+  .coin-detail-grid{grid-template-columns:1fr;gap:2rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+  .hero-title{font-size:2.2rem}
+  .hero-desc{font-size:.88rem}
+  .btn-primary,.btn-ghost{padding:.8rem 1.8rem;font-size:.85rem}
+}
+
+  .nav-link{display:none}
+  .elem-grid{grid-template-columns:repeat(3,1fr);font-size:.7rem}
+  #coin-row{gap:.3rem}
+  #coin-row>div>div{width:44px;height:44px;font-size:1rem}}
+  .modes-grid{grid-template-columns:1fr}
+  .coin-detail-grid{grid-template-columns:1fr;gap:2rem}
+  
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+
+  #coin-row{gap:.3rem}
+  #coin-row>div>div{width:44px;height:44px;font-size:1rem}}
+  .step{grid-template-columns:44px 1fr;gap:1rem}
+  .step-num{font-size:1.5rem}
+  
+  
+}
+
+}
+
+
+  .nav-link{display:none}
+  .coin-detail-grid{grid-template-columns:1fr;gap:2rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+  .elem-grid{grid-template-columns:repeat(3,1fr)}
+  .step{grid-template-columns:44px 1fr;gap:1rem}
+  .step-num{font-size:1.5rem}
+  .hero-title{font-size:2rem}
+  .btn-primary,.btn-ghost{padding:.8rem 1.8rem;font-size:.85rem}
+  .hero-proof{gap:1.5rem}
+  #coin-row{gap:.5rem}
+  #coin-row>div>div{width:48px;height:48px;font-size:1.1rem}
+  .chat-window{width:calc(100vw - 2rem);right:1rem}
+}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-link{display:none}
+  .coin-detail-grid{grid-template-columns:1fr;gap:2rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+@media(max-width:600px){
+  .photo-grid-pc{grid-template-columns:1fr 1fr !important}
+
+  /* ナビ */
+  nav{padding:.9rem 1.2rem}
+  .nav-link{display:none}
+  .nav-cta{font-size:.65rem;padding:.4rem .9rem}
+
+  /* ヒーロー */
+  .hero{padding:6rem 1.4rem 3rem}
+  h1.hero-title{font-size:1.9rem}
+  .hero-desc{font-size:.85rem}
+  .btn-primary{padding:.85rem 2rem;font-size:.85rem;width:100%;text-align:center;display:block}
+  .btn-ghost{padding:.85rem 2rem;font-size:.85rem;width:100%;text-align:center;display:block}
+  .hero-cta-group{flex-direction:column;gap:.7rem}
+  .hero-proof{gap:1.5rem}
+  .proof-num{font-size:1.4rem}
+
+  /* セクション共通 */
+  .what-sec{padding:3.5rem 1.4rem}
+  h2.sec-title{font-size:1.5rem}
+  .sec-lead{font-size:.82rem}
+
+  /* 3つの道具 */
+  .items-sec{padding:3rem 1.4rem}
+  .items-grid{grid-template-columns:1fr}
+  .item-card{padding:1.4rem 1.2rem;text-align:left;display:grid;grid-template-columns:80px 1fr;grid-template-rows:auto auto;gap:.5rem 1rem;align-items:start}
+  .item-photo-wrap{height:80px;width:80px;flex-shrink:0;margin-bottom:0;grid-row:1/3;grid-column:1}
+  .item-photo{max-height:76px;max-width:76px}
+  .item-name{font-size:1rem;margin-bottom:.2rem;white-space:nowrap;grid-row:1;grid-column:2;align-self:end}
+  .item-desc{font-size:.78rem;grid-row:2;grid-column:2;align-self:start}
+
+  /* 遊び方 */
+  .how-sec{padding:3.5rem 1.4rem}
+  .step{grid-template-columns:40px 1fr;gap:.8rem}
+  .step-num{font-size:1.5rem}
+  .step-title{font-size:.95rem}
+  .step-body{font-size:.78rem}
+
+  /* エレメント */
+  .elem-sec{padding:3rem 1.4rem}
+  .elem-grid{grid-template-columns:repeat(3,1fr)}
+  .elem-icon{font-size:1.5rem}
+  .elem-name{font-size:.8rem}
+  .elem-word{font-size:.62rem}
+
+  /* ゲームモード */
+  .modes-sec{padding:3.5rem 1.4rem}
+  .modes-grid{grid-template-columns:1fr}
+
+  /* 声 */
+  .voice-card{padding:1.4rem}
+  .voice-text{font-size:.88rem}
+
+  /* コイン */
+  .coin-detail-grid{grid-template-columns:1fr}
+  .coin-face{flex-direction:row}
+
+  /* 写真グリッド */
+  [style*="grid-template-columns:repeat(3,1fr)"][style*="photo"]{grid-template-columns:1fr 1fr}
+
+  /* ゲーム */
+  #coin-row{gap:.5rem}
+  #coin-row>div>div{width:48px;height:48px;font-size:1.1rem}
+
+  /* FAQ */
+  .faq-sec{padding:3.5rem 1.4rem}
+  .faq-q{font-size:.9rem}
+  .faq-a{font-size:.76rem}
+
+  /* フッター */
+  footer{padding:2rem 1.4rem;flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+
+/* CHAT */
+#chat-fab{position:fixed;bottom:1.8rem;right:1.8rem;z-index:9999;width:54px;height:54px;border-radius:50%;background:#F5C842;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(245,200,66,.45);transition:transform .2s,box-shadow .2s}
+#chat-fab:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(245,200,66,.55)}
+#chat-fab svg{width:24px;height:24px;fill:#0E0E0E}
+#chat-box{position:fixed;bottom:5.2rem;right:1.8rem;z-index:9999;width:320px;background:#111;border:1px solid rgba(245,200,66,.15);box-shadow:0 12px 40px rgba(0,0,0,.7);display:none;flex-direction:column;overflow:hidden}
+#chat-box.open{display:flex}
+#chat-head{background:rgba(245,200,66,.07);border-bottom:1px solid rgba(245,200,66,.1);padding:.9rem 1.1rem;display:flex;justify-content:space-between;align-items:center}
+#chat-head-title{font-family:'Shippori Mincho',serif;font-size:.92rem;font-weight:600;color:#FAFAF7}
+#chat-x{background:none;border:none;color:#FAFAF7;opacity:.4;cursor:pointer;font-size:1.1rem;line-height:1;padding:0}
+#chat-x:hover{opacity:.9}
+#chat-form{padding:1.1rem;display:flex;flex-direction:column;gap:.65rem}
+.cf label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:#F5C842;text-transform:uppercase;opacity:.6;display:block;margin-bottom:.3rem}
+.cf input,.cf textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#FAFAF7;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;padding:.5rem .65rem;outline:none;transition:border-color .2s;resize:none;box-sizing:border-box}
+.cf input:focus,.cf textarea:focus{border-color:rgba(245,200,66,.4)}
+.cf textarea{height:75px}
+#chat-send{width:100%;background:#F5C842;color:#0E0E0E;border:none;padding:.65rem;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;cursor:pointer;margin-top:.2rem}
+#chat-send:hover{background:#E8A020}
+#chat-done{display:none;padding:1.8rem;text-align:center}
+#chat-done-icon{font-size:2rem;display:block;margin-bottom:.6rem}
+#chat-done-title{font-family:'Shippori Mincho',serif;font-size:.95rem;margin-bottom:.3rem;color:#FAFAF7}
+#chat-done-sub{font-size:.7rem;color:#8a8a7a;font-weight:300}
+@media(max-width:600px){
+  #chat-box{width:calc(100vw - 2rem);right:1rem}
+  .voices-grid{grid-template-columns:1fr !important}
+}
+
+/* 三つ巴 ゲームルール */
+.rules-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.rules-block{margin-bottom:2rem}
+.rules-block-title{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:.85rem;padding-bottom:.42rem;border-bottom:1px solid rgba(245,200,66,.13)}
+.rules-players{display:flex;gap:.75rem;margin-bottom:.9rem;flex-wrap:wrap}
+.player-chip{padding:.38rem .85rem;border:1px solid rgba(255,255,255,.1);font-size:.78rem;font-weight:300;color:var(--paper)}
+.rules-coins{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin:.9rem 0}
+.coin-count{background:rgba(245,200,66,.05);border:1px solid rgba(245,200,66,.1);padding:.7rem;text-align:center}
+.cc-num{font-family:'DM Mono',monospace;font-size:1rem;color:var(--gold);display:block;font-weight:500}
+.cc-lbl{font-size:.68rem;color:var(--dim);margin-top:.18rem;font-weight:300}
+.rules-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.rules-list li{font-size:.8rem;color:var(--dim);line-height:1.7;font-weight:300;padding-left:1.1rem;position:relative}
+.rules-list li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:.42}
+.rules-body{font-size:.8rem;color:var(--dim);line-height:1.85;font-weight:300}
+/* ゲームデモ */
+.game-demo{background:#0a0a0a;padding:1.8rem;border:1px solid rgba(245,200,66,.07)}
+.gd-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.6rem}
+.gd-title{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);opacity:.48;text-transform:uppercase}
+.gd-players{display:flex;gap:1rem}
+.gd-player{font-family:'DM Mono',monospace;font-size:.66rem;opacity:.32;transition:opacity .2s;display:flex;align-items:center;gap:.35rem}
+.gd-player.active{opacity:1}
+.pdot{width:6px;height:6px;border-radius:50%}
+.scores-row{display:flex;gap:1.3rem;justify-content:center;margin-bottom:1rem}
+.sc{text-align:center}
+.sc-sym{font-size:1rem;display:block}
+.sc-val{font-family:'DM Mono',monospace;font-size:.9rem;display:block}
+.sc-lbl{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--dim);letter-spacing:.1em}
+.hand-area{margin-bottom:1rem}
+.hand-label{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;margin-bottom:.5rem}
+.hand-coins{display:flex;gap:.4rem;flex-wrap:wrap}
+.hand-coin{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font-size:.82rem;transition:all .18s;background:rgba(255,255,255,.02)}
+.hand-coin.selectable:hover{transform:scale(1.1);border-color:rgba(245,200,66,.55);background:rgba(245,200,66,.1)}
+.hand-coin.selected{border:2px solid var(--gold);background:rgba(245,200,66,.18);transform:scale(1.12)}
+.hand-coin.used{opacity:.2;pointer-events:none}
+.hc-num{position:absolute;top:2px;right:4px;font-family:'DM Mono',monospace;font-size:.6rem;font-weight:700;color:#fff;line-height:1;background:rgba(0,0,0,.55);border-radius:3px;padding:0 2px;z-index:2}
+.board-center{text-align:center;margin-bottom:.9rem}
+.game-board{display:inline-grid;grid-template-columns:repeat(3,78px);grid-template-rows:repeat(3,78px);gap:2px;background:rgba(245,200,66,.35);padding:2px;border-radius:2px}
+.gcell{background:#1a1a1a;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;position:relative;flex-direction:column;border-radius:1px}
+.gcell.placeable:hover{background:rgba(245,200,66,.12)}
+.gcell.src-sel{outline:2px solid var(--gold);outline-offset:-2px;z-index:1}
+.gcell.win-cell{animation:winPulse .6s ease infinite alternate}
+.gcell.win-cell .top-coin{font-size:1.4rem!important}
+@keyframes winPulse{from{background:rgba(245,200,66,.15)}to{background:rgba(245,200,66,.35)}}
+.top-coin{font-size:1rem;line-height:1}
+.top-num{position:absolute;top:3px;right:5px;font-family:'DM Mono',monospace;font-size:.62rem;font-weight:700;line-height:1;background:rgba(0,0,0,.6);color:#fff;border-radius:3px;padding:0 3px;z-index:2}
+.stack-count{position:absolute;bottom:2px;right:3px;font-family:'DM Mono',monospace;font-size:.36rem;color:var(--gold);opacity:.38}
+.gd-status{font-size:.7rem;color:var(--dim);font-family:'DM Mono',monospace;text-align:center;min-height:1.2rem;margin-bottom:.8rem;letter-spacing:.07em}
+.gd-controls{display:flex;gap:.5rem;justify-content:center}
+.gd-btn{background:none;border:1px solid rgba(245,200,66,.15);color:var(--paper);padding:.38rem 1rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;cursor:pointer;text-transform:uppercase;transition:border-color .2s,color .2s;opacity:.48}
+.gd-btn:hover{border-color:var(--gold);color:var(--gold);opacity:1}
+@media(max-width:600px){
+  .rules-layout{grid-template-columns:1fr;gap:2rem}
+  .game-board{grid-template-columns:repeat(3,64px);grid-template-rows:repeat(3,64px)}
+  #app-icon{width:60px!important;height:60px!important;border-radius:14px!important}
+  #app-inner{min-width:0!important}
+  #app-label{font-size:.5rem!important;margin-bottom:.4rem!important}
+  #app-title{font-size:1.1rem!important;margin-bottom:.4rem!important}
+  #app-desc{font-size:.72rem!important;line-height:1.6!important;margin-bottom:.9rem!important}
+  #app-section{padding:2.5rem 1.2rem!important}
+  #app-wrap{padding:1.2rem 1rem!important;gap:1rem!important}
+  #app-btn-wrap{gap:.5rem!important}
+  #app-btn{padding:.45rem .8rem!important}
+  #app-btn svg{width:14px!important;height:14px!important}
+  #app-btn p:first-child{font-size:.42rem!important}
+  #app-btn p:last-child{font-size:.72rem!important}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="/"><img src="logo_game.png" alt="Shinra Pocket"></a>
+  </div>
+  <div class="nav-right">
+    
+    <a href="#howto" class="nav-link">遊び方</a>
+    <a href="#modes" class="nav-link">ゲーム</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="https://shinratoys.base.shop" target="_blank" class="nav-cta" id="nav-shop-btn">ショップで見る →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div style="position:relative;z-index:1">
+    <p class="hero-eyebrow" id="hero-eye">しんらポケット — ボードゲーム</p>
+    <h1 class="hero-title">
+      <span class="t1" id="hero-t1">持ち運べて、</span>
+      <span class="t2" id="hero-t2">その場で遊べる。</span>
+    </h1>
+    <p class="hero-desc" id="hero-desc">ケース・輪っか・コイン。<br>たった3つの道具から、遊ぶ人によって違う世界が生まれる。<br>子どもも大人も、言葉がなくても遊べるボードゲーム。</p>
+    <div class="hero-cta-group">
+      <a href="https://shinratoys.base.shop" target="_blank" class="btn-primary" id="cta-btn1-hero">ショップで購入する</a>
+      <a href="https://youtube.com/shorts/L9clwqkmh2w?feature=share" target="_blank" class="btn-ghost" id="hero-btn2" style="display:inline-flex;align-items:center;gap:.6rem"><svg width="18" height="18" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" fill="#FF0000"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>しんらポケットとは...?</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item">
+        <span class="proof-num">18</span>
+        <span class="proof-label" id="hero-l1">種類のコイン</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-num">5</span>
+        <span class="proof-label" id="hero-l2">エレメント</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-num">∞</span>
+        <span class="proof-label" id="hero-l3">遊び方</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT -->
+<section class="what-sec reveal">
+  <p class="sec-label" id="what-label">What is it</p>
+  <h2 class="sec-title"><span id="what-title">完成されたゲームじゃない。</span><br><span style="color:var(--gold)" id="what-title2">遊びが生まれ続ける道具。</span></h2>
+  <p class="sec-lead" id="what-lead">同じコインとケースを使っても、遊ぶ人によってルールも意味も変わる。言葉が違っても、シンボルと数字だけで通じ合える。三目並べから始まって、気づけば自分たちだけのゲームが生まれている——そんな体験ができます。</p>
+</section>
+
+<!-- 3 ITEMS -->
+<section class="items-sec">
+  <div class="items-inner">
+    <p class="sec-label" style="text-align:center" id="items-label">What's inside</p>
+    <h2 class="sec-title reveal" style="text-align:center;color:var(--paper)" id="items-title">3つの道具</h2>
+    <div class="items-grid reveal">
+      <div class="item-card">
+        <div class="item-photo-wrap"><img src="item_1.png" alt="ケース" class="item-photo"></div>
+        <div class="item-name" id="item1-name">ケース</div>
+        <p class="item-desc" id="item1-desc">持ち運べるポケットサイズ。蓋もケース本体も遊びに変わる。マンカラのような既存のゲームにも使える。</p>
+      </div>
+      <div class="item-card">
+        <div class="item-photo-wrap"><img src="item_2.png" alt="輪っか" class="item-photo"></div>
+        <div class="item-name" id="item2-name">輪っか</div>
+        <p class="item-desc" id="item2-desc">ただの装飾じゃない。外して遊びに使える。バスケットゴールにも、木の棒と組み合わせることも。</p>
+      </div>
+      <div class="item-card">
+        <div class="item-photo-wrap"><img src="item_3.png" alt="コイン" class="item-photo"></div>
+        <div class="item-name" id="item3-name">コイン × 18</div>
+        <p class="item-desc" id="item3-desc">18種類、同じコインは一つもない。似ているけど、決して同じではない。この世界と同じように。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO PLAY -->
+<section class="how-sec reveal" id="howto">
+  <p class="sec-label" id="how-label">How to play</p>
+  <h2 class="sec-title reveal"><span id="how-title">遊び方は</span><span style="color:var(--gold)" id="how-title2">シンプル。</span></h2>
+  <p class="sec-lead reveal" id="how-lead">難しいルールはない。見て、触って、感じるだけ。</p>
+  <div class="steps reveal">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-title" id="step1-title">エレメントを選ぶ</div>
+        <p class="step-body" id="step1-body">🔥火・💧水・🌀風の中から、自分の担当を選ぶ。言葉がなくてもシンボルで伝わる。子どもでも、海外の人でも。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-title" id="step2-title">コインを置く・重ねる・動かす</div>
+        <p class="step-body" id="step2-body">数字1・2・3のコインを使って盤面に置いていく。見えていたものが隠れ、隠れていたものが現れる。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-title" id="step3-title">3つ揃えたら勝ち</div>
+        <p class="step-body" id="step3-body">縦・横・斜めに自分のコインが3つ並んだら勝ち。シンプルだけど、重なりと動かしがあるから奥が深い。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-title" id="step4-title">慣れたら自分たちのルールで</div>
+        <p class="step-body" id="step4-body">オリジナルゲームだけじゃない。マンカラなど既存のゲームにも使える。輪っかやケースを使って、新しい遊びを作ることもできる。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELEMENTS -->
+<section class="elem-sec" style="background:var(--mist);padding:5rem 2rem">
+  <div style="max-width:1000px;margin:0 auto">
+    <p id="elem-label" style="font-family:\'DM Mono\',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;opacity:.7">Elements</p>
+    <h2 id="elem-title" class="sec-title reveal" style="color:var(--ink);font-family:\'Shippori Mincho\',serif;font-size:clamp(1.7rem,4vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:1.2rem">5つのエレメント</h2>
+    <p id="elem-lead" class="sec-lead reveal" style="font-size:.92rem;color:#777;line-height:1.95;font-weight:300;max-width:580px;margin:0 auto 2.5rem">単なる属性じゃない。世界の見え方を表している。</p>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(14,14,14,.1)" class="reveal">
+      <div style="background:var(--mist);padding:2rem 1rem;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.8rem">☀️</div>
+        <div id="e1" style="font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.3rem">太陽</div>
+        <div id="e1s" style="font-size:.75rem;color:#999;font-weight:300">見える世界</div>
+      </div>
+      <div style="background:var(--mist);padding:2rem 1rem;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.8rem">🌙</div>
+        <div id="e2" style="font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.3rem">月</div>
+        <div id="e2s" style="font-size:.75rem;color:#999;font-weight:300">隠れた世界</div>
+      </div>
+      <div style="background:var(--mist);padding:2rem 1rem;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.8rem">🔥</div>
+        <div id="e3" style="font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.3rem">火</div>
+        <div id="e3s" style="font-size:.75rem;color:#999;font-weight:300">力・変化</div>
+      </div>
+      <div style="background:var(--mist);padding:2rem 1rem;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.8rem">💧</div>
+        <div id="e4" style="font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.3rem">水</div>
+        <div id="e4s" style="font-size:.75rem;color:#999;font-weight:300">静けさ・冷静</div>
+      </div>
+      <div style="background:var(--mist);padding:2rem 1rem;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.8rem">🌀</div>
+        <div id="e5" style="font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.3rem">風</div>
+        <div id="e5s" style="font-size:.75rem;color:#999;font-weight:300">軽さ・速さ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COIN DETAIL -->
+<section style="background:#060606;padding:6rem 2rem">
+  <div style="max-width:1000px;margin:0 auto">
+    <p id="coin-label" style="font-family:\'DM Mono\',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--gold);opacity:.6;text-transform:uppercase;margin-bottom:1rem">Coins</p>
+    <div class="reveal">
+      <h2 style="font-family:'Shippori Mincho',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--paper);margin-bottom:1.5rem"><span id="coin-title">18枚、</span><span style="color:var(--gold)" id="coin-title2">同じものは一つもない。</span></h2>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem">
+        <li style="font-size:.85rem;color:var(--dim);line-height:1.85;font-weight:300;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--gold);opacity:.5">—</span><span id="coin-r1">数字は 1・2・3 の3種類のみ</span></li>
+        <li style="font-size:.85rem;color:var(--dim);line-height:1.85;font-weight:300;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--gold);opacity:.5">—</span><span id="coin-r2">シンプルなデザインで直感的に遊べる</span></li>
+        <li style="font-size:.85rem;color:var(--dim);line-height:1.85;font-weight:300;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--gold);opacity:.5">—</span><span id="coin-r3">世界共通で身近なシンボルを使っている</span></li>
+        <li style="font-size:.85rem;color:var(--dim);line-height:1.85;font-weight:300;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--gold);opacity:.5">—</span><span id="coin-r4">凹凸があるので、目で見なくても手で感じられる</span></li>
+      </ul>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+        <div style="border:1px solid rgba(245,200,66,.1);padding:1rem 1.4rem;flex:1;min-width:140px">
+          <p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.18em;color:var(--gold);opacity:.55;text-transform:uppercase;margin-bottom:.5rem" id="coin-f1">表面</p>
+          <div style="font-size:1.3rem;line-height:1.8">🔥 💧 🌀</div>
+          <p style="font-size:.75rem;color:var(--dim);margin-top:.4rem;font-weight:300" id="coin-f1d">エレメント + 数字</p>
+        </div>
+        <div style="border:1px solid rgba(245,200,66,.1);padding:1rem 1.4rem;flex:1;min-width:140px">
+          <p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.18em;color:var(--gold);opacity:.55;text-transform:uppercase;margin-bottom:.5rem" id="coin-f2">裏面</p>
+          <div style="font-size:1.3rem;line-height:1.8">☀️ 🌙</div>
+          <p style="font-size:.75rem;color:var(--dim);margin-top:.4rem;font-weight:300" id="coin-f2d">太陽 か 月</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAME MODES -->
+<section class="modes-sec reveal" id="modes">
+  <p class="sec-label" id="modes-label">Game modes</p>
+  <h2 class="sec-title reveal" id="modes-title">3つのゲームモード</h2>
+  <p class="sec-lead reveal" id="modes-lead">慣れるにつれて、世界の奥行きが増えていく。</p>
+  <div class="modes-grid reveal">
+    <div class="mode-card">
+      <div class="mode-tag" id="m1-tag">Mode 01</div>
+      <div class="mode-title" id="m1-title">三目並べ</div>
+      <div class="mode-players" id="m1-players">2人</div>
+      <p class="mode-desc" id="m1-desc">世界中で知られている入口。言葉も文化も関係ない。まずここから始めよう。</p>
+    </div>
+    <div class="mode-card">
+      <div class="mode-tag" id="m2-tag">Mode 02</div>
+      <div class="mode-title" id="m2-title">一騎討ち</div>
+      <div class="mode-players" id="m2-players">2人</div>
+      <p class="mode-desc" id="m2-desc">重ねる、動かす、という要素が加わり、盤面に"重なり"が生まれる。見えているものだけでは判断できなくなります。</p>
+    </div>
+    <div class="mode-card">
+      <div class="mode-tag" id="m3-tag">Mode 03</div>
+      <div class="mode-title" id="m3-title">三つ巴</div>
+      <div class="mode-players" id="m3-players">3人</div>
+      <p class="mode-desc" id="m3-desc">3人になることで、さらに奥行きが生まれる。世界が揺れ、見え方や流れも変化していきます。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 三つ巴 -->
+<section style="background:#070707;padding:7rem 0;border-top:1px solid rgba(245,200,66,.07)" id="mitsudomoe">
+<div style="max-width:1200px;margin:0 auto;padding:0 3rem">
+  <div class="sec-label reveal">しんらポケット — Original Game</div>
+  <h2 class="sec-title reveal" style="color:var(--paper)">三つ巴</h2>
+  <div style="display:inline-block;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.18em;border:1px solid rgba(245,200,66,.22);color:var(--gold);padding:.25rem .7rem;text-transform:uppercase;margin-bottom:.75rem;opacity:.65" class="reveal">しんらポケット — オリジナルゲームの一例</div>
+  <div class="rules-layout reveal">
+    <div>
+      <div class="rules-block">
+        <div class="rules-block-title">準備</div>
+        <div class="rules-players">
+          <div class="player-chip">🔥 火</div>
+          <div class="player-chip">💧 水</div>
+          <div class="player-chip">🌀 風</div>
+        </div>
+        <p class="rules-body" style="margin-bottom:.9rem">プレイヤーはそれぞれ担当のエレメントを選びます。先攻はじゃんけんで決めます。</p>
+        <p class="rules-body" style="margin-bottom:.55rem">各プレイヤーが使うコインは6枚：</p>
+        <div class="rules-coins">
+          <div class="coin-count"><span class="cc-num">1 × 2</span><div class="cc-lbl">数字1のコイン</div></div>
+          <div class="coin-count"><span class="cc-num">2 × 2</span><div class="cc-lbl">数字2のコイン</div></div>
+          <div class="coin-count"><span class="cc-num">3 × 2</span><div class="cc-lbl">数字3のコイン</div></div>
+        </div>
+      </div>
+      <div class="rules-block">
+        <div class="rules-block-title">勝利条件</div>
+        <p class="rules-body">縦・横・斜めのどこかで、自分のコインを3つ揃えたら勝ち。</p>
+      </div>
+      <div class="rules-block">
+        <div class="rules-block-title">① コインを置く</div>
+        <p class="rules-body">順番に1枚ずつコインを置いていきます。</p>
+      </div>
+      <div class="rules-block">
+        <div class="rules-block-title">② コインを重ねる</div>
+        <p class="rules-body" style="margin-bottom:.65rem">数字が大きいコインは、小さい数字の上に重ねることができます。自分のコインの上にも重ねられます。</p>
+        <ul class="rules-list">
+          <li>1 の上に 2・3 は置ける</li>
+          <li>2 の上に 3 は置ける</li>
+          <li>同じ数字は重ねられない</li>
+          <li>小さい数字は大きい数字の上に置けない</li>
+        </ul>
+      </div>
+      <div class="rules-block">
+        <div class="rules-block-title">③ コインを動かす</div>
+        <p class="rules-body">コインを置き切った後は、自分のコインを動かせます。動かせるのは一番上にある自分のコインだけ。触ったコインは必ず動かします。</p>
+      </div>
+      <div class="rules-block" style="margin-bottom:0">
+        <div class="rules-block-title">④ 持ち上げ勝ち</div>
+        <p class="rules-body">上のコインを動かしたことで、下に隠れていたコインが3つ揃うことがあります。その場合、揃ったプレイヤーの勝ちになります。<br><span style="color:rgba(245,200,66,.72)">見えていなかった勝ちが、動かした瞬間に現れることもあります。</span></p>
+      </div>
+    </div>
+    <div>
+      <div class="game-demo">
+        <div class="gd-header">
+          <div class="gd-title">体験する — コインを置いて重ねる</div>
+          <div class="gd-players" id="gdPlayers"></div>
+        </div>
+        <div class="scores-row" id="gdScores"></div>
+        <div class="hand-area" id="handArea"></div>
+        <div class="board-center"><div class="game-board" id="gameBoard"></div></div>
+        <div class="gd-status" id="gdStatus"></div>
+        <div class="gd-controls"><button class="gd-btn" id="gdReset">リセット</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- MEMORY GAME -->
+<section id="memory-game" style="padding:6rem 2rem;background:#060606">
+  <div style="max-width:700px;margin:0 auto;text-align:center">
+    <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--gold);opacity:.6;text-transform:uppercase;margin-bottom:1rem" id="game-label">Game Experience</p>
+    <h2 style="font-family:'Shippori Mincho',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;margin-bottom:.8rem" id="game-title">記憶の祭壇</h2>
+    <p style="font-size:.85rem;color:var(--dim);line-height:1.85;margin-bottom:.4rem;font-weight:300" id="game-lead">エレメントと数字を記憶して正解を目指そう。</p>
+    <p style="font-size:.82rem;color:var(--dim);line-height:1.85;margin-bottom:2rem;font-weight:300" id="game-lead2">しんらポケットの遊び方のひとつを体験できます。</p>
+
+    <div style="background:#0a0a0a;border:1px solid rgba(245,200,66,.1);padding:2.5rem 2rem;min-height:280px;position:relative;overflow:hidden">
+
+      <div id="s-start" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;gap:1rem">
+        <p style="font-size:.88rem;color:var(--dim);margin:0;font-weight:300"><span id="game-start-desc">スタートを押したらコインが表示されます</span></p>
+        <button id="btn-start" style="background:var(--gold);color:var(--ink);border:none;padding:1rem 2.8rem;font-family:'Zen Kaku Gothic New',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)"><span id="game-start-btn">スタート</span></button>
+      </div>
+
+      <div id="s-coins" style="display:none;flex-direction:column;align-items:center;min-height:200px;justify-content:center;gap:1.2rem">
+        <div id="mg-timer" style="font-family:'DM Mono',monospace;font-size:3rem;color:var(--gold);font-weight:500">10</div>
+        <div id="coin-row" style="display:flex;justify-content:center;gap:.5rem;flex-wrap:nowrap;width:100%"></div>
+      </div>
+
+      <div id="s-q" style="display:none;flex-direction:column;align-items:center;min-height:200px;justify-content:center;gap:1rem">
+        <p id="qnum" style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--gold);opacity:.6;letter-spacing:.2em;margin:0">QUESTION 1 / 3</p>
+        <p id="qtext" style="font-family:'Shippori Mincho',serif;font-size:1.15rem;font-weight:700;margin:0;line-height:1.6;max-width:420px"></p>
+        <div id="choices" style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;max-width:340px;width:100%"></div>
+        <p id="fb" style="font-size:.9rem;font-weight:700;min-height:1.5rem;margin:0"></p>
+      </div>
+
+      <div id="s-result" style="display:none;flex-direction:column;align-items:center;min-height:200px;justify-content:center;gap:1rem">
+        <div id="result-inner" style="text-align:center"></div>
+        <button id="btn-retry" style="background:transparent;color:var(--gold);border:1px solid rgba(245,200,66,.3);padding:.7rem 2rem;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.85rem;cursor:pointer"><span id="game-retry-btn">もう一度遊ぶ</span></button>
+      </div>
+
+      <canvas id="mg-cv" style="position:absolute;inset:0;pointer-events:none;width:100%;height:100%"></canvas>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- CTA -->
+<section style="padding:6rem 2rem;background:var(--ink)">
+  <div style="max-width:1100px;margin:0 auto;text-align:center">
+
+    <!-- テキスト -->
+    <div class="reveal" style="margin-bottom:3rem">
+      <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--gold);opacity:.6;text-transform:uppercase;margin-bottom:1rem" id="cta-label">Get yours</p>
+      <h2 style="font-family:'Shippori Mincho',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;line-height:1.3;margin-bottom:.8rem"><span id="cta-title">手に取って、</span><span style="color:var(--gold)" id="cta-title2">感じてみてください。</span></h2>
+      <p style="font-size:.88rem;color:var(--dim);line-height:1.9;font-weight:300" id="cta-sub">ポケットに入る世界。どこへでも持っていける。</p>
+    </div>
+
+    <!-- 写真グリッド -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:2.5rem" class="reveal">
+      <img src="photo_5.jpg" alt="しんらポケット" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block">
+      <img src="photo_2.jpg" alt="しんらポケット" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block">
+      <img src="photo_1.jpg" alt="しんらポケット" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block">
+      <img src="photo_7.jpg" alt="しんらポケット" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block">
+      <img src="photo_3.jpg" alt="しんらポケット" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block">
+      <img src="photo_4.jpg" alt="しんらポケット" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block">
+    </div>
+
+    <!-- 価格・ボタン -->
+    <div class="reveal">
+      <p style="font-family:'DM Mono',monospace;font-size:1.1rem;color:var(--gold);margin-bottom:2rem;letter-spacing:.05em" id="cta-price">しんらポケット カラー ¥3,300 〜</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="https://shinratoys.base.shop" target="_blank" class="btn-primary"><span id="cta-btn1">ショップで購入する</span></a>
+        <a href="/" class="btn-ghost"><span id="cta-btn2">ブランドについて</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section style="padding:6rem 2rem;background:var(--ink)">
+  <div style="max-width:1040px;margin:0 auto">
+    <p id="voices-label" style="font-family:\'DM Mono\',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--gold);opacity:.6;text-transform:uppercase;margin-bottom:1rem">Voices</p>
+    <h2 class="sec-title reveal" style="font-family:'Shippori Mincho',serif;font-size:clamp(1.7rem,4vw,2.8rem);font-weight:800;margin-bottom:2.5rem" id="voices-title">遊んだ人の声</h2>
+    <div class="reveal voices-grid">
+
+      <div style="border:1px solid rgba(255,255,255,.1);padding:2rem 2.2rem">
+        <p style="font-family:'Shippori Mincho',serif;font-size:1rem;line-height:1.85;margin-bottom:1.2rem">「昨日帰ってからも「あそぼー！」と誘われ、今朝も早速遊んでました。最近すぐスマホを欲しがっていたのに、デジタルの刺激より楽しいと思えたみたいです。」</p>
+        <p style="font-size:.75rem;color:var(--dim)">30代 女性　／　マルシェで購入</p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.1);padding:2rem 2.2rem">
+        <p style="font-family:'Shippori Mincho',serif;font-size:1rem;line-height:1.85;margin-bottom:1.2rem">「甥っ子たちと遊ぶ時に毎回持っていってます。2歳の子もコインを出し入れするのが楽しいみたいでいつも夢中になっていて最高にかわいいです。」</p>
+        <p style="font-size:.75rem;color:var(--dim)">20代 男性　／　マルシェで購入</p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.1);padding:2rem 2.2rem">
+        <p style="font-family:'Shippori Mincho',serif;font-size:1rem;line-height:1.85;margin-bottom:1.2rem">「その時の気分に合った遊び方ができるのがとても好き。遊びながら新しいゲームが思いついた時がとっても嬉しい！コインを触ってるだけで落ち着く（笑）」</p>
+        <p style="font-size:.75rem;color:var(--dim)">30代 男性</p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.1);padding:2rem 2.2rem">
+        <p style="font-family:'Shippori Mincho',serif;font-size:1rem;line-height:1.85;margin-bottom:1.2rem">「OXゲームより頭使って楽しかった！！」</p>
+        <p style="font-size:.75rem;color:var(--dim)">小学生　／　POPUPで保護者が購入</p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.1);padding:2rem 2.2rem">
+        <p style="font-family:'Shippori Mincho',serif;font-size:1rem;line-height:1.85;margin-bottom:1.2rem">「奥の深いルールとかけ引きに頭はフル回転。素晴らしいレクリエーションツールだと驚きました。」</p>
+        <p style="font-size:.75rem;color:var(--dim)">30代 男性　／　マルシェで購入</p>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.1);padding:2rem 2.2rem">
+        <p style="font-family:'Shippori Mincho',serif;font-size:1rem;line-height:1.85;margin-bottom:1.2rem">「コインの手馴染みがよくて、遊ぶ時も気持ちいい！どこにでも持っていけるサイズ感も好きです。」</p>
+        <p style="font-size:.75rem;color:var(--dim)">20代 女性　／　マルシェで購入</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- FAQ -->
+<section class="faq-sec reveal" id="faq">
+  <p class="sec-label" id="faq-label">FAQ</p>
+  <h2 class="sec-title reveal" id="faq-title">よくある質問</h2>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <p class="faq-q" id="faq1-q">何歳から遊べますか？</p>
+      <p class="faq-a" id="faq1-a">小学生くらいから遊べます。シンプルなルールから始められるので、子どもから大人まで一緒に楽しめます。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q" id="faq2-q">どんな人でも遊べますか？</p>
+      <p class="faq-a" id="faq2-a">子どもから大人まで、できるだけ多くの人が一緒に遊べることを大切にしています。コインには凹凸があり、目で見るだけでなく手でも感じられる設計です。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q" id="faq3-q">どこで買えますか？</p>
+      <p class="faq-a" id="faq3-a">マルシェやオンラインショップで販売しています。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q" id="faq4-q">他の遊び方も知りたいです</p>
+      <p class="faq-a" id="faq4-a">YouTubeやInstagramで、さまざまな遊び方を紹介しています。オリジナルゲームだけでなく、既存のゲームや新しい遊び方も少しずつ増えていきます。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- APP -->
+<section id="app-section" style="padding:5rem 2rem;background:#060606">
+  <div id="app-wrap" style="max-width:900px;margin:0 auto;border:1px solid rgba(245,200,66,.1);padding:2rem 1.5rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:nowrap">
+    <img src="app_icon.jpg" alt="Shinra Pocket App" id="app-icon" style="width:100px;height:100px;border-radius:22px;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.5)">
+    <div id="app-inner" style="flex:1;min-width:0">
+      <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.25em;color:var(--gold);opacity:.6;text-transform:uppercase;margin-bottom:.8rem" id="app-label">Digital / App</p>
+      <h2 style="font-family:'Shippori Mincho',serif;font-size:1.8rem;font-weight:800;margin-bottom:.8rem" id="app-title">アプリでも遊べる</h2>
+      <p style="font-size:.85rem;color:var(--dim);line-height:1.85;font-weight:300;margin-bottom:1.5rem" id="app-desc">三目並べ、一騎討ち、三つ巴をはじめ、6種類のゲームを収録。ローカル対戦・オンライン対戦・ランキング機能に対応しています。</p>
+      <div id="app-btn-wrap" style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="https://apps.apple.com/app/shinra-pocket/id6741878427" target="_blank" id="app-btn" style="display:flex;align-items:center;gap:.7rem;background:#111;border:1px solid rgba(255,255,255,.15);padding:.7rem 1.4rem;text-decoration:none;border-radius:8px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(245,200,66,.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div><p style="font-size:.5rem;color:rgba(255,255,255,.5);margin:0;font-family:'DM Mono',monospace;letter-spacing:.08em">COMING SOON</p><p style="font-size:.85rem;color:white;margin:0;font-weight:600">App Store</p></div>
+        </a>
+        <a href="#" style="display:flex;align-items:center;gap:.7rem;background:#111;border:1px solid rgba(255,255,255,.15);padding:.7rem 1.4rem;text-decoration:none;border-radius:8px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(245,200,66,.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+          <div><p style="font-size:.5rem;color:rgba(255,255,255,.5);margin:0;font-family:'DM Mono',monospace;letter-spacing:.08em">COMING SOON</p><p style="font-size:.85rem;color:white;margin:0;font-weight:600">Google Play</p></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:2.5rem 2rem;text-align:center;background:#060606">
+  <a href="https://shinrapocket.com" target="_blank" style="display:inline-block;background:var(--gold);color:var(--ink);padding:.8rem 2.4rem;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.88rem;font-weight:700;text-decoration:none;border-radius:2px">Shinra Pocket ホームページ →</a>
+  <div style="display:flex;gap:1rem;justify-content:center;margin-top:1.2rem">
+    <a href="https://www.instagram.com/shinrapocket" target="_blank"
+       style="width:48px;height:48px;border-radius:50%;background:rgba(188,24,136,.08);border:1px solid rgba(188,24,136,.3);display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s"
+       onmouseenter="this.style.background='rgba(188,24,136,.22)';this.style.borderColor='rgba(188,24,136,.7)'"
+       onmouseleave="this.style.background='rgba(188,24,136,.08)';this.style.borderColor='rgba(188,24,136,.3)'"
+       title="Instagram — shinrapocket">
+      <svg width="22" height="22" viewBox="0 0 24 24"><defs><linearGradient id="ig_bottom" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f09433"/><stop offset="25%" style="stop-color:#e6683c"/><stop offset="50%" style="stop-color:#dc2743"/><stop offset="75%" style="stop-color:#cc2366"/><stop offset="100%" style="stop-color:#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig_bottom)"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="white" stroke-width="1.5"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </a>
+    <a href="https://youtube.com/@shinrapocket" target="_blank"
+       style="width:48px;height:48px;border-radius:50%;background:rgba(255,0,0,.1);border:1px solid rgba(255,80,80,.3);display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s"
+       onmouseenter="this.style.background='rgba(255,0,0,.25)';this.style.borderColor='rgba(255,80,80,.7)'"
+       onmouseleave="this.style.background='rgba(255,0,0,.1)';this.style.borderColor='rgba(255,80,80,.3)'"
+       title="YouTube — Shinra Pocket">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" fill="#FF0000"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <p class="footer-tagline"><span id="footer-tag" style="color:var(--paper)">同じ場所、</span><span id="footer-tag2" style="color:var(--gold)">違う世界。</span></p>
+    <div class="footer-links">
+      <a href="/">Shinra Pocket HP</a>
+      <a href="https://shinratoys.base.shop" target="_blank">Shop</a>
+      <a href="https://www.instagram.com/shinrapocket" target="_blank">Instagram</a>
+      <a href="https://note.com/shinrapocket" target="_blank">note</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 Shinra Pocket</p>
+</footer>
+
+<script>
+
+
+// ===== reveal =====
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+
+
+<script>
+
+var EN=['\uD83D\uDD25','\uD83D\uDCA7','\uD83C\uDF00'],ENO=['\u2600\uFE0F','\uD83C\uDF19'],NM=[1,2,3];
+var coins,qs,cur,score,tid;
+function rc(){if(Math.random()<.65){return{e:EN[~~(Math.random()*3)],n:NM[~~(Math.random()*3)],h:1};}return{e:ENO[~~(Math.random()*2)],n:null,h:0};}
+function lb(c){return c.h?c.e+c.n:c.e;}
+function sf(a){return a.slice().sort(function(){return Math.random()-.5;});}
+function show(id){var el=document.getElementById(id);el.style.display='flex';el.style.flexDirection='column';el.style.alignItems='center';}
+function hide(id){document.getElementById(id).style.display='none';}
+function renderCoins(){
+  document.getElementById('coin-row').innerHTML=coins.map(function(c,i){
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:60px;height:60px;border-radius:50%;background:#1a1a1a;border:1.5px solid rgba(245,200,66,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.4rem;line-height:1">'+c.e+(c.h?'<span style="font-size:.5rem;color:#F5C842;line-height:1.4">'+c.n+'</span>':'')+'</div><span style="font-size:.52rem;color:#8a8a7a">'+(i+1)+'番目</span></div>';
+  }).join('');
+}
+function makeQs(){
+  var q=[];
+  var isEn=(typeof LANG!=='undefined'&&LANG==='en');
+  var p1=~~(Math.random()*5);
+  var correct1=lb(coins[p1]);
+  var others1=[];
+  for(var i=0;i<5;i++){if(i!==p1){var l=lb(coins[i]);if(l!==correct1&&others1.indexOf(l)<0)others1.push(l);}}
+  var extras=['🔥1','🔥2','🔥3','💧1','💧2','💧3','🌀1','🌀2','🌀3','☀️','🌙'];
+  for(var j=0;others1.length<3&&j<extras.length;j++){if(extras[j]!==correct1&&others1.indexOf(extras[j])<0)others1.push(extras[j]);}
+  q.push({t:isEn?'What is coin #'+(p1+1)+' from the left?':'左から'+(p1+1)+'番目のコインは？',a:correct1,c:sf([correct1].concat(others1.slice(0,3)))});
+  var nc=coins.filter(function(c){return c.h;});
+  if(nc.length>0){
+    var total=nc.reduce(function(a,c){return a+c.n;},0);
+    var nc2=[String(total)];var tries=0;
+    while(nc2.length<4&&tries<50){tries++;var v=total+~~(Math.random()*10)-4;if(v>0&&nc2.indexOf(String(v))<0)nc2.push(String(v));}
+    q.push({t:isEn?'Add up all numbered coins. Total?':'数字のついたコインを全部足すといくつ？',a:String(total),c:sf(nc2)});
+  } else {
+    q.push({t:isEn?'How many Sun coins?':'太陽のコインは何枚？',a:String(coins.filter(function(c){return c.e===ENO[0];}).length),c:sf(['0','1','2','3'])});
+  }
+  var tIdx=~~(Math.random()*EN.length);
+  var tElem=EN[tIdx];
+  var eja=['🔥 火','💧 水','🌀 風'];
+  var een=['🔥 Fire','💧 Water','🌀 Wind'];
+  var eName=isEn?een[tIdx]:eja[tIdx];
+  var eCount=coins.filter(function(c){return c.e===tElem;}).length;
+  var ec=[String(eCount)];var et=0;
+  while(ec.length<4&&et<30){et++;var ev=~~(Math.random()*4);if(ec.indexOf(String(ev))<0)ec.push(String(ev));}
+  q.push({t:isEn?'How many '+eName+' coins were there?':eName+' のコインは何枚あった？',a:String(eCount),c:sf(ec)});
+  return q;
+}
+function start(){
+  coins=Array.from({length:5},rc);cur=0;score=0;qs=makeQs();
+  hide('s-start');show('s-coins');renderCoins();
+  var t=10;document.getElementById('mg-timer').textContent=t;
+  tid=setInterval(function(){t--;document.getElementById('mg-timer').textContent=t;if(t<=0){clearInterval(tid);hide('s-coins');showQ();}},1000);
+}
+function showQ(){
+  if(cur>=qs.length){showResult();return;}
+  var q=qs[cur];show('s-q');
+  document.getElementById('qnum').textContent='QUESTION '+(cur+1)+' / '+qs.length;
+  document.getElementById('qtext').textContent=q.t;
+  document.getElementById('fb').textContent='';
+  var ch=document.getElementById('choices');
+  ch.innerHTML='';
+  q.c.forEach(function(v){
+    var btn=document.createElement('button');
+    btn.textContent=v;
+    btn.style.cssText='background:#111;border:1px solid rgba(245,200,66,.2);color:#FAFAF7;padding:.9rem .4rem;font-size:.95rem;cursor:pointer;border-radius:4px;width:100%';
+    btn.addEventListener('click',function(){mga(v);});
+    ch.appendChild(btn);
+  });
+}
+function mga(v){
+  var q=qs[cur];
+  Array.from(document.querySelectorAll('#choices button')).forEach(function(b){b.disabled=true;b.style.opacity='.5';});
+  var fb=document.getElementById('fb');
+  if(v===q.a){score++;fb.textContent='✓ 正解！';fb.style.color='#7ddc7d';}
+  else{fb.textContent='✗ 不正解。正解は「'+q.a+'」';fb.style.color='#ff6b6b';}
+  setTimeout(function(){hide('s-q');cur++;showQ();},1000);
+}
+function showResult(){
+  hide('s-q');show('s-result');
+  var p=(score===qs.length);
+  document.getElementById('result-inner').innerHTML='<div style="font-size:2.5rem;margin-bottom:.5rem">'+(p?'🎉':score>=2?'⭐':'🌙')+'</div><p style="font-family:Shippori Mincho,serif;font-size:1.4rem;font-weight:800;margin:0 0 .3rem;color:'+(p?'#F5C842':'#FAFAF7')+'">'+(p?'全問正解！':score+' / '+qs.length+' 正解')+'</p><p style="font-size:.82rem;color:#8a8a7a;font-weight:300;margin:0">'+(p?'あなたの記憶力は本物だ。':score>=2?'あと一歩！もう一度挑戦してみよう。':'難しい…もう一度じっくり覚えてみよう。')+'</p>';
+  if(p)setTimeout(confetti,300);
+}
+function confetti(){
+  var cv=document.getElementById('mg-cv'),ctx=cv.getContext('2d');
+  cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;
+  var ps=Array.from({length:90},function(){return{x:Math.random()*cv.width,y:-10,r:Math.random()*5+2,d:Math.random()*2.5+1.5,col:['#F5C842','#E8A020','#7ddc7d','#85b7eb','#FAFAF7'][~~(Math.random()*5)],tilt:Math.random()*8-4,ts:Math.random()*.08-.04};});
+  var f=0;
+  function draw(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(function(p){ctx.beginPath();ctx.fillStyle=p.col;ctx.ellipse(p.x,p.y,p.r,p.r*.4,p.tilt,0,Math.PI*2);ctx.fill();p.y+=p.d;p.x+=Math.sin(f*.03+p.tilt);p.tilt+=p.ts;if(p.y>cv.height){p.y=-10;p.x=Math.random()*cv.width;}});f++;if(f<220)requestAnimationFrame(draw);else ctx.clearRect(0,0,cv.width,cv.height);}
+  draw();
+}
+document.getElementById('btn-start').addEventListener('click',start);
+document.getElementById('btn-retry').addEventListener('click',function(){
+  hide('s-result');show('s-start');
+  var cv=document.getElementById('mg-cv');cv.getContext('2d').clearRect(0,0,cv.width,cv.height);
+});
+
+</script>
+
+
+
+<button id="chat-fab" onclick="document.getElementById('chat-box').classList.toggle('open')" title="お問い合わせ">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+</button>
+<div id="chat-box">
+  <div id="chat-head">
+    <div id="chat-head-title">お問い合わせ</div>
+    <button id="chat-x" onclick="document.getElementById('chat-box').classList.remove('open')">✕</button>
+  </div>
+  <div id="chat-form">
+    <div class="cf"><label>お名前</label><input type="text" id="cn" placeholder="山田 太郎"></div>
+    <div class="cf"><label>メールアドレス</label><input type="email" id="ce" placeholder="hello@example.com"></div>
+    <div class="cf"><label>メッセージ</label><textarea id="cm" placeholder="しんらポケットについて質問する..."></textarea></div>
+    <button id="chat-send" onclick="sendChat()" id="chat-send-btn">送信する</button>
+  </div>
+  <div id="chat-done">
+    <span id="chat-done-icon">✓</span>
+    <div id="chat-done-title-el">送信しました！</div>
+    <div id="chat-done-sub-el">運営から折り返しご連絡します。<br>しばらくお待ちください。</div>
+  </div>
+</div>
+<script>
+function sendChat(){
+  var n=document.getElementById('cn').value.trim();
+  var e=document.getElementById('ce').value.trim();
+  var m=document.getElementById('cm').value.trim();
+  if(!n||!e||!m){alert('すべての項目を入力してください。');return;}
+  var f=document.createElement('form');
+  f.method='POST';f.action='https://formspree.io/f/xpqndgad';f.target='_blank';
+  [['name',n],['email',e],['message',m]].forEach(function(p){
+    var i=document.createElement('input');i.type='hidden';i.name=p[0];i.value=p[1];f.appendChild(i);
+  });
+  document.body.appendChild(f);f.submit();document.body.removeChild(f);
+  document.getElementById('chat-form').style.display='none';
+  document.getElementById('chat-done').style.display='block';
+}
+
+
+// 三つ巴ゲームロジック
+// GAME — 三つ巴 with stacking (self-stacking allowed)
+const PL=[{sym:'🔥',lbl:'火',color:'#FF6B35'},{sym:'💧',lbl:'水',color:'#4AAFDB'},{sym:'🌀',lbl:'風',color:'#7ED8B5'}];
+const WINS=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+let gs={board:null,hands:null,turn:0,phase:'place',sel:null,scores:[0,0,0],over:false,src:null,aiThinking:false,winLine:null};
+function newBoard(){return Array(9).fill(null).map(()=>[])}
+function newHands(){return PL.map(()=>({1:2,2:2,3:2}))}
+function topOf(cell){return cell.length?cell[cell.length-1]:null}
+function ownerOf(stack){const t=topOf(stack);return t?t.player:-1}
+function canPlace(ci,num){const t=topOf(gs.board[ci]);return !t||num>t.num;}
+function canMove(ci,pi){const t=topOf(gs.board[ci]);return t&&t.player===pi}
+function handEmpty(pi){const h=gs.hands[pi];return h[1]===0&&h[2]===0&&h[3]===0}
+function setStatus(t){document.getElementById('gdStatus').textContent=t}
+
+function renderGame(){
+  document.getElementById('gdPlayers').innerHTML=PL.map(function(p,i){
+    return '<div class="gd-player'+(gs.turn===i&&!gs.over?' active':'')+'" style="color:'+p.color+'"><div class="pdot" style="background:'+p.color+'"></div>'+p.sym+p.lbl+(i===0?' (あなた)':' CPU')+'</div>';
+  }).join('');
+  document.getElementById('gdScores').innerHTML=PL.map(function(p,i){
+    return '<div class="sc"><span class="sc-sym">'+p.sym+'</span><span class="sc-val" style="color:'+p.color+'">'+gs.scores[i]+'</span><span class="sc-lbl">'+(i===0?'あなた':'CPU'+(i))+'</span></div>';
+  }).join('');
+  var ha=document.getElementById('handArea');
+  ha.innerHTML='';
+  if(!gs.over){
+    if(handEmpty(gs.turn)&&gs.phase==='place')gs.phase='move';
+    var p=PL[gs.turn];
+    var h=gs.hands[gs.turn];
+    if(gs.turn===0){
+      ha.innerHTML='<div class="hand-label">'+p.sym+' あなたの手札</div><div class="hand-coins" id="hcRow"></div>';
+      var hcRow=document.getElementById('hcRow');
+      if(gs.phase==='place'){
+        [1,2,3].forEach(function(n){
+          for(var ii=0;ii<h[n];ii++){
+            var w=document.createElement('div');
+            w.className='hand-coin selectable'+(gs.sel&&gs.sel.type==='hand'&&gs.sel.num===n?' selected':'');
+            w.style.position='relative';
+            w.innerHTML='<span style="font-size:1.1rem;line-height:1">'+p.sym+'</span><span class="hc-num">'+n+'</span>';
+            (function(num){w.addEventListener('click',function(){gs.sel={type:'hand',num:num,player:0};gs.src=null;renderGame();setStatus(num+' のコインを置く場所を選んでください');});})(n);
+            hcRow.appendChild(w);
+          }
+        });
+        if(!gs.sel)setStatus('コインを選んでください（手札 or 盤面の自分のコイン）');
+      } else {
+        setStatus('盤面の自分のコイン（🔥）を選んで動かしてください');
+      }
+    } else {
+      ha.innerHTML='<div class="hand-label" style="color:var(--dim)">'+p.sym+' CPU のターン...</div>';
+    }
+  }
+  var gb=document.getElementById('gameBoard');
+  gb.innerHTML='';
+  for(var i=0;i<9;i++){
+    var cell=document.createElement('div');
+    cell.className='gcell';
+    if(gs.src===i&&gs.turn===0)cell.classList.add('src-sel');
+    if(gs.winLine&&gs.winLine.indexOf(i)>=0)cell.classList.add('win-cell');
+    var stack=gs.board[i];
+    var top=topOf(stack);
+    if(top){
+      var op=PL[top.player];
+      var coinEl=document.createElement('span');
+      coinEl.className='top-coin';
+      coinEl.style.color=op.color;
+      coinEl.style.fontSize=gs.winLine&&gs.winLine.indexOf(i)>=0?'1.5rem':'1.05rem';
+      coinEl.textContent=op.sym;
+      var numEl=document.createElement('span');
+      numEl.className='top-num';
+      numEl.style.color='#fff';
+      numEl.style.fontSize='.62rem';
+      numEl.textContent=top.num;
+      cell.appendChild(coinEl);
+      cell.appendChild(numEl);
+      if(stack.length>1){var sc=document.createElement('span');sc.className='stack-count';sc.textContent='+'+(stack.length-1);cell.appendChild(sc);}
+      cell.style.background=op.color+'18';
+    }
+    if(!gs.over&&gs.turn===0){
+      if(gs.phase==='place'&&gs.sel&&gs.sel.type==='hand'&&canPlace(i,gs.sel.num)){
+        cell.classList.add('placeable');
+        (function(ci){cell.addEventListener('click',function(){gs.board[ci].push({player:0,num:gs.sel.num});gs.hands[0][gs.sel.num]--;gs.sel=null;afterMove();});})(i);
+      } else if(gs.phase==='place'&&canMove(i,0)&&!gs.sel){
+        cell.style.outline='1px solid rgba(255,107,53,.35)';
+        (function(ci){cell.addEventListener('click',function(){gs.sel={type:'board',src:ci};gs.src=ci;renderGame();setStatus('移動先を選んでください（または別のコインを選ぶ）');});})(i);
+      } else if(gs.phase==='place'&&gs.sel&&gs.sel.type==='board'&&i!==gs.sel.src){
+        var srcTop=topOf(gs.board[gs.sel.src]);
+        if(srcTop&&canPlace(i,srcTop.num)){
+          cell.classList.add('placeable');
+          (function(ci){cell.addEventListener('click',function(){var st=topOf(gs.board[gs.sel.src]);gs.board[gs.sel.src].pop();gs.board[ci].push(st);gs.sel=null;gs.src=null;afterMove();});})(i);
+        }
+      } else if(gs.phase==='place'&&gs.sel&&gs.sel.type==='board'&&i===gs.sel.src){
+        (function(ci){cell.addEventListener('click',function(){gs.sel=null;gs.src=null;renderGame();setStatus('コインを選んでください');});})(i);
+      } else if(gs.phase==='move'&&canMove(i,0)&&gs.src===null){
+        cell.style.outline='1px solid rgba(255,107,53,.35)';
+        (function(ci){cell.addEventListener('click',function(){gs.src=ci;renderGame();setStatus('移動先を選んでください');});})(i);
+      } else if(gs.phase==='move'&&gs.src===i){
+        (function(ci){cell.addEventListener('click',function(){gs.src=null;renderGame();setStatus('動かすコインを選んでください');});})(i);
+      } else if(gs.phase==='move'&&gs.src!==null&&gs.src!==i){
+        var mSrcTop=topOf(gs.board[gs.src]);
+        if(mSrcTop&&canPlace(i,mSrcTop.num)){
+          cell.classList.add('placeable');
+          (function(ci){cell.addEventListener('click',function(){var st=topOf(gs.board[gs.src]);gs.board[gs.src].pop();gs.board[ci].push(st);gs.src=null;afterMove();});})(i);
+        }
+      }
+    }
+    gb.appendChild(cell);
+  }
+}
+
+function allHandsEmpty(){for(var i=0;i<3;i++){if(!handEmpty(i))return false;}return true;}
+
+function afterMove(){
+  for(var pi=0;pi<3;pi++){
+    for(var w=0;w<WINS.length;w++){
+      var line=WINS[w];
+      var winner=ownerOf(gs.board[line[0]]);
+      if(winner>=0&&line.every(function(ci){return ownerOf(gs.board[ci])===winner;})){
+        gs.over=true;gs.scores[winner]++;gs.winLine=line;
+        renderGame();
+        setStatus(PL[winner].sym+' '+(winner===0?'あなた':'CPU')+' の勝ち！ 🎉');
+        return;
+      }
+    }
+  }
+  gs.turn=(gs.turn+1)%3;
+  if(allHandsEmpty()){gs.phase='move';}
+  else{gs.phase='place';if(handEmpty(gs.turn))gs.phase='move';}
+  renderGame();
+  if(!gs.over){
+    if(gs.turn===0){
+      setStatus('あなたの番です（🔥）— '+(gs.phase==='move'?'盤面のコインを動かしてください':'コインを選んでください'));
+    } else {
+      setStatus(PL[gs.turn].sym+' CPU のターン...');
+      setTimeout(aiMove,350);
+    }
+  }
+}
+
+function aiMove(){
+  if(gs.over||gs.turn===0)return;
+  const pi=gs.turn;
+  if(handEmpty(pi)){gs.phase='move';}else{gs.phase='place';}
+  const others=[0,1,2].filter(i=>i!==pi);
+
+  if(gs.phase==='place'){
+    let mv=null,mvN=null;
+    // 勝てるなら勝つ
+    for(let w=0;w<WINS.length;w++){
+      const line=WINS[w];
+      const tops=line.map(i=>ownerOf(gs.board[i]));
+      if(tops.filter(v=>v===pi).length===2){
+        const openIdx=line.find(i=>ownerOf(gs.board[i])!==pi);
+        if(openIdx!==undefined){
+          for(let n=3;n>=1;n--){
+            if(gs.hands[pi][n]>0&&canPlace(openIdx,n)){mv=openIdx;mvN=n;break;}
+          }
+          if(mv!==null)break;
+        }
+      }
+    }
+    // ブロック
+    if(mv===null){
+      for(let oi=0;oi<others.length;oi++){
+        const opp=others[oi];
+        for(let w=0;w<WINS.length;w++){
+          const line=WINS[w];
+          const tops=line.map(i=>ownerOf(gs.board[i]));
+          if(tops.filter(v=>v===opp).length===2){
+            const openIdx=line.find(i=>ownerOf(gs.board[i])!==opp);
+            if(openIdx!==undefined){
+              for(let n=3;n>=1;n--){
+                if(gs.hands[pi][n]>0&&canPlace(openIdx,n)){mv=openIdx;mvN=n;break;}
+              }
+              if(mv!==null)break;
+            }
+          }
+        }
+        if(mv!==null)break;
+      }
+    }
+    // ランダム配置（弱め: 1ターン目は1のみ、それ以外は小さい数字優先）
+    if(mv===null){
+      const avail1=[],avail2=[],avail3=[];
+      for(let i=0;i<9;i++){
+        if(gs.hands[pi][1]>0&&canPlace(i,1))avail1.push({i:i,n:1});
+        if(gs.hands[pi][2]>0&&canPlace(i,2))avail2.push({i:i,n:2});
+        if(gs.hands[pi][3]>0&&canPlace(i,3))avail3.push({i:i,n:3});
+      }
+      // ターン数に応じて出せる数字を制限
+      // 1ターン目（手札が満タン）は数字1しか出せない
+      const isFirstTurn=(gs.hands[pi][1]===2&&gs.hands[pi][2]===2&&gs.hands[pi][3]===2);
+      let pool=[];
+      if(isFirstTurn){
+        pool=avail1;
+      } else {
+        // 数字1を60%、2を30%、3を10%
+        const r=Math.random();
+        if(r<0.6&&avail1.length>0)pool=avail1;
+        else if(r<0.9&&avail2.length>0)pool=avail2;
+        else if(avail3.length>0)pool=avail3;
+        if(pool.length===0)pool=[...avail1,...avail2,...avail3];
+      }
+      if(pool.length>0){const pick=pool[Math.floor(Math.random()*pool.length)];mv=pick.i;mvN=pick.n;}
+    }
+    if(mv!==null&&mvN!==null){gs.board[mv].push({player:pi,num:mvN});gs.hands[pi][mvN]--;}
+
+  } else {
+    // 移動フェーズ — 全移動候補を収集（breakなし）
+    const allMoves=[];
+    for(let i=0;i<9;i++){
+      if(canMove(i,pi)){
+        const top=topOf(gs.board[i]);
+        for(let d=0;d<9;d++){
+          if(d!==i&&canPlace(d,top.num)){
+            allMoves.push({src:i,dst:d,top:top});
+          }
+        }
+      }
+    }
+    let moved=false;
+    // 勝てる移動を探す
+    for(let mi=0;mi<allMoves.length;mi++){
+      const mv=allMoves[mi];
+      gs.board[mv.src].pop();
+      gs.board[mv.dst].push(mv.top);
+      let wins=false;
+      for(let w=0;w<WINS.length;w++){
+        const line=WINS[w];
+        const winner=ownerOf(gs.board[line[0]]);
+        if(winner>=0&&line.every(function(ci){return ownerOf(gs.board[ci])===winner;})){wins=true;break;}
+      }
+      if(wins){moved=true;break;}
+      gs.board[mv.dst].pop();
+      gs.board[mv.src].push(mv.top);
+    }
+    // 勝てなければランダム移動（必ず動く）
+    if(!moved&&allMoves.length>0){
+      const pick=allMoves[Math.floor(Math.random()*allMoves.length)];
+      gs.board[pick.src].pop();
+      gs.board[pick.dst].push(pick.top);
+      moved=true;
+    }
+  }
+  afterMove();
+}
+
+document.getElementById('gdReset').addEventListener('click',()=>{
+  gs.board=newBoard();gs.hands=newHands();gs.turn=0;gs.phase='place';
+  gs.sel=null;gs.over=false;gs.src=null;gs.aiThinking=false;gs.winLine=null;
+  renderGame();setStatus('あなたの番です（🔥）— コインを選んでください');
+});
+gs.board=newBoard();gs.hands=newHands();renderGame();setStatus('あなたの番です（🔥）— コインを選んでください');
+
+</script>
+
+
+</body>
+</html>
