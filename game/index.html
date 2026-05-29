@@ -39,9 +39,9 @@ body.lang-ja .en{display:none;}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(245,242,235,0.6);font-family:'Space Mono',monospace;font-size:12px;text-decoration:none;border-bottom:1px solid rgba(245,242,235,0.2);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
 .btn-ghost:hover{color:var(--white);border-color:var(--white);}
 
-.proof-strip{display:flex;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);}
-.proof-item{flex:1;padding:24px 20px;border-right:1px solid rgba(255,255,255,0.08);text-align:center;}
-.proof-item:last-child{border-right:none;}
+.proof-strip{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);}
+.proof-item{padding:24px 20px;border-right:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);text-align:center;}
+.proof-item:nth-child(2){border-right:none;}.proof-item:nth-child(3){border-bottom:none;}.proof-item:nth-child(4){border-right:none;border-bottom:none;}
 .proof-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--yellow);line-height:1;margin-bottom:4px;}
 .proof-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--muted);}
 
