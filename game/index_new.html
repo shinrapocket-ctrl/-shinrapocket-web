@@ -536,9 +536,9 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </section>
 <!-- PRODUCT DETAIL -->
 <div class="product-detail-strip" id="detail-photos">
-<div class="pd-img pd-zoomable" onclick="openLightbox('images/img_04.jpg','コインと内容物の全容')"><img alt="コインと内容物の全容" src="images/img_04.jpg"/></div>
-<div class="pd-img pd-zoomable" onclick="openLightbox('images/img_05.jpg','芝生の上に置かれたしんらポケット')"><img alt="芝生の上に置かれたしんらポケット" src="images/img_05.jpg"/></div>
-<div class="pd-img pd-zoomable" onclick="openLightbox('images/img_06.jpg','しんらポケットのロゴ底面')"><img alt="しんらポケットのロゴ底面" src="images/img_06.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(0)"><img alt="三つ巴" src="images/img_04.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(1)"><img alt="輪っかを使ってバランスゲーム" src="images/img_05.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(2)"><img alt="コインを投げて輪っかにゴール" src="images/img_06.jpg"/></div>
 </div>
 <style>
 .pd-zoomable{position:relative;cursor:zoom-in;}
@@ -554,8 +554,10 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 .lb-caption{position:absolute;bottom:-32px;left:0;right:0;text-align:center;font-family:monospace;font-size:11px;letter-spacing:0.12em;color:rgba(255,255,255,0.5);}
 </style>
 <div class="lb-overlay" id="lb-overlay" onclick="closeLB()">
-<div class="lb-inner" onclick="event.stopPropagation()">
+<div class="lb-inner" onclick="event.stopPropagation()" style="position:relative;">
 <button class="lb-close" onclick="closeLB()">✕</button>
+<button onclick="lbPrev();event.stopPropagation();" style="position:absolute;left:-52px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;font-size:32px;padding:8px 14px;cursor:pointer;border-radius:4px;">&#8249;</button>
+<button onclick="lbNext();event.stopPropagation();" style="position:absolute;right:-52px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;font-size:32px;padding:8px 14px;cursor:pointer;border-radius:4px;">&#8250;</button>
 <img alt="" id="lb-img" src=""/>
 <div class="lb-caption" id="lb-caption"></div>
 </div>
@@ -940,7 +942,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <button class="chal-lv-tab active" onclick="chalLoadLevel(0)">Lv.01</button>
 <button class="chal-lv-tab" onclick="chalLoadLevel(1)">Lv.02</button>
 <button class="chal-lv-tab" onclick="chalLoadLevel(2)">Lv.03</button>
-<button class="chal-lv-tab oni" onclick="chalLoadLevel(3)">鬼</button>
+<button class="chal-lv-tab oni" onclick="chalLoadLevel(3)"><span class="ja">鬼</span><span class="en">Extreme</span></button>
 </div>
 <!-- Game area -->
 <div id="chal-game-area"></div>
@@ -1027,7 +1029,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <span class="en">SAME PLACE.<br/><span class="accent">DIFFERENT WORLD.</span></span>
 </h2>
 <div class="price-block reveal">
-<div class="price-num">¥3,300<span class="price-tax">税込</span></div>
+<div class="price-num">¥3,300<span class="price-tax"><span class="ja">税込</span><span class="en">incl. tax</span></span></div>
 <div class="price-note"><span class="ja">送料別 / オンラインショップにて販売中</span><span class="en">+ shipping / Available in our online shop</span></div>
 </div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;">
@@ -2501,11 +2503,45 @@ body.lang-en .games-title-ja{display:none !important;}
 </style>
 <style>@media(max-width:768px){.hero-badges{flex-wrap:nowrap;gap:3px;}.badge{font-size:8px!important;letter-spacing:0!important;padding:2px 5px!important;white-space:nowrap!important;}}</style>
 <script>
+const lbSlides = [
+  {src:'images/img_04.jpg', ja:'三つ巴', en:'Mitsudomoe'},
+  {src:'images/img_05.jpg', ja:'輪っかを使ってバランスゲーム', en:'Balance game using the ring'},
+  {src:'images/img_06.jpg', ja:'コインを投げて輪っかにゴール', en:'Toss a coin through the ring'}
+];
+let lbCurrentIndex = 0;
+
+function openLightboxSlide(index) {
+  lbCurrentIndex = index;
+  updateLightbox();
+  document.getElementById('lb-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
 function openLightbox(src, caption) {
   document.getElementById('lb-img').src = src;
   document.getElementById('lb-caption').textContent = caption;
   document.getElementById('lb-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function lbPrev() {
+  lbCurrentIndex = (lbCurrentIndex - 1 + lbSlides.length) % lbSlides.length;
+  updateLightbox();
+}
+
+function lbNext() {
+  lbCurrentIndex = (lbCurrentIndex + 1) % lbSlides.length;
+  updateLightbox();
+}
+
+function updateLightbox() {
+  const slide = lbSlides[lbCurrentIndex];
+  document.getElementById('lb-img').src = slide.src;
+  const isEn = document.documentElement.lang === 'en';
+  document.getElementById('lb-caption').textContent = isEn ? slide.en : slide.ja;
+  document.querySelectorAll('.lb-dot').forEach((d,i) => {
+    d.classList.toggle('active', i === lbCurrentIndex);
+  });
 }
 function closeLB() {
   document.getElementById('lb-overlay').classList.remove('open');
