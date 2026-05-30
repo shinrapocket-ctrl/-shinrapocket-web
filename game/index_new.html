@@ -2537,7 +2537,7 @@ function lbNext() {
 function updateLightbox() {
   const slide = lbSlides[lbCurrentIndex];
   document.getElementById('lb-img').src = slide.src;
-  const isEn = document.documentElement.lang === 'en';
+  const isEn = document.body.classList.contains('lang-en');
   document.getElementById('lb-caption').textContent = isEn ? slide.en : slide.ja;
   document.querySelectorAll('.lb-dot').forEach((d,i) => {
     d.classList.toggle('active', i === lbCurrentIndex);
