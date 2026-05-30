@@ -249,7 +249,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   .topbar{padding:12px 20px;}
   .hero-content{padding:72px 20px 0;}
   .product-grid,.how-grid{grid-template-columns:1fr;}
-  .items-grid,.modes-grid{grid-template-columns:1fr;}
+  .items-grid{grid-template-columns:repeat(3,1fr);}.modes-grid{grid-template-columns:1fr;}
   .proof-strip{flex-wrap:wrap;}
   .proof-item{min-width:50%;}
   .sec{padding:40px 20px;}
@@ -376,7 +376,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   .chal-table th,.chal-table td{padding:10px 10px;}
 }
 
-</style>
+.mobile-only{display:none !important;}.pc-only{display:inline !important;}body.lang-ja .ja.mobile-only{display:none !important;}body.lang-ja .ja.pc-only{display:inline !important;}@media(max-width:768px){.mobile-only{display:inline !important;}.pc-only{display:none !important;}body.lang-ja .ja.mobile-only{display:inline !important;}body.lang-ja .ja.pc-only{display:none !important;}}</style>
 </head>
 <body class="lang-ja">
 <!-- WIN BANNER -->
@@ -488,19 +488,19 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <span class="item-bg-num">01</span>
 <div class="item-img-wrap" style="background:transparent;"><img alt="ケース" src="images/img_01.png" style="width:100%;height:100%;object-fit:contain;"/></div>
 <div class="item-name"><span class="ja">ケース</span><span class="en">CASE</span></div>
-<p class="item-desc"><span class="ja">ポケットに入るサイズ。蓋も本体も盤面になる。持ち歩けるから、いつでもどこでも始められる。</span><span class="en">Pocket-sized. Lid and body both become the board. Start anywhere, anytime.</span></p>
+<p class="item-desc"><span class="ja pc-only">ポケットに入るサイズ。蓋も本体も遊びの道具になる。持ち歩けるから、いつでもどこでも始められる。</span><span class="ja mobile-only">ポケットに入るサイズ。持ち歩けるから、いつでもどこでも始められる。</span><span class="en">Pocket-sized. Lid and body both become the board. Start anywhere, anytime.</span></p>
 </div>
 <div class="item-card reveal">
 <span class="item-bg-num">02</span>
 <div class="item-img-wrap" style="background:transparent;"><img alt="輪っか" src="images/img_02.png" style="width:100%;height:100%;object-fit:contain;"/></div>
 <div class="item-name"><span class="ja">輪っか</span><span class="en">RING</span></div>
-<p class="item-desc"><span class="ja">ただの飾りじゃない。外して遊びに使える。ゴールにも、道具にも——あなたが決める。</span><span class="en">Not just decoration. Remove it and play with it. Goal post, tool — you decide.</span></p>
+<p class="item-desc"><span class="ja pc-only">ただの飾りじゃない。外して遊びに使える。ゴールにも、道具にも——あなたが決める。</span><span class="ja mobile-only">ただの飾りじゃない。外して遊びに使える。遊びの幅が広がる。</span><span class="en">Not just decoration. Remove it and play with it. Goal post, tool — you decide.</span></p>
 </div>
 <div class="item-card reveal">
 <span class="item-bg-num">03</span>
 <div class="item-img-wrap" style="background:transparent;"><img alt="コイン × 18" src="images/img_03.png" style="width:100%;height:100%;object-fit:contain;"/></div>
 <div class="item-name"><span class="ja">コイン × 18</span><span class="en">COINS × 18</span></div>
-<p class="item-desc"><span class="ja">18枚、同じものは一つもない。エレメントと数字の組み合わせ。この世界と同じように。</span><span class="en">18 coins, no two alike. Elements and numbers — just like the world itself.</span></p>
+<p class="item-desc"><span class="ja pc-only">18枚、同じものは一つもない。エレメントと数字の組み合わせ。凹凸があって、目で見て、指で感じて楽しめる。</span><span class="ja mobile-only">エレメントと数字の組み合わせ。凹凸があって、目で見て、指で感じて楽しめる。</span><span class="en">18 coins, no two alike. Elements and numbers — just like the world itself.</span></p>
 </div>
 </div>
 <section class="games-expand-section">
@@ -536,9 +536,9 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </section>
 <!-- PRODUCT DETAIL -->
 <div class="product-detail-strip" id="detail-photos">
-<div class="pd-img pd-zoomable" onclick="openLightbox('images/img_04.jpg','コインと内容物の全容')"><img alt="コインと内容物の全容" src="images/img_04.jpg"/></div>
-<div class="pd-img pd-zoomable" onclick="openLightbox('images/img_05.jpg','芝生の上に置かれたしんらポケット')"><img alt="芝生の上に置かれたしんらポケット" src="images/img_05.jpg"/></div>
-<div class="pd-img pd-zoomable" onclick="openLightbox('images/img_06.jpg','しんらポケットのロゴ底面')"><img alt="しんらポケットのロゴ底面" src="images/img_06.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(0)"><img alt="三つ巴" src="images/img_04.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(1)"><img alt="輪っかを使ってバランスゲーム" src="images/img_05.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(2)"><img alt="コインを投げて輪っかにゴール" src="images/img_06.jpg"/></div>
 </div>
 <style>
 .pd-zoomable{position:relative;cursor:zoom-in;}
@@ -554,8 +554,10 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 .lb-caption{position:absolute;bottom:-32px;left:0;right:0;text-align:center;font-family:monospace;font-size:11px;letter-spacing:0.12em;color:rgba(255,255,255,0.5);}
 </style>
 <div class="lb-overlay" id="lb-overlay" onclick="closeLB()">
-<div class="lb-inner" onclick="event.stopPropagation()">
+<div class="lb-inner" onclick="event.stopPropagation()" style="position:relative;">
 <button class="lb-close" onclick="closeLB()">✕</button>
+<button onclick="lbPrev();event.stopPropagation();" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;font-size:32px;padding:8px 14px;cursor:pointer;border-radius:4px;z-index:10;">&#8249;</button>
+<button onclick="lbNext();event.stopPropagation();" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;font-size:32px;padding:8px 14px;cursor:pointer;border-radius:4px;z-index:10;">&#8250;</button>
 <img alt="" id="lb-img" src=""/>
 <div class="lb-caption" id="lb-caption"></div>
 </div>
@@ -617,7 +619,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   padding:10px 14px;
 }
 
-@media(max-width:768px){
+.mobile-only{display:none;}.pc-only{display:inline;}@media(max-width:768px){.mobile-only{display:inline;}.pc-only{display:none;}
   .games-expand-section{
     padding:72px 20px 56px;
   }
@@ -698,7 +700,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <!-- SCENES -->
 <div class="sec scenes-sec">
 <p class="sec-label reveal"><span class="ja">— どこでも、誰とでも</span><span class="en">— ANYWHERE, WITH ANYONE</span></p>
-<h2 class="sec-title reveal"><span class="ja">遊べる。</span><span class="en">PLAY BEGINS NATURALLY.</span></h2>
+<h2 class="sec-title reveal"><span class="ja">どこでも、誰とでも遊べる。</span><span class="en">ANYWHERE. ANYONE. ANYTIME.</span></h2>
 <div class="scenes-grid">
 <div class="scene-card reveal">
 <div class="scene-img-wrap">
@@ -737,7 +739,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <div class="mode-tag"><span class="ja">入口</span><span class="en">ENTRY</span></div>
 <div class="mode-title"><span class="ja">三目並べ</span><span class="en">Tic-Tac-Toe</span></div>
 <div class="mode-players"><span class="ja">2人用</span><span class="en">2 PLAYERS</span></div>
-<p class="mode-desc"><span class="ja">知ってるゲームから始める。でも、コインが重なった瞬間、別のゲームになる。</span><span class="en">Start with what everyone knows. The moment coins stack, it becomes something else.</span></p>
+<p class="mode-desc"><span class="ja">知ってるゲームから始める。別名○×ゲーム。</span><span class="en">Start with what everyone knows.</span></p>
 </div>
 <div class="mode-card reveal">
 <span class="mode-bg-num">02</span>
@@ -778,7 +780,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <span class="en">🔥 You　💧 CPU Water　🌀 CPU Wind<br/>Coins 1,2,3 ×2. Hidden wins possible.</span>
 </div>
 <div class="demo-status" id="mitsu-status"></div>
-<button class="demo-reset" onclick="resetMitsu()" style="margin-top:8px;"><span class="ja">もう一度</span><span class="en">PLAY AGAIN</span></button>
+<p style="text-align:center;font-size:13px;color:rgba(245,242,235,0.6);margin-bottom:8px;"><span class="ja">さらに手応えのある対戦を楽しむなら、アプリへ。</span><span class="en">For a deeper challenge, try the app.</span></p><button class="demo-reset" onclick="resetMitsu()" style="margin-top:8px;"><span class="ja">もう一度</span><span class="en">PLAY AGAIN</span></button>
 <div class="demo-shop-note">
 <span class="ja">本物のコインの手触りは画面では伝わらない。<br/><a href="https://shinratoys.base.shop" target="_blank">🛒 ショップで →</a></span>
 <span class="en">Real coins feel different.<br/><a href="https://shinratoys.base.shop" target="_blank">🛒 Shop →</a></span>
@@ -811,7 +813,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </p>
 </div>
 <div class="video-wrap hp-youtube-embed">
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/o7p-HDwLQDc?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;origin=https%3A%2F%2Fshinrapocket.com" title="Shinra Pocket Mitsudomoe">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/o7p-HDwLQDc?playsinline=1&amp;origin=https%3A%2F%2Fshinrapocket.com" title="Shinra Pocket Mitsudomoe">
 </iframe>
 </div>
 <div class="video-photo-text">
@@ -867,11 +869,14 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </div>
 </div>
 <div class="app-banner-stores">
-<a class="store-pill" href="#">
+<a class="store-pill" href="#" onclick="alert('App Store版は近日公開予定です。\nComing soon on App Store.');return false;">
 <svg fill="none" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="white"></path></svg>
 <span>App Store</span>
 </a>
-<a class="store-pill" href="#">
+<a class="store-pill ja" href="https://forms.gle/MDRrnz9dcphojsRh7" target="_blank">
+<span style="font-size:16px;line-height:1;">▶</span>
+<span>Google Play</span>
+</a><a class="store-pill en" href="https://forms.gle/f2yMaNaup68QRtH2A" target="_blank">
 <span style="font-size:16px;line-height:1;">▶</span>
 <span>Google Play</span>
 </a>
@@ -888,7 +893,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <div class="android-steps">
 <div class="android-steps-label"><span class="ja">利用方法</span><span class="en">HOW TO</span></div>
 <div class="android-step"><span class="android-num">①</span><span class="ja">Google フォームで Gmail 登録</span><span class="en">Register your Gmail via Google Form</span></div>
-<div class="android-step"><span class="android-num">②</span><span class="ja">6月になったら、メールでアプリURLが届く</span><span class="en">In June, receive the app URL by email</span></div>
+<div class="android-step"><span class="android-num">②</span><span class="ja">6月から順次、登録者にURLをメールでお送りします。</span><span class="en">Starting June, we'll send the app URL to registered users by email.</span></div>
 <div class="android-step"><span class="android-num">③</span><span class="ja">ダウンロードして開始</span><span class="en">Download and start playing</span></div>
 </div>
 <a class="btn-primary android-btn ja" href="https://forms.gle/MDRrnz9dcphojsRh7" rel="noopener" target="_blank"><span>Gmail を登録する →</span></a><a class="btn-primary android-btn en" href="https://docs.google.com/forms/d/e/1FAIpQLSf0oRhKqs0_hfL-Ep3-g4aq1Pa8_sQlxNlDv3Lqx1XKxwsIrg/viewform?usp=header" rel="noopener" target="_blank"><span>Register Gmail →</span></a>
@@ -940,7 +945,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <button class="chal-lv-tab active" onclick="chalLoadLevel(0)">Lv.01</button>
 <button class="chal-lv-tab" onclick="chalLoadLevel(1)">Lv.02</button>
 <button class="chal-lv-tab" onclick="chalLoadLevel(2)">Lv.03</button>
-<button class="chal-lv-tab oni" onclick="chalLoadLevel(3)">鬼</button>
+<button class="chal-lv-tab oni" onclick="chalLoadLevel(3)"><span class="ja">鬼</span><span class="en">Extreme</span></button>
 </div>
 <!-- Game area -->
 <div id="chal-game-area"></div>
@@ -1027,7 +1032,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <span class="en">SAME PLACE.<br/><span class="accent">DIFFERENT WORLD.</span></span>
 </h2>
 <div class="price-block reveal">
-<div class="price-num">¥3,300<span class="price-tax">税込</span></div>
+<div class="price-num">¥3,300<span class="price-tax"><span class="ja">税込</span><span class="en">incl. tax</span></span></div>
 <div class="price-note"><span class="ja">送料別 / オンラインショップにて販売中</span><span class="en">+ shipping / Available in our online shop</span></div>
 </div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;">
@@ -2501,11 +2506,45 @@ body.lang-en .games-title-ja{display:none !important;}
 </style>
 <style>@media(max-width:768px){.hero-badges{flex-wrap:nowrap;gap:3px;}.badge{font-size:8px!important;letter-spacing:0!important;padding:2px 5px!important;white-space:nowrap!important;}}</style>
 <script>
+const lbSlides = [
+  {src:'images/img_04.jpg', ja:'三つ巴', en:'Mitsudomoe'},
+  {src:'images/img_05.jpg', ja:'輪っかを使ってバランスゲーム', en:'Balance game using the ring'},
+  {src:'images/img_06.jpg', ja:'コインを投げて輪っかにゴール', en:'Toss a coin through the ring'}
+];
+let lbCurrentIndex = 0;
+
+function openLightboxSlide(index) {
+  lbCurrentIndex = index;
+  updateLightbox();
+  document.getElementById('lb-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
 function openLightbox(src, caption) {
   document.getElementById('lb-img').src = src;
   document.getElementById('lb-caption').textContent = caption;
   document.getElementById('lb-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function lbPrev() {
+  lbCurrentIndex = (lbCurrentIndex - 1 + lbSlides.length) % lbSlides.length;
+  updateLightbox();
+}
+
+function lbNext() {
+  lbCurrentIndex = (lbCurrentIndex + 1) % lbSlides.length;
+  updateLightbox();
+}
+
+function updateLightbox() {
+  const slide = lbSlides[lbCurrentIndex];
+  document.getElementById('lb-img').src = slide.src;
+  const isEn = document.body.classList.contains('lang-en');
+  document.getElementById('lb-caption').textContent = isEn ? slide.en : slide.ja;
+  document.querySelectorAll('.lb-dot').forEach((d,i) => {
+    d.classList.toggle('active', i === lbCurrentIndex);
+  });
 }
 function closeLB() {
   document.getElementById('lb-overlay').classList.remove('open');
