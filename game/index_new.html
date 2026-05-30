@@ -488,19 +488,19 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <span class="item-bg-num">01</span>
 <div class="item-img-wrap" style="background:transparent;"><img alt="ケース" src="images/img_01.png" style="width:100%;height:100%;object-fit:contain;"/></div>
 <div class="item-name"><span class="ja">ケース</span><span class="en">CASE</span></div>
-<p class="item-desc"><span class="ja">ポケットに入るサイズ。蓋も本体も盤面になる。持ち歩けるから、いつでもどこでも始められる。</span><span class="en">Pocket-sized. Lid and body both become the board. Start anywhere, anytime.</span></p>
+<p class="item-desc"><span class="ja pc-only">ポケットに入るサイズ。蓋も本体も遊びの道具になる。持ち歩けるから、いつでもどこでも始められる。</span><span class="ja mobile-only">ポケットサイズ。持ち運びに便利。</span><span class="en">Pocket-sized. Lid and body both become the board. Start anywhere, anytime.</span></p>
 </div>
 <div class="item-card reveal">
 <span class="item-bg-num">02</span>
 <div class="item-img-wrap" style="background:transparent;"><img alt="輪っか" src="images/img_02.png" style="width:100%;height:100%;object-fit:contain;"/></div>
 <div class="item-name"><span class="ja">輪っか</span><span class="en">RING</span></div>
-<p class="item-desc"><span class="ja">ただの飾りじゃない。外して遊びに使える。ゴールにも、道具にも——あなたが決める。</span><span class="en">Not just decoration. Remove it and play with it. Goal post, tool — you decide.</span></p>
+<p class="item-desc"><span class="ja pc-only">ただの飾りじゃない。外して遊びに使える。ゴールにも、道具にも——あなたが決める。</span><span class="ja mobile-only">外して遊びに使える。</span><span class="en">Not just decoration. Remove it and play with it. Goal post, tool — you decide.</span></p>
 </div>
 <div class="item-card reveal">
 <span class="item-bg-num">03</span>
 <div class="item-img-wrap" style="background:transparent;"><img alt="コイン × 18" src="images/img_03.png" style="width:100%;height:100%;object-fit:contain;"/></div>
 <div class="item-name"><span class="ja">コイン × 18</span><span class="en">COINS × 18</span></div>
-<p class="item-desc"><span class="ja">18枚、同じものは一つもない。エレメントと数字の組み合わせ。この世界と同じように。</span><span class="en">18 coins, no two alike. Elements and numbers — just like the world itself.</span></p>
+<p class="item-desc"><span class="ja pc-only">18枚、同じものは一つもない。エレメントと数字の組み合わせ。凹凸があって、目で見て、指で感じて楽しめる。</span><span class="ja mobile-only">18枚のコイン。見ても、触れても楽しめる。</span><span class="en">18 coins, no two alike. Elements and numbers — just like the world itself.</span></p>
 </div>
 </div>
 <section class="games-expand-section">
@@ -619,7 +619,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   padding:10px 14px;
 }
 
-@media(max-width:768px){
+.mobile-only{display:none;}.pc-only{display:inline;}@media(max-width:768px){.mobile-only{display:inline;}.pc-only{display:none;}
   .games-expand-section{
     padding:72px 20px 56px;
   }
