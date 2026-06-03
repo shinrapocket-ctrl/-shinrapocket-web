@@ -1300,11 +1300,13 @@ function mitsuCellClick(i){
     const movTop=src.top,revealed=src.under;
     M.board[M.selCell]=revealed?{top:revealed,under:null}:null;
     M.board[i]=cell?{top:movTop,under:cell.top}:{top:movTop,under:null};
-    if(revealed&&checkHiddenWin(M.board,revealed.owner)){
-      mitsuRenderBoard();
-      const wc=getWinCells(M.board,revealed.owner,true);
-      highlightWin('mitsu-board',wc,revealed.owner);
-      showWinBanner(revealed.owner,'hidden',resetMitsu);return;
+    mitsuRenderBoard();
+    if(revealed){
+      if(checkVisibleWin(M.board,revealed.owner)){
+        const wc=getWinCells(M.board,revealed.owner);
+        highlightWin('mitsu-board',wc,revealed.owner);
+        showWinBanner(revealed.owner,'hidden',resetMitsu);return;
+      }
     }
     M.selCell=null;M.phase='pick';
     mitsuAfterPlace('fire');return;
@@ -1534,9 +1536,12 @@ function mitsuExecAction(p,act){
     const dst=M.board[act.to];
     M.board[act.to]=dst?{top:movTop,under:dst.top}:{top:movTop,under:null};
     mitsuRenderBoard();
-    if(revealed&&checkHiddenWin(M.board,revealed.owner)){
-      const wc=getWinCells(M.board,revealed.owner,true);highlightWin('mitsu-board',wc,revealed.owner);
-      showWinBanner(revealed.owner,'hidden',resetMitsu);return;
+    if(revealed){
+      if(checkVisibleWin(M.board,revealed.owner)){
+        const wc=getWinCells(M.board,revealed.owner);
+        highlightWin('mitsu-board',wc,revealed.owner);
+        showWinBanner(revealed.owner,'hidden',resetMitsu);return;
+      }
     }
     if(checkVisibleWin(M.board,p)){
       const wc=getWinCells(M.board,p);highlightWin('mitsu-board',wc,p);
