@@ -1300,14 +1300,16 @@ function mitsuCellClick(i){
     const movTop=src.top,revealed=src.under;
     M.board[M.selCell]=revealed?{top:revealed,under:null}:null;
     M.board[i]=cell?{top:movTop,under:cell.top}:{top:movTop,under:null};
-    mitsuRenderBoard();
+    // 優先1: 露出したコインで3揃いチェック
     if(revealed){
+      mitsuRenderBoard();
       if(checkVisibleWin(M.board,revealed.owner)){
         const wc=getWinCells(M.board,revealed.owner);
         highlightWin('mitsu-board',wc,revealed.owner);
         showWinBanner(revealed.owner,'hidden',resetMitsu);return;
       }
     }
+    // 優先2: 持ち上げたコインを置いた先で3揃いチェック
     M.selCell=null;M.phase='pick';
     mitsuAfterPlace('fire');return;
   }
@@ -1543,6 +1545,7 @@ function mitsuExecAction(p,act){
     const dst=M.board[act.to];
     M.board[act.to]=dst?{top:movTop,under:dst.top}:{top:movTop,under:null};
     mitsuRenderBoard();
+    // 優先1: 露出したコインで3揃いチェック
     if(revealed){
       if(checkVisibleWin(M.board,revealed.owner)){
         const wc=getWinCells(M.board,revealed.owner);
@@ -1550,6 +1553,7 @@ function mitsuExecAction(p,act){
         showWinBanner(revealed.owner,'hidden',resetMitsu);return;
       }
     }
+    // 優先2: 持ち上げたコインを置いた先で3揃いチェック
     if(checkVisibleWin(M.board,p)){
       const wc=getWinCells(M.board,p);highlightWin('mitsu-board',wc,p);
       showWinBanner(p,'visible',resetMitsu);return;
