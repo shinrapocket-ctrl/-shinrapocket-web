@@ -1320,6 +1320,13 @@ function mitsuAfterPlace(player){
     showWinBanner(player,'visible',resetMitsu);return;
   }
   mitsuNext();mitsuUpdateUI();
+  // 全プレイヤーの勝ちチェック（CPUターン移行後も確認）
+  for(const p of ['fire','water','wind']){
+    if(checkVisibleWin(M.board,p)){
+      const wc=getWinCells(M.board,p);highlightWin('mitsu-board',wc,p);
+      showWinBanner(p,'visible',resetMitsu);return;
+    }
+  }
   if(mitsuCur()!=='fire')setTimeout(mitsuCPU,700);
 }
 
