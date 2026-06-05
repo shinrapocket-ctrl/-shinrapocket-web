@@ -23,7 +23,6 @@ body.lang-ja .en{display:none;}
 .lang-btn.active{background:var(--yellow);color:var(--black);}
 .nav-cta{background:var(--yellow);color:var(--black);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;padding:8px 18px;text-decoration:none;transition:opacity 0.2s;}
 .nav-cta:hover{opacity:0.85;}
-.nav-link{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(245,242,235,0.55);text-decoration:none;padding:6px 10px;transition:color 0.2s;white-space:nowrap;}.nav-link:hover{color:var(--yellow);}.nav-link-play{border:1px solid rgba(255,214,0,0.4);color:var(--yellow);padding:6px 12px;}.nav-link-play:hover{background:rgba(255,214,0,0.08);}.nav-hamburger{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(245,242,235,0.6);font-size:18px;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;}.nav-menu{display:none;position:absolute;top:100%;right:0;background:rgba(8,8,8,0.97);border:1px solid rgba(255,255,255,0.08);min-width:160px;z-index:300;}.nav-menu.open{display:block;}.nav-menu-item{display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(245,242,235,0.55);text-decoration:none;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}.nav-menu-item:hover{color:var(--yellow);background:rgba(255,214,0,0.04);}
 
 .hero{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:60svh;padding-bottom:40px;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
@@ -397,7 +396,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </div>
 <div class="topbar">
 <a class="nav-logo" href="https://shinrapocket.com">SHINRA POCKET</a>
-<div class="nav-right"><a class="nav-link" href="#games"><span class="ja">遊び方</span><span class="en">HOW TO PLAY</span></a><a class="nav-link nav-link-play" href="#modes"><span class="ja">今すぐ遊ぶ</span><span class="en">PLAY NOW</span></a><button class="nav-hamburger" onclick="toggleNavMenu()" aria-label="メニュー">≡</button><div class="nav-menu" id="nav-menu"><a class="nav-menu-item" href="#about"><span class="ja">とは</span><span class="en">ABOUT</span></a><a class="nav-menu-item" href="#scenes"><span class="ja">どこでも</span><span class="en">ANYWHERE</span></a><a class="nav-menu-item" href="#video"><span class="ja">動画</span><span class="en">VIDEO</span></a><a class="nav-menu-item" href="#app"><span class="ja">アプリ</span><span class="en">APP</span></a><a class="nav-menu-item" href="#reviews"><span class="ja">レビュー</span><span class="en">REVIEWS</span></a><a class="nav-menu-item" href="#faq"><span class="ja">よくある質問</span><span class="en">FAQ</span></a></div>
+<div class="nav-right">
 <div class="lang-toggle">
 <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')">JA</button>
 <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
@@ -407,7 +406,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </a>
 </div>
 </div>
-<section class="hero" id="hero">
+<section class="hero">
 <div class="hero-bg"><img alt="しんらポケット — 子どもが笑顔で遊ぶ" src="hero1.jpg"/></div>
 <div class="hero-content">
 <div class="hero-badges">
@@ -462,7 +461,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </div>
 
 </section>
-<div class="product-grid" id="about">
+<div class="product-grid">
 <div class="product-img-wrap">
 <img alt="しんらポケット — 手のひらサイズ" src="photo9.jpg" style="width:100%;height:100%;object-fit:cover;object-position:40% 50%;transform:scale(1.15);transform-origin:40% 50%;"/>
 <div class="product-img-label">SHINRA POCKET</div>
@@ -504,7 +503,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <p class="item-desc"><span class="ja pc-only">18枚、同じものは一つもない。エレメントと数字の組み合わせ。凹凸があって、目で見て、指で感じて楽しめる。</span><span class="ja mobile-only">エレメントと数字の組み合わせ。凹凸があって、目で見て、指で感じて楽しめる。</span><span class="en">18 unique coins, no two alike. Each combines an element and a number. Explore them by sight and touch.</span></p>
 </div>
 </div>
-<section class="games-expand-section" id="games">
+<section class="games-expand-section">
 <div class="games-expand-inner">
 <div class="games-copy">
 <div class="games-mini">
@@ -699,7 +698,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 }
 </style>
 <!-- SCENES -->
-<div class="sec scenes-sec" id="scenes">
+<div class="sec scenes-sec">
 <p class="sec-label reveal"><span class="ja">— どこでも、誰とでも</span><span class="en">— ANYWHERE, WITH ANYONE</span></p>
 <h2 class="sec-title reveal"><span class="ja">どこでも、誰とでも遊べる。</span><span class="en">ANYWHERE. ANYONE. ANYTIME.</span></h2>
 <div class="scenes-grid">
@@ -730,7 +729,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </div>
 </div>
 <!-- MODES -->
-<div class="sec" id="modes">
+<div class="sec">
 <p class="sec-label reveal"><span class="ja">— ゲームモード</span><span class="en">— GAME MODES</span></p>
 <h2 class="sec-title reveal"><span class="ja">慣れるほど、深くなる。</span><span class="en">THE MORE YOU PLAY, THE DEEPER IT GETS.</span></h2>
 <p class="sec-sub reveal"><span class="ja">入口はシンプル。でも奥は深い。</span><span class="en">Simple entry. Infinite depth.</span></p>
@@ -791,7 +790,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </div>
 </div>
 </div>
-<section class="play-video-section" id="video">
+<section class="play-video-section">
 <div class="play-video-inner">
 <div class="play-video-copy">
 <div class="play-video-mini">
@@ -885,7 +884,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </div>
 </div>
 <!-- ANDROID -->
-<div class="android-section reveal" id="app">
+<div class="android-section reveal">
 <div class="android-inner">
 <div class="android-eyebrow"><span class="ja">ANDROID — 先行公開</span><span class="en">ANDROID — EARLY ACCESS</span></div>
 <div class="android-title">SHINRA POCKET</div>
@@ -964,7 +963,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </div>
 </div>
 <!-- REVIEWS -->
-<div class="sec reviews-sec" id="reviews">
+<div class="sec reviews-sec">
 <p class="sec-label reveal"><span class="ja">— 遊んだ人の声</span><span class="en">— WHAT PEOPLE SAY</span></p>
 <h2 class="sec-title reveal"><span class="ja">遊んだ人の声</span><span class="en">REVIEWS</span></h2>
 <div class="reviews-grid reveal">
@@ -1001,7 +1000,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   </a>
 </div>
 <!-- FAQ -->
-<div class="sec" id="faq">
+<div class="sec">
 <p class="sec-label reveal">— FAQ</p>
 <h2 class="sec-title reveal"><span class="ja">よくある質問</span><span class="en">QUESTIONS</span></h2>
 <div class="faq-list">
@@ -1301,16 +1300,12 @@ function mitsuCellClick(i){
     const movTop=src.top,revealed=src.under;
     M.board[M.selCell]=revealed?{top:revealed,under:null}:null;
     M.board[i]=cell?{top:movTop,under:cell.top}:{top:movTop,under:null};
-    // 優先1: 露出したコインで3揃いチェック
-    if(revealed){
+    if(revealed&&checkHiddenWin(M.board,revealed.owner)){
       mitsuRenderBoard();
-      if(checkVisibleWin(M.board,revealed.owner)){
-        const wc=getWinCells(M.board,revealed.owner);
-        highlightWin('mitsu-board',wc,revealed.owner);
-        showWinBanner(revealed.owner,'hidden',resetMitsu);return;
-      }
+      const wc=getWinCells(M.board,revealed.owner,true);
+      highlightWin('mitsu-board',wc,revealed.owner);
+      showWinBanner(revealed.owner,'hidden',resetMitsu);return;
     }
-    // 優先2: 持ち上げたコインを置いた先で3揃いチェック
     M.selCell=null;M.phase='pick';
     mitsuAfterPlace('fire');return;
   }
@@ -1323,13 +1318,6 @@ function mitsuAfterPlace(player){
     showWinBanner(player,'visible',resetMitsu);return;
   }
   mitsuNext();mitsuUpdateUI();
-  // 全プレイヤーの勝ちチェック（CPUターン移行後も確認）
-  for(const p of ['fire','water','wind']){
-    if(checkVisibleWin(M.board,p)){
-      const wc=getWinCells(M.board,p);highlightWin('mitsu-board',wc,p);
-      showWinBanner(p,'visible',resetMitsu);return;
-    }
-  }
   if(mitsuCur()!=='fire')setTimeout(mitsuCPU,700);
 }
 
@@ -1546,15 +1534,10 @@ function mitsuExecAction(p,act){
     const dst=M.board[act.to];
     M.board[act.to]=dst?{top:movTop,under:dst.top}:{top:movTop,under:null};
     mitsuRenderBoard();
-    // 優先1: 露出したコインで3揃いチェック
-    if(revealed){
-      if(checkVisibleWin(M.board,revealed.owner)){
-        const wc=getWinCells(M.board,revealed.owner);
-        highlightWin('mitsu-board',wc,revealed.owner);
-        showWinBanner(revealed.owner,'hidden',resetMitsu);return;
-      }
+    if(revealed&&checkHiddenWin(M.board,revealed.owner)){
+      const wc=getWinCells(M.board,revealed.owner,true);highlightWin('mitsu-board',wc,revealed.owner);
+      showWinBanner(revealed.owner,'hidden',resetMitsu);return;
     }
-    // 優先2: 持ち上げたコインを置いた先で3揃いチェック
     if(checkVisibleWin(M.board,p)){
       const wc=getWinCells(M.board,p);highlightWin('mitsu-board',wc,p);
       showWinBanner(p,'visible',resetMitsu);return;
@@ -2569,7 +2552,6 @@ function closeLB() {
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLB(); });
 </script>
-<script>function toggleNavMenu(){var m=document.getElementById("nav-menu");m.classList.toggle("open");}document.addEventListener("click",function(e){var menu=document.getElementById("nav-menu");var btn=document.querySelector(".nav-hamburger");if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)){menu.classList.remove("open");}});document.querySelectorAll(".nav-menu-item,.nav-link").forEach(function(a){a.addEventListener("click",function(){document.getElementById("nav-menu").classList.remove("open");});});</script>
 </body>
 </html>
 <style>
