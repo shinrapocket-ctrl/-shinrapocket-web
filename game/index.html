@@ -413,7 +413,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <div class="hero-badges">
 <span class="badge"><span class="ja">ボードゲーム</span><span class="en">BOARD GAME</span></span>
 <span class="badge"><span class="ja">ポケットサイズ</span><span class="en">POCKET-SIZED</span></span>
-<span class="badge"><span class="ja">年齢・言語不問</span><span class="en">ANY AGE · ANY LANGUAGE</span></span><a href="https://www.tokai-cci.or.jp/bussan/" target="_blank" rel="noopener" class="badge" style="background:#FFD600;color:#080808;font-weight:700;border:none;text-decoration:none;">東海市推奨品</a><span id="design-badge" onclick="event.stopPropagation();var p=document.getElementById('design-popup');p.style.display=p.style.display==='block'?'none':'block'" class="badge" style="cursor:pointer;position:relative;">意匠登録済み<span id="design-popup" style="display:none;position:absolute;top:calc(100% + 8px);left:0;background:#080808;border:1px solid rgba(255,214,0,0.3);padding:10px 14px;white-space:nowrap;font-size:10px;color:#F5F2EB;letter-spacing:0.05em;z-index:100;">意匠登録第1824153号 / 第1817830号</span></span>
+<span class="badge"><span class="ja">年齢・言語不問</span><span class="en">ANY AGE · ANY LANGUAGE</span></span>
 </div>
 <h1 class="hero-title">
 <span class="ja">三目並べだと<br/>思ったら、<br/><span class="accent">全然違った。</span></span>
@@ -481,6 +481,10 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <a class="btn-ghost" href="https://youtu.be/L9clwqkmh2w" rel="noopener" target="_blank">
         ▶ <span class="ja">しんらポケットとは...？</span><span class="en">WHAT IS SHINRA POCKET?</span>
 </a>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;">
+<a href="https://www.tokai-cci.or.jp/bussan/" target="_blank" rel="noopener" class="badge" style="background:#FFD600;color:#080808;font-weight:700;border:none;text-decoration:none;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.15em;padding:5px 10px;">東海市推奨品</a>
+<span id="design-badge2" onclick="event.stopPropagation();var p=document.getElementById('design-popup2');p.style.display=p.style.display==='block'?'none':'block'" class="badge" style="border:1px solid rgba(255,214,0,0.4);color:#FFD600;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.15em;padding:5px 10px;cursor:pointer;position:relative;">意匠登録済み<span id="design-popup2" style="display:none;position:absolute;bottom:calc(100% + 8px);left:0;background:#080808;border:1px solid rgba(255,214,0,0.3);padding:10px 14px;white-space:nowrap;font-size:10px;color:#F5F2EB;letter-spacing:0.05em;z-index:100;">意匠登録第1824153号 / 第1817830号</span></span>
 </div>
 </div>
 </div>
@@ -2569,7 +2573,7 @@ function closeLB() {
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLB(); });
 </script>
-<script>function toggleNavMenu(){var m=document.getElementById("nav-menu");m.classList.toggle("open");}document.addEventListener("click",function(e){var popup=document.getElementById("design-popup");if(popup&&!document.getElementById("design-badge").contains(e.target)){popup.style.display="none";}var menu=document.getElementById("nav-menu");var btn=document.querySelector(".nav-hamburger");if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)){menu.classList.remove("open");}});document.querySelectorAll(".nav-menu-item,.nav-link").forEach(function(a){a.addEventListener("click",function(){document.getElementById("nav-menu").classList.remove("open");});});</script>
+<script>function toggleNavMenu(){var m=document.getElementById("nav-menu");m.classList.toggle("open");}document.addEventListener("click",function(e){var popup2=document.getElementById("design-popup2");if(popup2&&document.getElementById("design-badge2")&&!document.getElementById("design-badge2").contains(e.target)){popup2.style.display="none";}var menu=document.getElementById("nav-menu");var btn=document.querySelector(".nav-hamburger");if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)){menu.classList.remove("open");}});document.querySelectorAll(".nav-menu-item,.nav-link").forEach(function(a){a.addEventListener("click",function(){document.getElementById("nav-menu").classList.remove("open");});});</script>
 </body>
 </html>
 <style>
