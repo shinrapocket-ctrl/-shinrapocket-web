@@ -1011,9 +1011,20 @@ function pgSaveImage(){
   ctx.fillText('SHINRA POCKET — タイプ診断',80,110);
   
   // キャラ画像
-  var img=card.querySelector('img');
-  if(img&&img.complete){
-    ctx.drawImage(img,340,120,400,400);
+  var imgEl=card.querySelector('img');
+  if(imgEl){
+    var tmpImg=new Image();
+    tmpImg.crossOrigin='anonymous';
+    tmpImg.onload=function(){
+      ctx.drawImage(tmpImg,340,120,400,400);
+      // 描画後にダウンロード
+      var a=document.createElement('a');
+      a.download='shinrapocket-type.png';
+      a.href=canvas.toDataURL('image/png');
+      a.click();
+    };
+    tmpImg.src=imgEl.src;
+    return; // 非同期なので早期return
   }
   
   // タイトル
@@ -1047,10 +1058,6 @@ function pgSaveImage(){
   ctx.font='300 24px monospace';
   ctx.fillText('shinrapocket.com',80,1010);
   
-  var a=document.createElement('a');
-  a.download='shinrapocket-type.png';
-  a.href=canvas.toDataURL('image/png');
-  a.click();
 }
 function pgReset(){
   pgState={sun:null,elem:null};
