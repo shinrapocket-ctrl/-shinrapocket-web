@@ -994,17 +994,19 @@ function pgSaveImage(){
   var card=document.querySelector('.pg-result-card');
   if(!card){return;}
   html2canvas(card,{backgroundColor:'#0e0e0e',scale:2,useCORS:true}).then(function(canvas){
-    canvas.toBlob(function(blob){
-      var file=new File([blob],'shinrapocket-type.png',{type:'image/png'});
-      if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
-        navigator.share({files:[file],title:'Shinra Pocket タイプ診断'});
-      } else {
-        var a=document.createElement('a');
-        a.download='shinrapocket-type.png';
-        a.href=URL.createObjectURL(blob);
-        a.click();
-      }
-    },'image/png');
+    var existing=document.getElementById('pgShareImg');
+    if(existing)existing.remove();
+    var img=document.createElement('img');
+    img.id='pgShareImg';
+    img.src=canvas.toDataURL('image/png');
+    img.style='width:100%;margin-top:1rem;border-radius:4px;display:block';
+    var hint=document.createElement('p');
+    hint.style='font-size:.7rem;color:var(--dim);text-align:center;margin-top:.4rem;font-family:DM Mono,monospace;letter-spacing:.08em';
+    hint.textContent='画像を長押し → 写真に追加';
+    var wrap=document.getElementById('pgResult');
+    wrap.appendChild(img);
+    wrap.appendChild(hint);
+    img.scrollIntoView({behavior:'smooth'});
   });
 }
 function pgReset(){
