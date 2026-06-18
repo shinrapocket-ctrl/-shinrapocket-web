@@ -968,9 +968,9 @@ function pgSelect3(n){
   if(!d){alert('key='+key);return;}
   document.getElementById('pgStep3').style.display='none';
   var sel=pgSunLabel[pgState.sun]+' × '+pgElemLabel[pgState.elem]+' × '+n;
-  var shareText=encodeURIComponent('私のタイプは「'+d.title+'」でした！\n'+d.mbti+'\n\nShinra Pocket タイプ診断ゲーム');
+  var shareText=encodeURIComponent('私のタイプは「'+d.title+'」でした！\n'+d.mbti+'\n\nShinra Pocket タイプ診断ゲーム\n\nshinrapocket.com');
   var shareUrl=encodeURIComponent('https://shinrapocket.com/#personaSection');
-  var xUrl='https://twitter.com/intent/tweet?text='+shareText+'&url='+shareUrl+'&hashtags=しんらポケット';
+  var xUrl='https://twitter.com/intent/tweet?text='+shareText+'\u0026url='+shareUrl+'\u0026hashtags=しんらポケット,shinrapocket';
   var threadsUrl='barcelona://create_post?caption='+shareText;
   var creatureImg=pgCreature[key]||'';
   var html='<div class="pg-result-card">'
