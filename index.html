@@ -993,72 +993,19 @@ function pgSelect3(n){
 function pgSaveImage(){
   var card=document.querySelector('.pg-result-card');
   if(!card){return;}
-  var canvas=document.createElement('canvas');
-  canvas.width=1080;canvas.height=1080;
-  var ctx=canvas.getContext('2d');
-  
-  // 背景
-  ctx.fillStyle='#0e0e0e';
-  ctx.fillRect(0,0,1080,1080);
-  
-  // 枠
-  ctx.strokeStyle='#f5c842';
-  ctx.lineWidth=4;
-  ctx.strokeRect(40,40,1000,1000);
-  
-  // ブランド名
-  ctx.fillStyle='#f5c842';
-  ctx.font='600 26px monospace';
-  ctx.fillText('SHINRA POCKET — タイプ診断',80,110);
-  
-  // キャラ画像
-  var imgEl=card.querySelector('img');
-  if(imgEl){
-    var tmpImg=new Image();
-    tmpImg.crossOrigin='anonymous';
-    tmpImg.onload=function(){
-      ctx.drawImage(tmpImg,340,120,400,400);
-      // 描画後にダウンロード
-      var a=document.createElement('a');
-      a.download='shinrapocket-type.png';
-      a.href=canvas.toDataURL('image/png');
-      a.click();
-    };
-    tmpImg.src=imgEl.src;
-    return; // 非同期なので早期return
-  }
-  
-  // タイトル
-  var title=card.querySelector('.pg-result-title');
-  var mbti=card.querySelector('.pg-result-mbti');
-  var desc=card.querySelector('.pg-result-desc');
-  
-  ctx.fillStyle='#fafaf7';
-  ctx.font='bold 72px sans-serif';
-  if(title)ctx.fillText(title.textContent,80,600);
-  
-  ctx.fillStyle='#f5c842';
-  ctx.font='400 36px monospace';
-  if(mbti)ctx.fillText(mbti.textContent,80,660);
-  
-  ctx.fillStyle='rgba(250,250,247,0.7)';
-  ctx.font='300 30px sans-serif';
-  if(desc){
-    var words=desc.textContent;
-    var line='',x=80,y=730,maxW=920,lineH=48;
-    for(var i=0;i<words.length;i++){
-      var test=line+words[i];
-      if(ctx.measureText(test).width>maxW){ctx.fillText(line,x,y);line=words[i];y+=lineH;}
-      else{line=test;}
-    }
-    if(line)ctx.fillText(line,x,y);
-  }
-  
-  // URL
-  ctx.fillStyle='rgba(245,200,66,0.5)';
-  ctx.font='300 24px monospace';
-  ctx.fillText('shinrapocket.com',80,1010);
-  
+  html2canvas(card,{backgroundColor:'#0e0e0e',scale:2,useCORS:true}).then(function(canvas){
+    canvas.toBlob(function(blob){
+      var file=new File([blob],'shinrapocket-type.png',{type:'image/png'});
+      if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+        navigator.share({files:[file],title:'Shinra Pocket タイプ診断'});
+      } else {
+        var a=document.createElement('a');
+        a.download='shinrapocket-type.png';
+        a.href=URL.createObjectURL(blob);
+        a.click();
+      }
+    },'image/png');
+  });
 }
 function pgReset(){
   pgState={sun:null,elem:null};
