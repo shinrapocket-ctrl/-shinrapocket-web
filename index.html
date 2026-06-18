@@ -971,7 +971,7 @@ function pgSelect3(n){
   var shareText=encodeURIComponent('私のタイプは「'+d.title+'」でした！\n'+d.mbti+'\n\nShinra Pocket タイプ診断ゲーム');
   var shareUrl=encodeURIComponent('https://shinrapocket.com/#personaSection');
   var xUrl='https://twitter.com/intent/tweet?text='+shareText+'&url='+shareUrl+'&hashtags=しんらポケット';
-  var threadsUrl='https://www.threads.net/intent/post?text='+shareText+'%20'+shareUrl;
+  var threadsUrl='threads://intent/post?text='+shareText+'%20'+shareUrl;
   var creatureImg=pgCreature[key]||'';
   var html='<div class="pg-result-card">'
     +'<img src="'+creatureImg+'" style="width:160px;height:160px;object-fit:contain;display:block;margin:0 auto 1rem">'
