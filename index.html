@@ -999,7 +999,7 @@ function pgSelect3(n){
       btnWrap.style='display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.75rem';
       var shareTextRaw=decodeURIComponent(shareText);
       btnWrap.innerHTML='<a href="'+xUrl+'" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;background:#000;color:#fff;padding:.55rem 1.2rem;font-size:.65rem;letter-spacing:.1em;text-decoration:none;border-radius:2px">𝕏 でシェア</a>'
-        +'<button onclick="navigator.clipboard.writeText(decodeURIComponent(\''+shareText+'\'));window.location.href=\'threads://\';" style="display:inline-flex;align-items:center;gap:.4rem;background:#000;color:#fff;border:none;padding:.55rem 1.2rem;font-size:.65rem;letter-spacing:.1em;cursor:pointer;border-radius:2px">Threads でシェア</button>'
+        +'<button onclick="navigator.clipboard.writeText(decodeURIComponent(\''+shareText+'\')).then(function(){alert(\'コピーしました！Threadsアプリで貼り付けてください。\')})" style="display:inline-flex;align-items:center;gap:.4rem;background:#000;color:#fff;border:none;padding:.55rem 1.2rem;font-size:.65rem;letter-spacing:.1em;cursor:pointer;border-radius:2px">Threads 用コピー</button>'
         +'<button class="pg-back" onclick="pgReset()" style="margin-top:0">もう一度遊ぶ</button>';
       var wrap=document.getElementById('pgResult');
       wrap.appendChild(img);
