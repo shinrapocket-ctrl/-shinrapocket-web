@@ -20,6 +20,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:var(--paper);opacity:.38;text-decoration:none;font-size:.76rem;letter-spacing:.1em;font-weight:300;transition:opacity .2s;font-family:'DM Mono',monospace;text-transform:uppercase}
 .nav-links a:hover{opacity:1}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--paper);opacity:.7;transition:all .3s}
+.nav-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(14,14,14,.97);z-index:99;flex-direction:column;justify-content:center;align-items:center;gap:2rem}
+.nav-menu.open{display:flex}
+.nav-menu a{color:var(--paper);text-decoration:none;font-family:'DM Mono',monospace;font-size:1rem;letter-spacing:.15em;opacity:.6;transition:opacity .2s}
+.nav-menu a:hover{opacity:1}
 
 /* SNS BAR */
 .sns-bar{background:rgba(245,200,66,.04);border-bottom:1px solid rgba(245,200,66,.07);padding:.5rem 3rem;display:flex;justify-content:flex-end;gap:1.5rem;align-items:center}
@@ -315,6 +321,7 @@ footer{padding:3rem 3rem;border-top:1px solid rgba(245,200,66,.06);max-width:120
 
 @media(max-width:900px){
   .nav-links{display:none}
+  .nav-hamburger{display:flex}
   .hide-mobile{display:none!important}
   .brand-grid{grid-template-columns:1fr}
   .game-modes{grid-template-columns:1fr}
@@ -389,7 +396,18 @@ footer{padding:3rem 3rem;border-top:1px solid rgba(245,200,66,.06);max-width:120
     <li><a href="#links">リンク</a></li>
     <li><a href="https://shinratoys.base.shop" target="_blank" style="background:var(--gold);color:var(--ink)!important;opacity:1!important;padding:.28rem .85rem;font-weight:700!important">ショップ →</a></li>
   </ul>
+  <button class="nav-hamburger" onclick="toggleNav()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-menu" id="navMenu">
+  <a href="#brand" onclick="closeNav()">ブランド</a>
+  <a href="#video" onclick="closeNav()">動画</a>
+  <a href="#product" onclick="closeNav()">ゲーム</a>
+  <a href="#game" onclick="closeNav()">ルール</a>
+  <a href="#links" onclick="closeNav()">リンク</a>
+  <a href="https://shinratoys.base.shop" target="_blank" onclick="closeNav()" style="color:var(--gold);opacity:1">ショップ →</a>
+</div>
 <div class="sns-bar">
   <a href="https://www.instagram.com/shinrapocket" target="_blank" class="sns-link">Instagram</a>
   <a href="https://www.tiktok.com/@shinrawonderfultoys" target="_blank" class="sns-link">TikTok</a>
@@ -999,5 +1017,13 @@ document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
     <div class="chat-success-sub">運営から折り返しご連絡します。<br>しばらくお待ちください。</div>
   </div>
 </div>
+<script>
+function toggleNav(){document.getElementById('navMenu').classList.toggle('open')}
+function closeNav(){document.getElementById('navMenu').classList.remove('open')}
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('navMenu');
+  if(menu.classList.contains('open')&&!menu.contains(e.target)&&!e.target.closest('.nav-hamburger')){closeNav()}
+})
+</script>
 </body>
 </html>
