@@ -908,6 +908,26 @@ const pts=Array.from({length:80},()=>new Pt);
 
 // PERSONA GAME
 var pgState={sun:null,elem:null};
+var pgCreature={
+  'sun-fire-1':'creatures_tp/見せる戦略家.png',
+  'sun-fire-2':'creatures_tp/カリスマ調整役.png',
+  'sun-fire-3':'creatures_tp/エネルギーの王.png',
+  'sun-water-1':'creatures_tp/共感する論客.png',
+  'sun-water-2':'creatures_tp/癒しの太陽.png',
+  'sun-water-3':'creatures_tp/ギャップの光.png',
+  'sun-wind-1':'creatures_tp/理性で盛り上げる.png',
+  'sun-wind-2':'creatures_tp/社交の達人.png',
+  'sun-wind-3':'creatures_tp/論破エンタメ系.png',
+  'moon-fire-1':'creatures_tp/内に燃える戦術家.png',
+  'moon-fire-2':'creatures_tp/思いやりの炎.png',
+  'moon-fire-3':'creatures_tp/静かな情熱家.png',
+  'moon-water-1':'creatures_tp/感情の読解者.png',
+  'moon-water-2':'creatures_tp/共感のプロ.png',
+  'moon-water-3':'creatures_tp/内に秘めた情熱.png',
+  'moon-wind-1':'creatures_tp/静かなる頭脳.png',
+  'moon-wind-2':'creatures_tp/対話の橋渡し.png',
+  'moon-wind-3':'creatures_tp/理論派サポーター.png'
+};
 var pgData={
   'sun-fire-1':{title:'見せる戦略家',desc:'熱さと計算のバランス。頭の良い熱血タイプ。',mbti:'ENTJ'},
   'sun-fire-2':{title:'カリスマ調整役',desc:'周囲を盛り上げつつ、場のバランスも見られる柔軟派。',mbti:'ENFJ'},
@@ -950,7 +970,9 @@ function pgSelect3(n){
   var shareText=encodeURIComponent('私のタイプは「'+d.title+'」でした！\n'+d.mbti+'\n\nShinra Pocket タイプ診断ゲーム');
   var shareUrl=encodeURIComponent('https://shinrapocket.com/#personaSection');
   var xUrl='https://twitter.com/intent/tweet?text='+shareText+'&url='+shareUrl+'&hashtags=しんらポケット';
+  var creatureImg=pgCreature[key]||'';
   var html='<div class="pg-result-card">'
+    +'<img src="'+creatureImg+'" style="width:160px;height:160px;object-fit:contain;display:block;margin:0 auto 1rem">'
     +'<div class="pg-result-badge">Result</div>'
     +'<div class="pg-result-title">'+d.title+'</div>'
     +'<div class="pg-result-mbti">'+d.mbti+'</div>'
