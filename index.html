@@ -946,6 +946,9 @@ function pgSelect3(n){
   var d=pgData[key];
   document.getElementById('pgStep3').style.display='none';
   var sel=pgSunLabel[pgState.sun]+' × '+pgElemLabel[pgState.elem]+' × '+n;
+  var shareText=encodeURIComponent('私のタイプは「'+d.title+'」でした！\n'+d.mbti+'\n\nShinra Pocket タイプ診断ゲーム');
+  var shareUrl=encodeURIComponent('https://shinrapocket.com/#personaSection');
+  var xUrl='https://twitter.com/intent/tweet?text='+shareText+'&url='+shareUrl+'&hashtags=しんらポケット';
   var html='<div class="pg-result-card">'
     +'<div class="pg-result-badge">Result</div>'
     +'<div class="pg-result-title">'+d.title+'</div>'
@@ -953,7 +956,10 @@ function pgSelect3(n){
     +'<div class="pg-result-desc">'+d.desc+'</div>'
     +'<div class="pg-result-sel">選択: '+sel+'</div>'
     +'</div>'
-    +'<button class="pg-back" onclick="pgReset()">もう一度遊ぶ</button>';
+    +'<div style="display:flex;gap:.7rem;margin-top:1rem;flex-wrap:wrap">'
+    +'<a href="'+xUrl+'" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;background:#000;color:#fff;padding:.55rem 1.2rem;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-decoration:none;border-radius:2px">𝕏 でシェア</a>'
+    +'<button class="pg-back" onclick="pgReset()" style="margin-top:0">もう一度遊ぶ</button>'
+    +'</div>';
   document.getElementById('pgResult').innerHTML=html;
   document.getElementById('pgResult').style.display='block';
 }
