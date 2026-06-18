@@ -944,6 +944,7 @@ function pgSelect2(v){
 function pgSelect3(n){
   var key=pgState.sun+'-'+pgState.elem+'-'+n;
   var d=pgData[key];
+  if(!d){alert('key='+key);return;}
   document.getElementById('pgStep3').style.display='none';
   var sel=pgSunLabel[pgState.sun]+' × '+pgElemLabel[pgState.elem]+' × '+n;
   var shareText=encodeURIComponent('私のタイプは「'+d.title+'」でした！\n'+d.mbti+'\n\nShinra Pocket タイプ診断ゲーム');
