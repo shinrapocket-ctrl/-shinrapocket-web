@@ -983,22 +983,14 @@ function pgSelect3(n){
   var xUrl='https://twitter.com/intent/tweet?text='+xShareText+'\u0026url='+shareUrl+'\u0026hashtags=しんらポケット,shinrapocket';
   var threadsUrl='barcelona://create_post?caption='+shareText;
   var creatureImg=pgCreature[key]||'';
-  var html='<div class="pg-result-card">'
-    +'<img src="'+creatureImg+'" style="width:160px;height:160px;object-fit:contain;display:block;margin:0 auto 1rem">'
-    +'<div class="pg-result-badge">Result</div>'
-    +'<div class="pg-result-title">'+d.title+'</div>'
-    +'<div class="pg-result-mbti">'+d.mbti+'</div>'
-    +'<div class="pg-result-desc">'+d.desc+'</div>'
-
-    +'</div>'
+  var html='<img id="pgCardImg" src="'+creatureImg+'" style="width:100%;display:block;border-radius:8px;margin-top:.5rem" crossorigin="anonymous">'
   document.getElementById('pgResult').innerHTML=html;
   document.getElementById('pgResult').style.display='block';
   // 結果表示後に自動で画像生成
   setTimeout(function(){
-    var card=document.querySelector('.pg-result-card');
-    if(!card||typeof html2canvas==='undefined')return;
-    html2canvas(card,{backgroundColor:'#0e0e0e',scale:2,useCORS:true}).then(function(canvas){
-      card.style.display='none';
+    var cardImg=document.getElementById('pgCardImg');
+    if(!cardImg||typeof html2canvas==='undefined')return;
+    html2canvas(document.getElementById('pgResult'),{backgroundColor:null,scale:2,useCORS:true}).then(function(canvas){
       var img=document.createElement('img');
       img.src=canvas.toDataURL('image/png');
       img.style='width:100%;border-radius:4px;display:block';
