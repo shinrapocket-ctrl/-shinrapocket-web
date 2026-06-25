@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHINRA POCKET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#080808;color:#f5f2eb;font-family:'Space Mono',monospace;overflow-x:hidden;height:400vh;}
+#canvas-wrap{position:fixed;inset:0;z-index:1;}
+canvas{width:100%!important;height:100%!important;}
+#ui{position:fixed;inset:0;z-index:2;pointer-events:none;}
+#loading{position:fixed;inset:0;background:#080808;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity 1s ease;}
+#loading.out{opacity:0;pointer-events:none;}
+.ld-logo{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.3em;color:#f5f2eb;}
+.ld-bar-wrap{width:160px;height:1px;background:rgba(255,255,255,0.1);}
+.ld-bar{height:1px;background:#f5c842;width:0%;transition:width 0.2s ease;}
+#hero-text{position:absolute;bottom:12vh;left:50%;transform:translateX(-50%);text-align:center;opacity:0;transition:opacity 1.2s ease;}
+#hero-text.show{opacity:1;}
+.hero-eyebrow{font-size:10px;letter-spacing:0.35em;color:rgba(245,200,66,0.65);text-transform:uppercase;margin-bottom:0.8rem;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,12vw,128px);line-height:0.88;color:#f5f2eb;}
+.hero-sub{margin-top:1rem;font-size:10px;letter-spacing:0.2em;color:rgba(245,242,235,0.35);text-transform:uppercase;}
+#scroll-hint{position:absolute;bottom:3rem;right:3rem;display:flex;flex-direction:column;align-items:center;gap:0.6rem;opacity:1;transition:opacity 0.6s;}
+#scroll-hint.hide{opacity:0;}
+.sh-text{font-size:8px;letter-spacing:0.3em;color:rgba(245,242,235,0.25);text-transform:uppercase;writing-mode:vertical-rl;}
+.sh-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(245,200,66,0.5),transparent);animation:shLine 1.8s ease infinite;}
+@keyframes shLine{0%,100%{opacity:0.3;transform:scaleY(0.4);}50%{opacity:1;transform:scaleY(1);}}
+#text-coins{position:absolute;left:8vw;top:50%;transform:translateY(-50%);opacity:0;transition:opacity 0.8s ease;}
+#text-coins.show{opacity:1;}
+.tx-eyebrow{font-size:9px;letter-spacing:0.3em;color:rgba(245,200,66,0.6);text-transform:uppercase;margin-bottom:0.8rem;}
+.tx-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);line-height:1;color:#f5f2eb;margin-bottom:1rem;}
+.tx-body{font-family:'Shippori Mincho',serif;font-size:13px;color:rgba(245,242,235,0.5);line-height:2;max-width:280px;}
+#text-cta{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;opacity:0;transition:opacity 0.8s ease;pointer-events:none;}
+#text-cta.show{opacity:1;pointer-events:all;}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,88px);line-height:1;color:#f5f2eb;margin-bottom:2rem;}
+.cta-btn{display:inline-block;padding:1rem 3rem;border:1px solid rgba(245,200,66,0.5);color:#f5c842;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;text-decoration:none;text-transform:uppercase;transition:background 0.3s,color 0.3s;cursor:pointer;}
+.cta-btn:hover{background:#f5c842;color:#080808;}
+#progress{position:absolute;left:3rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:0.5rem;opacity:0;transition:opacity 0.6s;}
+#progress.show{opacity:1;}
+.prog-dot{width:4px;height:4px;border-radius:50%;background:rgba(245,242,235,0.2);transition:background 0.4s,transform 0.4s;}
+.prog-dot.active{background:#f5c842;transform:scale(1.5);}
+</style>
+</head>
+<body>
+<div id="loading"><div class="ld-logo">SHINRA POCKET</div><div class="ld-bar-wrap"><div class="ld-bar" id="ld-bar"></div></div></div>
+<div id="canvas-wrap"><canvas id="c"></canvas></div>
+<div id="ui">
+  <div id="hero-text">
+    <div class="hero-eyebrow">同じ場所、違う世界</div>
+    <div class="hero-title">SHINRA<br>POCKET</div>
+    <div class="hero-sub">18 coins · 3×3 · original strategy game</div>
+  </div>
+  <div id="scroll-hint"><div class="sh-line"></div><div class="sh-text">Scroll</div></div>
+  <div id="text-coins">
+    <div class="tx-eyebrow">18 Coins</div>
+    <div class="tx-title">火・水・風<br>18枚のコイン</div>
+    <div class="tx-body">それぞれの属性が<br>盤上に新しい世界を作る。</div>
+  </div>
+  <div id="text-cta">
+    <div class="cta-title">世界に入る</div>
+    <a href="/game" class="cta-btn">ゲームを見る →</a>
+  </div>
+  <div id="progress">
+    <div class="prog-dot active" data-i="0"></div>
+    <div class="prog-dot" data-i="1"></div>
+    <div class="prog-dot" data-i="2"></div>
+  </div>
+</div>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/three.module.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/GLTFLoader.js';
+const canvas=document.getElementById('c');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+renderer.setSize(window.innerWidth,window.innerHeight);
+renderer.outputEncoding=THREE.sRGBEncoding;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.2;
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(42,window.innerWidth/window.innerHeight,0.01,200);
+camera.position.set(0,1.5,10);
+camera.lookAt(0,0,0);
+scene.add(new THREE.AmbientLight(0xfff5e0,0.5));
+const key=new THREE.DirectionalLight(0xffffff,2);key.position.set(4,8,6);scene.add(key);
+const fill=new THREE.DirectionalLight(0xf5c842,0.4);fill.position.set(-6,2,4);scene.add(fill);
+const rim=new THREE.DirectionalLight(0xaaccff,0.6);rim.position.set(0,-4,-6);scene.add(rim);
+const COIN_NAMES=['火1700.004','火1700.015','火1700.042','火1700.008','火1700.026','火1700.001','水1700','水1700.001','水1700.022','水1700.043','水1700.004','水1700.010','風1700.011','風1700.012','風1700.036','風1700.041','風1700.003','風1700.024'];
+let bodyMesh,lidMesh,ringMesh,coins=[],repCoin=null,ready=false;
+const loader=new GLTFLoader();
+const ldBar=document.getElementById('ld-bar');
+loader.load('撮影スタジオ.glb',(gltf)=>{
+  gltf.scene.traverse(child=>{
+    if(!child.isMesh)return;
+    const n=child.name;
+    if(n==='body_0923'){bodyMesh=child.clone();scene.add(bodyMesh);}
+    if(n==='cap_0924'){lidMesh=child.clone();scene.add(lidMesh);}
+    if(n==='輪：直し'){ringMesh=child.clone();scene.add(ringMesh);}
+    if(COIN_NAMES.includes(n)){
+      const m=child.clone();
+      m.rotation.x=Math.PI;
+      m.visible=false;
+      m.scale.setScalar(0.18);
+      coins.push(m);scene.add(m);
+      if(!repCoin)repCoin=m;
+    }
+  });
+  ldBar.style.width='100%';
+  setTimeout(()=>{
+    document.getElementById('loading').classList.add('out');
+    document.getElementById('hero-text').classList.add('show');
+    document.getElementById('progress').classList.add('show');
+    ready=true;
+  },700);
+},(p)=>{ldBar.style.width=(p.loaded/p.total*95)+'%';},(e)=>{console.error(e);});
+let sp=0;
+window.addEventListener('scroll',()=>{
+  sp=window.scrollY/(document.body.scrollHeight-window.innerHeight);
+  document.getElementById('scroll-hint').classList.toggle('hide',sp>0.03);
+});
+function updateUI(s){
+  const h=document.getElementById('hero-text');
+  const tc=document.getElementById('text-coins');
+  const cta=document.getElementById('text-cta');
+  const dots=document.querySelectorAll('.prog-dot');
+  if(s<0.3){h.classList.add('show');tc.classList.remove('show');cta.classList.remove('show');dots.forEach((d,i)=>d.classList.toggle('active',i===0));}
+  else if(s<0.7){h.classList.remove('show');tc.classList.add('show');cta.classList.remove('show');dots.forEach((d,i)=>d.classList.toggle('active',i===1));}
+  else{h.classList.remove('show');tc.classList.remove('show');cta.classList.add('show');dots.forEach((d,i)=>d.classList.toggle('active',i===2));}
+}
+const coinTargets=Array.from({length:18},(_,i)=>{
+  const angle=(i/18)*Math.PI*2;const r=2.5+(i%3)*0.8;
+  return new THREE.Vector3(Math.cos(angle)*r,Math.sin(angle)*r*0.5,(i%4-1.5)*0.4);
+});
+const clock=new THREE.Clock();let smoothSp=0;
+function animate(){
+  requestAnimationFrame(animate);
+  if(!ready){renderer.render(scene,camera);return;}
+  const t=clock.getElapsedTime();
+  smoothSp+=(sp-smoothSp)*0.06;
+  updateUI(smoothSp);
+  const bpos=new THREE.Vector3(0,Math.sin(t*0.5)*0.08,0);
+  if(smoothSp<0.25){
+    if(bodyMesh){bodyMesh.visible=true;bodyMesh.position.copy(bpos);bodyMesh.rotation.y=Math.sin(t*0.3)*0.15;}
+    if(lidMesh){lidMesh.visible=true;lidMesh.position.copy(bpos);lidMesh.rotation.y=Math.sin(t*0.3)*0.15;lidMesh.rotation.x=0;}
+    if(ringMesh){ringMesh.visible=true;ringMesh.position.copy(bpos);}
+    coins.forEach(c=>{c.visible=false;});
+    camera.position.set(0,1.5,10);camera.lookAt(0,0,0);
+  } else if(smoothSp<0.45){
+    const p=(smoothSp-0.25)/0.2;
+    const bp=new THREE.Vector3(-0.3,0,0);
+    if(bodyMesh){bodyMesh.visible=true;bodyMesh.rotation.y=0.3;bodyMesh.position.copy(bp);}
+    if(lidMesh){lidMesh.visible=true;lidMesh.rotation.x=-p*Math.PI*0.65;lidMesh.rotation.y=0.3;lidMesh.position.copy(bp);}
+    if(ringMesh){ringMesh.visible=true;ringMesh.position.copy(bp);}
+    coins.forEach(c=>{c.visible=false;});
+    camera.position.set(0,2,8);camera.lookAt(0,0,0);
+  } else if(smoothSp<0.7){
+    const p=(smoothSp-0.45)/0.25;
+    const bp=new THREE.Vector3(-0.3-p*3,-p*1.5,-p*2);
+    if(bodyMesh){bodyMesh.position.copy(bp);bodyMesh.visible=p<0.8;}
+    if(lidMesh){lidMesh.position.copy(bp);lidMesh.visible=p<0.8;}
+    if(ringMesh){ringMesh.position.copy(bp);ringMesh.visible=p<0.8;}
+    coins.forEach((coin,i)=>{
+      coin.visible=true;
+      const delay=Math.max(0,p-i*0.035);
+      coin.position.lerpVectors(new THREE.Vector3(0,0,0),coinTargets[i],delay);
+      coin.rotation.y=t*(1.5+i*0.08);
+      coin.rotation.x=Math.PI+t*(0.3+i*0.02);
+    });
+    camera.position.set(0,2,10+p*2);camera.lookAt(0,0,0);
+  } else {
+    const p=(smoothSp-0.7)/0.3;
+    if(bodyMesh)bodyMesh.visible=false;
+    if(lidMesh)lidMesh.visible=false;
+    if(ringMesh)ringMesh.visible=false;
+    coins.forEach((coin,i)=>{
+      if(coin===repCoin){
+        coin.visible=true;
+        coin.position.lerpVectors(coinTargets[0],new THREE.Vector3(0,Math.sin(t*0.6)*0.12,0),Math.min(1,p*3));
+        coin.rotation.y=t*0.7;coin.rotation.x=Math.PI+Math.sin(t*0.4)*0.08;
+        coin.scale.setScalar(0.18+p*0.28);
+      } else {
+        const fade=1-Math.min(1,p*4);
+        coin.visible=fade>0.01;
+        coin.position.y=coinTargets[i].y-p*2;
+        coin.rotation.y=t*(1.5+i*0.08);
+      }
+    });
+    camera.position.set(0,1.5,10-p*3);camera.lookAt(0,0,0);
+  }
+  renderer.render(scene,camera);
+}
+animate();
+window.addEventListener('resize',()=>{
+  camera.aspect=window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth,window.innerHeight);
+});
+</script>
+</body>
+</html>
