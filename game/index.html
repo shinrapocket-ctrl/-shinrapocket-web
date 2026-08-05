@@ -8,22 +8,22 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@400;700;900&amp;family=Space+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
 <style>
-:root{--black:#080808;--yellow:#FFD600;--white:#F5F2EB;--gray1:#141414;--gray2:#1e1e1e;--muted:rgba(245,242,235,0.5);}
+:root{--black:#080808;--yellow:#FFD600;--white:#F5F2EB;--gray1:#141414;--gray2:#1e1e1e;--muted:rgba(245,242,235,0.5);--paper:#FAFAF7;--ink:#0E0E0E;--ink-muted:#5b5a53;--gold-deep:#8B6508;--mist:#ECE8DC;--line:rgba(14,14,14,0.12);--card-shadow:0 1px 2px rgba(14,14,14,0.03),0 6px 20px rgba(14,14,14,0.05);}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;scroll-padding-top:80px;}
-body{background:var(--black);color:var(--white);font-family:'Noto Sans JP',sans-serif;overflow-x:hidden;}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans JP',sans-serif;overflow-x:hidden;}
 body.lang-en .ja{display:none !important;}
 body.lang-ja .en{display:none;}
 
-.topbar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:14px 32px;background:rgba(8,8,8,0.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.15em;color:var(--yellow);text-decoration:none;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:14px 32px;background:rgba(250,250,247,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.15em;color:var(--gold-deep);text-decoration:none;}
 .nav-right{display:flex;align-items:center;gap:14px;}
-.lang-toggle{display:flex;border:1px solid rgba(255,255,255,0.15);border-radius:4px;overflow:hidden;}
-.lang-btn{background:transparent;border:none;color:rgba(255,255,255,0.35);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.05em;padding:6px 8px;cursor:pointer;transition:all 0.2s;}
+.lang-toggle{display:flex;border:1px solid rgba(14,14,14,0.15);border-radius:4px;overflow:hidden;}
+.lang-btn{background:transparent;border:none;color:rgba(14,14,14,0.4);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.05em;padding:6px 8px;cursor:pointer;transition:all 0.2s;}
 .lang-btn.active{background:var(--yellow);color:var(--black);}
 .nav-cta{background:var(--yellow);color:var(--black);font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.05em;padding:8px 10px;white-space:nowrap;text-decoration:none;transition:opacity 0.2s;}
 .nav-cta:hover{opacity:0.85;}
-.nav-link{display:none;}.nav-link-play{display:inline-flex;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;border:1px solid rgba(255,214,0,0.4);color:var(--yellow);padding:6px 12px;text-decoration:none;white-space:nowrap;transition:background 0.2s;}.nav-link-play:hover{background:rgba(255,214,0,0.08);}@media(min-width:768px){.nav-link{display:inline-flex;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(245,242,235,0.55);text-decoration:none;padding:6px 10px;transition:color 0.2s;white-space:nowrap;}.nav-link:hover{color:var(--yellow);}.nav-hamburger{display:none;}.nav-menu{display:flex;position:static;background:transparent;border:none;min-width:auto;gap:2px;}.nav-menu-item{padding:6px 10px;border-bottom:none;font-size:11px;}}.nav-hamburger{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(245,242,235,0.6);font-size:18px;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;}.nav-menu{display:none;position:absolute;top:100%;right:0;background:rgba(8,8,8,0.97);border:1px solid rgba(255,255,255,0.08);min-width:160px;z-index:300;}.nav-menu.open{display:block;}.nav-menu-item{display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(245,242,235,0.55);text-decoration:none;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}.nav-menu-item:hover{color:var(--yellow);background:rgba(255,214,0,0.04);}
+.nav-link{display:none;}.nav-link-play{display:inline-flex;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;border:1px solid rgba(255,214,0,0.5);color:var(--gold-deep);padding:6px 12px;text-decoration:none;white-space:nowrap;transition:background 0.2s;}.nav-link-play:hover{background:rgba(255,214,0,0.1);}@media(min-width:768px){.nav-link{display:inline-flex;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(14,14,14,0.55);text-decoration:none;padding:6px 10px;transition:color 0.2s;white-space:nowrap;}.nav-link:hover{color:var(--gold-deep);}.nav-hamburger{display:none;}.nav-menu{display:flex;position:static;background:transparent;border:none;min-width:auto;gap:2px;}.nav-menu-item{padding:6px 10px;border-bottom:none;font-size:11px;}}.nav-hamburger{background:transparent;border:1px solid rgba(14,14,14,0.15);color:rgba(14,14,14,0.6);font-size:18px;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;}.nav-menu{display:none;position:absolute;top:100%;right:0;background:rgba(250,250,247,0.98);border:1px solid var(--line);min-width:160px;z-index:300;}.nav-menu.open{display:block;}.nav-menu-item{display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(14,14,14,0.6);text-decoration:none;padding:12px 20px;border-bottom:1px solid var(--line);transition:color 0.2s;}.nav-menu-item:hover{color:var(--gold-deep);background:rgba(255,214,0,0.08);}
 
 .hero{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:60svh;padding-bottom:40px;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
@@ -40,49 +40,66 @@ body.lang-ja .en{display:none;}
 .btn-primary:hover{transform:translateY(-2px);background:#ffe033;}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(245,242,235,0.6);font-family:'Space Mono',monospace;font-size:12px;text-decoration:none;border-bottom:1px solid rgba(245,242,235,0.2);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
 .btn-ghost:hover{color:var(--white);border-color:var(--white);}
+.hero-video-link{margin-top:18px;}
+.hero-video-link a{display:inline-flex;align-items:center;gap:8px;color:rgba(245,242,235,0.4);font-family:'Space Mono',monospace;font-size:11px;text-decoration:none;transition:color 0.2s;}
+.hero-video-link a:hover{color:rgba(245,242,235,0.75);}
 
-.proof-strip{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);}
-.proof-item{padding:24px 20px;border-right:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);text-align:center;}
+.proof-strip{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.proof-item{padding:24px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
 .proof-item:nth-child(2){border-right:none;}.proof-item:nth-child(3){border-bottom:none;}.proof-item:nth-child(4){border-right:none;border-bottom:none;}
-.proof-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--yellow);line-height:1;margin-bottom:4px;}
-.proof-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--muted);}
+.proof-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--gold-deep);line-height:1;margin-bottom:4px;}
+.proof-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--ink-muted);}
 
 .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
-.product-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--gray1);}
+.product-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--mist);}
 .product-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s;}
 .product-img-wrap:hover img{transform:scale(1.04);}
-.product-img-label{position:absolute;bottom:14px;left:14px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--yellow);background:transparent;padding:0;}
-.product-text{background:var(--gray1);padding:52px 44px;display:flex;flex-direction:column;justify-content:center;}
+.product-img-label{position:absolute;bottom:14px;left:14px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gold-deep);background:transparent;padding:0;}
+.product-text{background:var(--mist);padding:52px 44px;display:flex;flex-direction:column;justify-content:center;}
 .product-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.2vw,46px);line-height:1.05;letter-spacing:0.03em;margin-bottom:16px;}
-.product-text p{font-size:14px;line-height:1.85;color:var(--muted);margin-bottom:24px;}
+.product-text p{font-size:14px;line-height:1.85;color:var(--ink-muted);margin-bottom:24px;}
 
 .sec{padding:48px 48px;}
-.sec-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.3em;color:var(--yellow);margin-bottom:14px;}
+.sec-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.3em;color:var(--gold-deep);margin-bottom:14px;}
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.5vw,54px);line-height:1;letter-spacing:0.03em;margin-bottom:12px;}
-.sec-sub{font-size:14px;line-height:1.8;color:var(--muted);max-width:540px;margin-bottom:40px;}
+.sec-sub{font-size:14px;line-height:1.8;color:var(--ink-muted);max-width:540px;margin-bottom:40px;}
 
 .items-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.item-card{background:var(--gray1);padding:36px 28px;border:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;transition:background 0.3s;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.item-card:hover{background:var(--gray2);}
+.item-card{background:var(--mist);padding:36px 28px;border:1px solid var(--line);box-shadow:var(--card-shadow);position:relative;overflow:hidden;transition:background 0.3s;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.item-card:hover{background:#e9e7de;}
 .item-img-wrap{width:120px;height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0;background:#000;border-radius:8px;overflow:hidden;}
 .item-img-wrap img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
-.item-bg-num{position:absolute;top:-14px;right:10px;font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(255,214,0,0.05);line-height:1;pointer-events:none;}
-.item-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--yellow);margin-bottom:8px;}
-.item-desc{font-size:12px;line-height:1.75;color:var(--muted);}
+.item-bg-num{position:absolute;top:-14px;right:10px;font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(14,14,14,0.045);line-height:1;pointer-events:none;}
+.item-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:8px;}
+.item-desc{font-size:12px;line-height:1.75;color:var(--ink-muted);}
 
 .modes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
-.mode-card{background:var(--gray1);padding:40px 32px;border:1px solid rgba(255,255,255,0.05);position:relative;}
-.mode-card.featured{background:rgba(255,214,0,0.05);border-color:rgba(255,214,0,0.22);}
-.mode-bg-num{position:absolute;top:10px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;}
-.mode-tag{display:inline-block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--yellow);border:1px solid rgba(255,214,0,0.35);padding:4px;margin-bottom:14px;}
+.mode-card{background:var(--mist);padding:40px 32px;border:1px solid var(--line);position:relative;}
+.mode-card.featured{background:rgba(255,214,0,0.08);border-color:rgba(255,214,0,0.3);}
+.mode-bg-num{position:absolute;top:10px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(14,14,14,0.04);line-height:1;pointer-events:none;}
+.mode-tag{display:inline-block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--gold-deep);border:1px solid rgba(255,214,0,0.5);padding:4px;margin-bottom:14px;}
 .mode-card.featured .mode-tag{background:var(--yellow);color:var(--black);border:none;}
 .mode-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3vw,36px);letter-spacing:0.05em;margin-bottom:4px;}
-.mode-card.featured .mode-title{color:var(--yellow);}
-.mode-en{font-size:11px;color:var(--muted);font-style:italic;margin-bottom:4px;}
-.mode-players{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(245,242,235,0.28);margin-bottom:14px;}
-.mode-desc{font-size:13px;line-height:1.75;color:var(--muted);}
-.mode-card.featured .mode-desc{color:rgba(245,242,235,0.7);}
+.mode-card.featured .mode-title{color:var(--gold-deep);}
+.mode-en{font-size:11px;color:var(--ink-muted);font-style:italic;margin-bottom:4px;}
+.mode-players{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(14,14,14,0.32);margin-bottom:14px;}
+.mode-desc{font-size:13px;line-height:1.75;color:var(--ink-muted);}
+.mode-card.featured .mode-desc{color:rgba(14,14,14,0.75);}
 .mode-cta{margin-top:20px;}
+
+/* MODES chapter — deliberate dark section for gravitas (single accent, not alternating) */
+#modes{background:var(--ink);color:var(--paper);padding-top:64px;padding-bottom:72px;}
+#modes .sec-label{color:var(--yellow);}
+#modes .sec-sub{color:rgba(245,242,235,0.6);}
+#modes .mode-card{background:var(--gray1);border-color:rgba(255,255,255,0.08);box-shadow:0 8px 28px rgba(0,0,0,0.35);}
+#modes .mode-bg-num{color:rgba(255,255,255,0.05);}
+#modes .mode-tag{color:var(--yellow);border-color:rgba(255,214,0,0.4);}
+#modes .mode-en{color:rgba(245,242,235,0.55);}
+#modes .mode-players{color:rgba(245,242,235,0.4);}
+#modes .mode-desc{color:var(--muted);}
+#modes .mode-card.featured{background:rgba(255,214,0,0.1);border-color:rgba(255,214,0,0.35);}
+#modes .mode-card.featured .mode-title{color:var(--yellow);}
+#modes .mode-card.featured .mode-desc{color:rgba(245,242,235,0.8);}
 
 /* DEMO SHARED */
 .demo-wrap{background:var(--gray1);border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);}
@@ -191,57 +208,57 @@ body.lang-ja .en{display:none;}
 .app-banner{display:flex;align-items:center;gap:24px;padding:28px 48px;flex-wrap:wrap;}
 .app-banner-icon{width:64px;height:64px;border-radius:14px;overflow:hidden;flex-shrink:0;}
 .app-banner-icon img{width:100%;height:100%;object-fit:cover;display:block;}
-.app-coming{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.25em;color:var(--yellow);margin-bottom:4px;}
+.app-coming{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.25em;color:var(--gold-deep);margin-bottom:4px;}
 .app-banner-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.1em;margin-bottom:2px;}
-.app-banner-sub{font-size:12px;color:var(--muted);}
+.app-banner-sub{font-size:12px;color:var(--ink-muted);}
 .app-banner-stores{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto;}
-.store-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:8px 14px;text-decoration:none;color:var(--white);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;transition:border-color 0.2s;}
-.store-pill:hover{border-color:rgba(255,214,0,0.4);}
-.cs-pill{font-size:8px;letter-spacing:0.15em;color:var(--yellow);background:rgba(255,214,0,0.1);padding:2px 6px;border-radius:2px;}
+.store-pill{display:inline-flex;align-items:center;gap:8px;background:var(--ink);border:1px solid var(--ink);padding:8px 14px;text-decoration:none;color:var(--paper);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;transition:border-color 0.2s,transform 0.2s;}
+.store-pill:hover{border-color:rgba(255,214,0,0.7);transform:translateY(-1px);}
+.cs-pill{font-size:8px;letter-spacing:0.15em;color:var(--gold-deep);background:rgba(255,214,0,0.15);padding:2px 6px;border-radius:2px;}
 
 /* HOW */
 
 
 
 .faq-list{max-width:680px;}
-.faq-item{border-top:1px solid rgba(255,255,255,0.08);padding:22px 0;}
+.faq-item{border-top:1px solid var(--line);padding:22px 0;}
 .faq-q{font-size:15px;font-weight:700;margin-bottom:8px;}
-.faq-a{font-size:13px;line-height:1.8;color:var(--muted);}
+.faq-a{font-size:13px;line-height:1.8;color:var(--ink-muted);}
 
 .product-detail-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.pd-img{overflow:hidden;aspect-ratio:4/3;background:var(--gray1);}
+.pd-img{overflow:hidden;aspect-ratio:4/3;background:var(--mist);}
 .pd-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s;}
 .pd-img:hover img{transform:scale(1.04);}
 @media(max-width:860px){.product-detail-strip{grid-template-columns:repeat(3,1fr);}}
 .scenes-sec{}
 .scenes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;}
-.scene-card{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--gray1);}
+.scene-card{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--mist);}
 .scene-img-wrap{width:100%;height:100%;position:relative;}
 .scene-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s;}
 .scene-card:hover .scene-img-wrap img{transform:scale(1.04);}
 .scene-caption{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(8,8,8,0.85) 0%,transparent 100%);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(245,242,235,0.85);}
-.reviews-hero-img{position:relative;overflow:hidden;aspect-ratio:16/9;margin-bottom:40px;background:var(--gray1);}
+.reviews-hero-img{position:relative;overflow:hidden;aspect-ratio:16/9;margin-bottom:40px;background:var(--mist);}
 .reviews-hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;}
 .reviews-hero-caption{position:absolute;bottom:16px;left:20px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(245,242,235,0.7);background:rgba(8,8,8,0.6);padding:4px;}
 @media(max-width:860px){.scenes-grid{grid-template-columns:repeat(2,1fr);}}
 .final-product-img{height:260px;overflow:hidden;position:relative;}
 .final-product-img img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:brightness(0.7);}
 .price-block{margin-bottom:28px;text-align:center;}
-.price-num{font-family:'Bebas Neue',sans-serif;font-size:56px;letter-spacing:0.04em;color:var(--white);line-height:1;}
-.price-tax{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.1em;color:var(--muted);margin-left:8px;vertical-align:middle;}
-.price-note{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--muted);margin-top:6px;}
-.final-cta{padding:72px 48px;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.08);}
-.final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(255,214,0,0.07) 0%,transparent 65%);pointer-events:none;}
+.price-num{font-family:'Bebas Neue',sans-serif;font-size:56px;letter-spacing:0.04em;color:var(--ink);line-height:1;}
+.price-tax{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.1em;color:var(--ink-muted);margin-left:8px;vertical-align:middle;}
+.price-note{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--ink-muted);margin-top:6px;}
+.final-cta{padding:72px 48px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--line);}
+.final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(255,214,0,0.1) 0%,transparent 65%);pointer-events:none;}
 .final-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,8vw,88px);line-height:0.95;letter-spacing:0.03em;margin-bottom:40px;position:relative;}
-.final-title .accent{color:var(--yellow);}
+.final-title .accent{color:var(--gold-deep);}
 
 
 
-footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
 .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
-.footer-links a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--muted);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--white);}
-.footer-copy{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:rgba(245,242,235,0.22);}
+.footer-links a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--ink-muted);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--ink);}
+.footer-copy{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:rgba(14,14,14,0.32);}
 
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -304,78 +321,12 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 .mitsu-rule-item p{font-size:12px;color:var(--muted);line-height:1.6;margin:0;}
 .mitsu-rule-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:rgba(255,214,0,0.4);line-height:1;min-width:28px;flex-shrink:0;}
 .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:40px;}
-.review-card{background:var(--gray1);padding:32px 28px;border:1px solid rgba(255,255,255,0.05);}
-.review-text{font-size:14px;line-height:1.8;color:var(--white);margin-bottom:16px;}
-.review-meta{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted);}
+.review-card{background:var(--mist);padding:32px 28px;border:1px solid var(--line);box-shadow:var(--card-shadow);}
+.review-text{font-size:14px;line-height:1.8;color:var(--ink);margin-bottom:16px;}
+.review-meta{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--ink-muted);}
 @media(max-width:860px){.reviews-grid{grid-template-columns:1fr;}}
 
-/* ===== CHALLENGE SECTION ===== */
-.chal-sec{padding:48px 48px;border-top:1px solid rgba(255,255,255,0.07);}
-.chal-header{margin-bottom:40px;}
-.chal-eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.35em;color:var(--yellow);margin-bottom:12px;}
-.chal-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,80px);line-height:0.95;letter-spacing:0.06em;margin-bottom:16px;}
-.chal-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:20px;}
-.chal-badge{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;border:1px solid rgba(255,255,255,0.18);padding:4px 12px;color:rgba(245,242,235,0.55);}
-.chal-video-link{margin-bottom:28px;}
-.chal-video-link a{font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,214,0,0.65);text-decoration:none;letter-spacing:0.08em;border-bottom:1px solid rgba(255,214,0,0.2);padding-bottom:2px;transition:color 0.2s;}
-.chal-video-link a:hover{color:var(--yellow);}
-.chal-toggle-btn{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--black);font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;padding:14px 32px;border:none;cursor:pointer;transition:opacity 0.2s;margin-bottom:40px;}
-.chal-toggle-btn:hover{opacity:0.85;}
-.chal-body{display:none;}
-.chal-body.open{display:block;}
-.chal-rule-wrap{border:1px solid rgba(255,255,255,0.08);padding:28px;margin-bottom:40px;background:rgba(255,255,255,0.02);}
-.chal-rule-title{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:0.35em;color:var(--yellow);margin-bottom:18px;}
-.chal-rule-main{font-size:13px;color:rgba(245,242,235,0.7);line-height:1.9;margin-bottom:20px;}
-.chal-rule-sub{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:0.25em;color:var(--muted);margin-bottom:10px;}
-.chal-rule-list{list-style:none;padding:0;font-size:13px;color:rgba(245,242,235,0.55);line-height:2;}
-.chal-rule-list li::before{content:'— ';color:rgba(255,255,255,0.2);}
-.chal-levels{display:flex;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:32px;gap:0;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-.chal-lv-tab{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;padding:10px 20px;background:transparent;border:none;color:rgba(245,242,235,0.35);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
-.chal-lv-tab:hover{color:rgba(245,242,235,0.7);}
-.chal-lv-tab.active{color:var(--yellow);border-bottom-color:var(--yellow);}
-.chal-lv-tab.oni{color:rgba(255,80,80,0.45);}
-.chal-lv-tab.oni.active{color:#ff6666;border-bottom-color:#ff4444;}
-.chal-lv-desc{font-size:13px;color:rgba(245,242,235,0.55);font-family:'Space Mono',monospace;letter-spacing:0.05em;margin-bottom:24px;line-height:1.8;}
-
-/* Preview board (static cross shape) */
-.chal-board-preview{margin-bottom:28px;}
-.chal-cross-board{display:grid;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(3,64px);gap:3px;width:max-content;}
-.chal-prev-cell{width:64px;height:64px;background:var(--gray2);border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;}
-.chal-prev-cell.inactive{background:rgba(255,255,255,0.01);border-color:rgba(255,255,255,0.02);}
-.chal-prev-cell.red-zone{border:2px solid rgba(220,60,60,0.7);background:rgba(220,60,60,0.05);}
-.chal-prev-cell.green-zone{border:2px solid rgba(60,200,80,0.7);background:rgba(60,200,80,0.05);}
-.chal-prev-cell.both-zone{border:2px solid rgba(220,60,60,0.7);background:rgba(200,100,60,0.08);outline:2px solid rgba(60,200,80,0.7);outline-offset:-4px;}
-.chal-prev-label{font-size:18px;color:rgba(245,242,235,0.75);font-family:'Noto Sans JP',sans-serif;}
-
-/* Table */
-.chal-table{width:100%;border-collapse:collapse;margin-bottom:12px;font-size:14px;}
-.chal-table th{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--yellow);padding:12px 16px;border-bottom:1px solid rgba(255,214,0,0.25);text-align:left;}
-.chal-table td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.07);color:rgba(245,242,235,0.8);}
-.chal-table td:first-child{color:var(--muted);font-family:'Space Mono',monospace;font-size:12px;}
-.chal-dot-red{color:rgba(220,60,60,0.9);}
-.chal-dot-green{color:rgba(60,200,80,0.9);}
-.chal-dot-blue{color:rgba(80,140,255,0.9);}
-.chal-see-btn{background:transparent;border:1px solid rgba(255,214,0,0.4);color:var(--yellow);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;padding:6px 14px;cursor:pointer;transition:all 0.2s;}
-.chal-see-btn:hover{background:rgba(255,214,0,0.1);}
-.chal-img{width:100%;max-width:280px;display:block;border-radius:4px;}
-.chal-table-note{font-size:12px;color:var(--muted);line-height:1.7;margin-top:8px;}
-
-/* Answer modal content */
-.chal-ans-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.chal-ans-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--yellow);}
-.chal-ans-close{background:transparent;border:none;color:rgba(245,242,235,0.4);font-size:20px;cursor:pointer;line-height:1;padding:0;}
-.chal-ans-close:hover{color:var(--white);}
-.chal-ans-board-wrap{background:rgba(255,255,255,0.05);padding:20px;display:flex;justify-content:center;margin-bottom:20px;border-radius:4px;}
-.answer-board .chal-prev-cell.has-label{background:rgba(255,255,255,0.04);}
-.chal-ans-line{font-size:15px;color:rgba(245,242,235,0.85);line-height:2.2;padding-left:4px;}
-.chal-ans-note{font-size:12px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08);}
-
-@media(max-width:860px){
-  .chal-sec{padding:40px 20px;}
-  .chal-cross-board{grid-template-columns:repeat(3,52px);grid-template-rows:repeat(3,52px);}
-  .chal-prev-cell{width:52px;height:52px;}
-  .chal-table th,.chal-table td{padding:10px 10px;}
-}
+/* CHALLENGE section CSS removed with the HTML (see comment near old location) — dead code, kept out of the stylesheet for cleanliness. */
 
 .mobile-only{display:none !important;}.pc-only{display:inline !important;}body.lang-ja .ja.mobile-only{display:none !important;}body.lang-ja .ja.pc-only{display:inline !important;}@media(max-width:768px){.mobile-only{display:inline !important;}.pc-only{display:none !important;}body.lang-ja .ja.mobile-only{display:inline !important;}body.lang-ja .ja.pc-only{display:none !important;}body.lang-en .final-title .ja{display:none !important;}}</style>
 </head>
@@ -424,10 +375,15 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <span class="en">A case, a ring, and 18 coins. Three tools.<br/>The world you thought you knew — completely different.</span>
 </p>
 <div class="hero-ctas">
-<a class="btn-primary" href="https://shinratoys.base.shop" rel="noopener" target="_blank">
-<span class="ja">ショップで購入する</span><span class="en">BUY NOW</span> →
+<a class="btn-primary" href="#app">
+<span class="ja">まずはアプリで気軽に</span><span class="en">TRY THE APP FIRST</span> →
       </a>
-<a class="btn-ghost" href="https://youtube.com/shorts/T0RAELo2BX0?feature=share" rel="noopener" target="_blank">
+<a class="btn-ghost" href="https://shinratoys.base.shop" rel="noopener" target="_blank">
+<span class="ja">実物を手に取る（購入）</span><span class="en">BUY THE REAL THING</span> →
+</a>
+</div>
+<div class="hero-video-link">
+<a href="https://youtube.com/shorts/T0RAELo2BX0?feature=share" rel="noopener" target="_blank">
         ▶ <span class="ja">プレイ動画を見る</span><span class="en">WATCH IN ACTION</span>
 </a>
 </div>
@@ -518,10 +474,10 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </h2>
 <p>
 <span class="ja">
-          三目並べ、一騎討ち、三つ巴、パタパタ、日月の戦い、挑戦状など。<br/>同じ道具から、遊ぶ人によって違う遊びが生まれていく。
+          三目並べ、一騎討ち、三つ巴、パタパタ、日月の戦いなど。<br/>同じ道具から、遊ぶ人によって違う遊びが生まれていく。
         </span>
 <span class="en">
-          Tic-Tac-Toe, Duel, Mitsudomoe, Patapata,<br/>Mini Shogi, Challenge, and more.<br/>One set. Endless replay value.
+          Tic-Tac-Toe, Duel, Mitsudomoe, Patapata,<br/>Mini Shogi, and more.<br/>One set. Endless replay value.
         </span>
 </p>
 </div>
@@ -531,11 +487,55 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <span><span class="ja">三つ巴</span><span class="en">Mitsudomoe</span></span>
 <span><span class="ja">パタパタ</span><span class="en">Patapata</span></span>
 <span><span class="ja">日月の戦い</span><span class="en">Mini Shogi</span></span>
-<span><span class="ja">挑戦状</span><span class="en">Challenge</span></span>
 <span><span class="ja">ほか</span><span class="en">and more...</span></span>
 </div>
 </div>
 </section>
+<!-- APP: casual entry point -->
+<div class="app-section reveal" id="app">
+<div class="app-intro">
+<p class="app-eyebrow"><span class="ja">— まずは気軽に</span><span class="en">— TRY IT FIRST</span></p>
+<h3 class="app-heading"><span class="ja">ルールは、アプリで先に覚える。</span><span class="en">Learn the rules in the app first.</span></h3>
+<p class="app-lead"><span class="ja">無料。三目並べ・一騎討ち・三つ巴など6種類。ローカル対戦・オンライン対戦・ランキングにも対応。<br/>本物のコインの手触りと駆け引きは、この先の「本格編」で。</span><span class="en">Free. 6 games including Tic-Tac-Toe, Duel &amp; Mitsudomoe. Local play, online battles, rankings.<br/>The real coins — and the real stakes — come next.</span></p>
+</div>
+<div class="app-banner">
+<div class="app-banner-icon">
+<img alt="Shinra Pocket App" src="app_icon.jpg" style="display:block;width:100%;height:100%;object-fit:cover;"/>
+</div>
+<div class="app-banner-text">
+<div class="app-banner-title">SHINRA POCKET</div>
+<div class="app-banner-sub">
+<span class="ja" style="font-size:11px;color:rgba(14,14,14,0.4);">※ Instagramからご覧の方はブラウザで開いてご利用ください</span>
+</div>
+</div>
+<div class="app-banner-stores">
+<a class="store-pill" href="https://apps.apple.com/jp/app/shinra-pocket/id6766168721" id="ios-btn" target="_blank">
+<svg fill="none" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="white"></path></svg>
+<span>App Store</span>
+</a>
+<a class="store-pill ja" href="https://shinrapocket.com/android" target="_blank">
+<span style="font-size:16px;line-height:1;">▶</span>
+<span>Google Play</span>
+</a><a class="store-pill en" href="https://shinrapocket.com/android" target="_blank">
+<span style="font-size:16px;line-height:1;">▶</span>
+<span>Google Play</span>
+</a>
+</div>
+</div>
+</div>
+<!-- ANDROID -->
+<div class="android-section reveal">
+<div class="android-inner">
+<a class="btn-primary android-btn en" href="https://shinrapocket.com/android" rel="noopener"><span>Download APK →</span></a>
+</div>
+</div>
+<style>
+.app-intro{padding:56px 48px 8px;max-width:720px;}
+.app-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.3em;color:var(--gold-deep);margin-bottom:14px;}
+.app-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,44px);letter-spacing:0.03em;line-height:1.1;margin-bottom:16px;color:var(--ink);}
+.app-lead{font-size:14px;line-height:1.9;color:var(--ink-muted);}
+@media(max-width:860px){.app-intro{padding:40px 20px 4px;}}
+</style>
 <!-- PRODUCT DETAIL -->
 <div class="product-detail-strip" id="detail-photos">
 <div class="pd-img pd-zoomable" onclick="openLightboxSlide(0)"><img alt="三つ巴" src="images/img_04.jpg"/></div>
@@ -567,9 +567,9 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <style>
 .games-expand-section{
   padding:96px 48px 72px;
-  border-top:1px solid rgba(255,255,255,0.08);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  background:linear-gradient(180deg,rgba(255,255,255,0.015),rgba(255,255,255,0));
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(14,14,14,0.012),rgba(14,14,14,0));
 }
 
 .games-expand-inner{
@@ -587,7 +587,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   font-family:'Space Mono',monospace;
   font-size:10px;
   letter-spacing:0.28em;
-  color:var(--yellow);
+  color:var(--gold-deep);
   margin-bottom:18px;
 }
 
@@ -600,7 +600,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 }
 
 .games-copy p{
-  color:rgba(245,242,235,0.62);
+  color:var(--ink-muted);
   line-height:1.9;
   font-size:15px;
 }
@@ -615,9 +615,9 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   font-family:'Space Mono',monospace;
   font-size:11px;
   letter-spacing:0.08em;
-  color:rgba(245,242,235,0.75);
-  border:1px solid rgba(255,255,255,0.12);
-  background:rgba(255,255,255,0.025);
+  color:var(--ink);
+  border:1px solid var(--line);
+  background:var(--mist);
   padding:10px 14px;
 }
 
@@ -655,7 +655,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   font-family:'Space Mono',monospace;
   font-size:11px;
   letter-spacing:0.24em;
-  color:#f5c542;
+  color:var(--gold-deep);
   margin-bottom:18px;
 }
 
@@ -663,10 +663,11 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
   font-size:clamp(36px,5vw,72px);
   line-height:1.04;
   margin-bottom:20px;
+  color:var(--ink);
 }
 
 .play-video-copy p{
-  color:rgba(255,255,255,0.68);
+  color:var(--ink-muted);
   line-height:1.9;
   font-size:16px;
 }
@@ -782,7 +783,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 <span class="en">🔥 You　💧 CPU Water　🌀 CPU Wind<br/>Coins 1,2,3 ×2. Hidden wins possible.</span>
 </div>
 <div class="demo-status" id="mitsu-status"></div>
-<p style="text-align:center;font-size:13px;color:rgba(245,242,235,0.6);margin-bottom:8px;"><span class="ja">さらに手応えのある対戦を楽しむなら、アプリへ。</span><span class="en">For a deeper challenge, try the app.</span></p><button class="demo-reset" onclick="resetMitsu()" style="margin-top:8px;"><span class="ja">もう一度</span><span class="en">PLAY AGAIN</span></button>
+<p style="text-align:center;font-size:13px;color:rgba(245,242,235,0.6);margin-bottom:8px;"><span class="ja">この駆け引きは、実物のコインでこそ本当に面白い。</span><span class="en">This push-and-pull is best felt with real coins in hand.</span></p><button class="demo-reset" onclick="resetMitsu()" style="margin-top:8px;"><span class="ja">もう一度</span><span class="en">PLAY AGAIN</span></button>
 <div class="demo-shop-note">
 <span class="ja">本物のコインの手触りは画面では伝わらない。<br/><a href="https://shinratoys.base.shop" target="_blank">🛒 ショップで →</a></span>
 <span class="en">Real coins feel different.<br/><a href="https://shinratoys.base.shop" target="_blank">🛒 Shop →</a></span>
@@ -857,95 +858,14 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </style>
 
 </section>
-<div class="app-section reveal" id="app">
-<div class="app-banner">
-<div class="app-banner-icon">
-<img alt="Shinra Pocket App" src="app_icon.jpg" style="display:block;width:100%;height:100%;object-fit:cover;"/>
-</div>
-<div class="app-banner-text">
-<div class="app-banner-title">SHINRA POCKET</div>
-<div class="app-banner-sub">
-<span class="ja">三目並べ・一騎討ち・三つ巴をはじめ、6種類のゲームを収録。<br/>ローカル対戦・オンライン対戦・ランキング機能対応。</span><br/><span class="ja" style="font-size:11px;color:rgba(245,242,235,0.4);">※ Instagramからご覧の方はブラウザで開いてご利用ください</span>
-<span class="en">6 games including Tic-Tac-Toe, Duel &amp; Mitsudomoe.<br/>Local play · Online battles · Rankings.</span>
-</div>
-</div>
-<div class="app-banner-stores">
-<a class="store-pill" href="https://apps.apple.com/jp/app/shinra-pocket/id6766168721" id="ios-btn" target="_blank">
-<svg fill="none" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="white"></path></svg>
-<span>App Store</span>
-</a>
-<a class="store-pill ja" href="https://shinrapocket.com/android" target="_blank">
-<span style="font-size:16px;line-height:1;">▶</span>
-<span>Google Play</span>
-</a><a class="store-pill en" href="https://shinrapocket.com/android" target="_blank">
-<span style="font-size:16px;line-height:1;">▶</span>
-<span>Google Play</span>
-</a>
-</div>
-</div>
-</div>
-<!-- ANDROID -->
-<div class="android-section reveal">
-<div class="android-inner">
-<a class="btn-primary android-btn en" href="https://shinrapocket.com/android" rel="noopener"><span>Download APK →</span></a>
-</div>
-</div>
 <style>
 
 
 
 
 
-
-
-
-
-
 </style>
-<!-- CHALLENGE -->
-<div class="chal-sec">
-<div class="chal-header">
-<p class="chal-eyebrow"><span class="ja">— 購入者向け</span><span class="en">— FOR OWNERS</span> · Challenge</p>
-<h2 class="chal-title"><span class="ja">挑 戦 状</span><span class="en">C H A L L E N G E</span></h2>
-<div class="chal-meta">
-<span class="chal-badge"><span class="ja">※ しんらポケットが必要です</span><span class="en">※ Requires Shinra Pocket</span></span>
-<span class="chal-badge">1 PLAYER〜</span>
-</div>
-<div class="chal-video-link">
-<a href="https://youtu.be/r7XhxraMrGE" rel="noopener" target="_blank"><span class="ja">▶ 実際にやってる動画を見る</span><span class="en">▶ Watch how to play</span></a>
-</div>
-<button class="chal-toggle-btn" id="chal-toggle" onclick="toggleChallenge()">
-<span class="ja">受 け 取 る</span><span class="en">OPEN</span>
-</button>
-</div>
-<div class="chal-body" id="chal-body">
-<!-- Rules -->
-<div class="chal-rule-wrap">
-<div class="chal-rule-title">— Rule</div>
-<div class="chal-rule-title" style="font-size:16px;letter-spacing:0.1em;color:var(--white);margin-bottom:12px;"><span class="ja">ゲームの流れ</span><span class="en">HOW TO PLAY</span></div>
-<p class="chal-rule-main"><span class="ja">お題に合わせてコインを各マスに配置する。<br/>赤枠・緑枠それぞれの合計がお題の数と一致すれば正解。</span><span class="en">Place coins in each cell to match the target numbers.<br/>The totals of the red and green zones must match the targets.</span></p>
-<div class="chal-rule-sub"><span class="ja">計算のルール</span><span class="en">CALCULATION RULES</span></div>
-<ul class="chal-rule-list">
-<li><span class="ja">指定されたマスのみ使用</span><span class="en">Use only the designated cells</span></li>
-<li><span class="ja">指定された枚数のコインを全て使いきる</span><span class="en">Use all coins — no leftovers</span></li>
-<li><span class="ja">1マス上は掛け算・列は足し算</span><span class="en">Stacked = multiply · column = add</span></li>
-</ul>
-</div>
-<!-- Level tabs -->
-<div class="chal-levels" id="chal-levels">
-<button class="chal-lv-tab active" onclick="chalLoadLevel(0)">Lv.01</button>
-<button class="chal-lv-tab" onclick="chalLoadLevel(1)">Lv.02</button>
-<button class="chal-lv-tab" onclick="chalLoadLevel(2)">Lv.03</button>
-<button class="chal-lv-tab oni" onclick="chalLoadLevel(3)"><span class="ja">鬼</span><span class="en">Extreme</span></button>
-</div>
-<!-- Game area -->
-<div id="chal-game-area"></div>
-</div>
-</div>
-<!-- CHALLENGE ANSWER MODAL -->
-<div id="chal-answer-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:900;align-items:center;justify-content:center;padding:20px;">
-<div id="chal-answer-box" style="background:#111;border:1px solid rgba(255,214,0,0.25);max-width:400px;width:100%;padding:28px;position:relative;max-height:90vh;overflow-y:auto;"></div>
-</div>
+<!-- CHALLENGE section removed from LP: purchaser-only content, doesn't belong in a pre-purchase funnel. JS (toggleChallenge/chalLoadLevel/LV_DATA) left intact below but now unused — needs a new home (existing-owner page or note) before it's linked from anywhere again. -->
 <!-- BLACK SHIRT PHOTO -->
 <div class="sec" style="padding:0;">
 <div class="reviews-hero-img reveal">
@@ -1024,25 +944,25 @@ footer{padding:32px 48px;border-top:1px solid rgba(255,255,255,0.08);display:fle
 </div>
 </div>
 <!-- PARTNER --><a id="partner"></a>
-<div class="sec" id="partner-section" style="border-top:1px solid rgba(255,255,255,0.07);">
+<div class="sec" id="partner-section" style="border-top:1px solid var(--line);">
 <p class="sec-label reveal">— PARTNER</p>
 <p class="sec-sub reveal" style="margin-bottom:28px;"><span class="ja">しんらポケットを気に入ってくれた方へ。クリエーター活動や施設での活用を応援する制度です。</span><span class="en">For those who love Shinra Pocket. A program to support creators and facility use.</span></p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-<div style="padding:24px;border:1px solid rgba(255,214,0,0.25);background:rgba(255,214,0,0.03);">
-<p style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:#FFD600;margin-bottom:10px;">CREATOR</p>
-<p style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:#F5F2EB;margin-bottom:8px;"><span class="ja">クリエーターの方はこちら</span><span class="en">For Creators</span></p>
-<p style="font-size:12px;color:rgba(245,242,235,0.45);line-height:1.7;margin-bottom:20px;"><span class="ja">SNS・動画・ブログなどでしんらポケットを紹介したい方向け。</span><span class="en">For those who want to introduce Shinra Pocket on SNS, video, or blogs.</span></p>
+<div style="padding:24px;border:1px solid rgba(255,214,0,0.4);background:rgba(255,214,0,0.06);">
+<p style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:#8B6508;margin-bottom:10px;">CREATOR</p>
+<p style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:#0E0E0E;margin-bottom:8px;"><span class="ja">クリエーターの方はこちら</span><span class="en">For Creators</span></p>
+<p style="font-size:12px;color:#5b5a53;line-height:1.7;margin-bottom:20px;"><span class="ja">SNS・動画・ブログなどでしんらポケットを紹介したい方向け。</span><span class="en">For those who want to introduce Shinra Pocket on SNS, video, or blogs.</span></p>
 <a href="https://forms.gle/Tk6sZan3QvUHQGjZA" target="_blank" rel="noopener" style="display:inline-block;background:#FFD600;color:#080808;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;padding:10px 20px;text-decoration:none;"><span class="ja">申請する →</span><span class="en">Apply →</span></a>
 </div>
-<div style="padding:24px;border:1px solid rgba(255,255,255,0.07);">
-<p style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:#FFD600;margin-bottom:10px;">FACILITY</p>
-<p style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:#F5F2EB;margin-bottom:8px;"><span class="ja">施設・団体の方はこちら</span><span class="en">For Facilities</span></p>
-<p style="font-size:12px;color:rgba(245,242,235,0.45);line-height:1.7;margin-bottom:20px;"><span class="ja">保育園・学童・児童館・福祉施設やイベントでの活用を検討している方向け。</span><span class="en">For nurseries, after-school programs, community centers, and events.</span></p>
-<a href="https://forms.gle/zdfcjEjwobKoxogX8" target="_blank" rel="noopener" style="display:inline-block;border:1px solid rgba(255,255,255,0.2);color:rgba(245,242,235,0.6);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:10px 20px;text-decoration:none;"><span class="ja">申請する →</span><span class="en">Apply →</span></a>
+<div style="padding:24px;border:1px solid rgba(14,14,14,0.1);background:#F0EFE8;">
+<p style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:#8B6508;margin-bottom:10px;">FACILITY</p>
+<p style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:#0E0E0E;margin-bottom:8px;"><span class="ja">施設・団体の方はこちら</span><span class="en">For Facilities</span></p>
+<p style="font-size:12px;color:#5b5a53;line-height:1.7;margin-bottom:20px;"><span class="ja">保育園・学童・児童館・福祉施設やイベントでの活用を検討している方向け。</span><span class="en">For nurseries, after-school programs, community centers, and events.</span></p>
+<a href="https://forms.gle/zdfcjEjwobKoxogX8" target="_blank" rel="noopener" style="display:inline-block;border:1px solid rgba(14,14,14,0.35);color:#0E0E0E;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:10px 20px;text-decoration:none;"><span class="ja">申請する →</span><span class="en">Apply →</span></a>
 </div>
 </div>
 </div>
-<div class="final-cta" style="border-top:1px solid rgba(255,255,255,0.08);">
+<div class="final-cta" style="border-top:1px solid var(--line);">
 <h2 class="final-title reveal"><span class="ja">同じ場所、<br/><span class="accent">違う世界。</span></span><span class="en">SAME PLACE.<br/><span class="accent">DIFFERENT WORLD.</span></span></h2>
 <div style="display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;">
 <a class="btn-ghost reveal" href="https://shinrapocket.com" rel="noopener" target="_blank">
@@ -2120,15 +2040,15 @@ function toggleChatBox(){
   margin-bottom:18px;
 }
 .quick-info-card{
-  background:rgba(255,255,255,0.035);
-  border:1px solid rgba(255,255,255,0.08);
+  background:var(--mist);
+  border:1px solid var(--line);
   padding:28px 20px;
   text-align:center;
 }
 .quick-info-num{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(38px,4vw,58px);
-  color:var(--yellow);
+  color:var(--gold-deep);
   line-height:1;
   letter-spacing:0.04em;
 }
@@ -2137,7 +2057,7 @@ function toggleChatBox(){
   font-family:'Space Mono',monospace;
   font-size:10px;
   letter-spacing:0.16em;
-  color:rgba(245,242,235,0.55);
+  color:var(--ink-muted);
 }
 .contents-box{
   border:1px solid rgba(255,255,255,0.08);
@@ -2388,7 +2308,8 @@ body.lang-en .games-title-en{
   font-family:'Space Mono',monospace;
   font-size:12px;
   letter-spacing:.08em;
-  color:rgba(245,242,235,.86);
+  color:var(--ink-muted);
+  margin-top:10px;
 }
 </style>
 <style>
@@ -2507,7 +2428,7 @@ body.lang-en .games-title-ja{display:none !important;}
   border:none !important;
   outline:none !important;
   box-shadow:none !important;
-  background:rgba(255,255,255,0.03) !important;
+  background:var(--mist) !important;
   padding:6px 8px !important;
   border-radius:0 !important;
   font-family:'Space Mono', monospace !important;
