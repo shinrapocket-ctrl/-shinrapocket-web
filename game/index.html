@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@400;700;900&amp;family=Space+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
 <style>
-:root{--black:#080808;--yellow:#FFD600;--white:#F5F2EB;--gray1:#141414;--gray2:#1e1e1e;--muted:rgba(245,242,235,0.5);--paper:#FAFAF7;--ink:#0E0E0E;--ink-muted:#5b5a53;--gold-deep:#8B6508;--mist:#ECE8DC;--line:rgba(14,14,14,0.12);--card-shadow:0 1px 2px rgba(14,14,14,0.03),0 6px 20px rgba(14,14,14,0.05);}
+:root{--black:#080808;--yellow:#FFD600;--white:#F5F2EB;--gray1:#141414;--gray2:#1e1e1e;--muted:rgba(245,242,235,0.5);--paper:#FAFAF7;--ink:#0E0E0E;--ink-muted:#5b5a53;--gold-deep:#8B6508;--navy:#16213D;--mist:#ECE8DC;--line:rgba(14,14,14,0.12);--card-shadow:0 1px 2px rgba(14,14,14,0.03),0 6px 20px rgba(14,14,14,0.05);}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;scroll-padding-top:80px;}
 body{background:var(--paper);color:var(--ink);font-family:'Noto Sans JP',sans-serif;overflow-x:hidden;}
@@ -16,7 +16,7 @@ body.lang-en .ja{display:none !important;}
 body.lang-ja .en{display:none;}
 
 .topbar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:14px 32px;background:rgba(250,250,247,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.15em;color:var(--gold-deep);text-decoration:none;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.15em;color:var(--ink);text-decoration:none;}
 .nav-right{display:flex;align-items:center;gap:14px;}
 .lang-toggle{display:flex;border:1px solid rgba(14,14,14,0.15);border-radius:4px;overflow:hidden;}
 .lang-btn{background:transparent;border:none;color:rgba(14,14,14,0.4);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.05em;padding:6px 8px;cursor:pointer;transition:all 0.2s;}
@@ -25,29 +25,29 @@ body.lang-ja .en{display:none;}
 .nav-cta:hover{opacity:0.85;}
 .nav-link{display:none;}.nav-link-play{display:inline-flex;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;border:1px solid rgba(255,214,0,0.5);color:var(--gold-deep);padding:6px 12px;text-decoration:none;white-space:nowrap;transition:background 0.2s;}.nav-link-play:hover{background:rgba(255,214,0,0.1);}@media(min-width:768px){.nav-link{display:inline-flex;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(14,14,14,0.55);text-decoration:none;padding:6px 10px;transition:color 0.2s;white-space:nowrap;}.nav-link:hover{color:var(--gold-deep);}.nav-hamburger{display:none;}.nav-menu{display:flex;position:static;background:transparent;border:none;min-width:auto;gap:2px;}.nav-menu-item{padding:6px 10px;border-bottom:none;font-size:11px;}}.nav-hamburger{background:transparent;border:1px solid rgba(14,14,14,0.15);color:rgba(14,14,14,0.6);font-size:18px;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;}.nav-menu{display:none;position:absolute;top:100%;right:0;background:rgba(250,250,247,0.98);border:1px solid var(--line);min-width:160px;z-index:300;}.nav-menu.open{display:block;}.nav-menu-item{display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(14,14,14,0.6);text-decoration:none;padding:12px 20px;border-bottom:1px solid var(--line);transition:color 0.2s;}.nav-menu-item:hover{color:var(--gold-deep);background:rgba(255,214,0,0.08);}
 
-.hero{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:60svh;padding-bottom:40px;}
-.hero-bg{position:absolute;inset:0;z-index:0;}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;filter:blur(0.2px);transform:scale(1.0);}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,1) 0%,rgba(8,8,8,0.75) 45%,rgba(8,8,8,0.28) 100%);}
+.hero{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:60svh;padding-bottom:40px;background:var(--paper);color:var(--ink);}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 78% 15%,rgba(139,101,8,.08) 0%,transparent 60%);}
+.hero-bg-deco{position:absolute;right:-4%;top:6%;width:34%;max-width:340px;opacity:.5;pointer-events:none;filter:drop-shadow(0 12px 30px rgba(14,14,14,.08));}
 .hero-content{position:relative;z-index:1;padding:80px 48px 0;}
 .hero-badges{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
-.badge{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;border:1px solid rgba(255,214,0,0.4);color:var(--yellow);padding:4px;}
-.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,108px);line-height:0.94;letter-spacing:0.02em;margin-bottom:18px;}
-.hero-title .accent{color:var(--yellow);}
-.hero-sub{font-size:clamp(13px,1.6vw,16px);line-height:1.75;color:rgba(245,242,235,0.65);max-width:500px;margin-bottom:32px;}
+.badge{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;border:1px solid rgba(139,101,8,0.35);color:var(--gold-deep);padding:4px;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,108px);line-height:0.94;letter-spacing:0.02em;margin-bottom:14px;color:var(--ink);}
+.hero-title .accent{color:var(--navy);}
+.hero-subcatch{font-family:'Bebas Neue',sans-serif;font-size:clamp(17px,2.2vw,24px);letter-spacing:0.03em;color:var(--navy);margin-bottom:18px;line-height:1.3;}
+.hero-sub{font-size:clamp(13px,1.6vw,16px);line-height:1.75;color:var(--ink-muted);max-width:500px;margin-bottom:32px;}
 .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--black);font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:16px 32px;text-decoration:none;transition:transform 0.2s,background 0.2s;}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--black);font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:16px 32px;text-decoration:none;transition:transform 0.2s,background 0.2s;box-shadow:0 8px 24px rgba(139,101,8,.18);}
 .btn-primary:hover{transform:translateY(-2px);background:#ffe033;}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(245,242,235,0.6);font-family:'Space Mono',monospace;font-size:12px;text-decoration:none;border-bottom:1px solid rgba(245,242,235,0.2);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
-.btn-ghost:hover{color:var(--white);border-color:var(--white);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--ink-muted);font-family:'Space Mono',monospace;font-size:12px;text-decoration:none;border-bottom:1px solid rgba(14,14,14,0.22);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink);}
 .hero-video-link{margin-top:18px;}
-.hero-video-link a{display:inline-flex;align-items:center;gap:8px;color:rgba(245,242,235,0.4);font-family:'Space Mono',monospace;font-size:11px;text-decoration:none;transition:color 0.2s;}
-.hero-video-link a:hover{color:rgba(245,242,235,0.75);}
+.hero-video-link a{display:inline-flex;align-items:center;gap:8px;color:rgba(14,14,14,0.42);font-family:'Space Mono',monospace;font-size:11px;text-decoration:none;transition:color 0.2s;}
+.hero-video-link a:hover{color:rgba(14,14,14,0.75);}
 
 .proof-strip{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 .proof-item{padding:24px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
 .proof-item:nth-child(2){border-right:none;}.proof-item:nth-child(3){border-bottom:none;}.proof-item:nth-child(4){border-right:none;border-bottom:none;}
-.proof-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--gold-deep);line-height:1;margin-bottom:4px;}
+.proof-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--ink);line-height:1;margin-bottom:4px;}
 .proof-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--ink-muted);}
 
 .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
@@ -70,7 +70,7 @@ body.lang-ja .en{display:none;}
 .item-img-wrap{width:120px;height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0;background:#000;border-radius:8px;overflow:hidden;}
 .item-img-wrap img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
 .item-bg-num{position:absolute;top:-14px;right:10px;font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(14,14,14,0.045);line-height:1;pointer-events:none;}
-.item-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:8px;}
+.item-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--ink);margin-bottom:8px;}
 .item-desc{font-size:12px;line-height:1.75;color:var(--ink-muted);}
 
 .modes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
@@ -86,6 +86,9 @@ body.lang-ja .en{display:none;}
 .mode-desc{font-size:13px;line-height:1.75;color:var(--ink-muted);}
 .mode-card.featured .mode-desc{color:rgba(14,14,14,0.75);}
 .mode-cta{margin-top:20px;}
+.mode-photo{aspect-ratio:4/3;border-radius:8px;overflow:hidden;margin-bottom:16px;}
+.mode-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.mode-photo-wide{aspect-ratio:16/8;max-width:420px;margin-top:16px;margin-bottom:0;}
 
 /* MODES chapter — deliberate dark section for gravitas (single accent, not alternating) */
 #modes{background:var(--ink);color:var(--paper);padding-top:64px;padding-bottom:72px;}
@@ -231,12 +234,12 @@ body.lang-ja .en{display:none;}
 .pd-img:hover img{transform:scale(1.04);}
 @media(max-width:860px){.product-detail-strip{grid-template-columns:repeat(3,1fr);}}
 .scenes-sec{}
-.scenes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;}
+.scenes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
 .scene-card{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--mist);}
 .scene-img-wrap{width:100%;height:100%;position:relative;}
 .scene-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s;}
 .scene-card:hover .scene-img-wrap img{transform:scale(1.04);}
-.scene-caption{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(8,8,8,0.85) 0%,transparent 100%);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(245,242,235,0.85);}
+.scene-caption{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(8,8,8,0.85) 0%,transparent 100%);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(245,242,235,0.9);}
 .reviews-hero-img{position:relative;overflow:hidden;aspect-ratio:16/9;margin-bottom:40px;background:var(--mist);}
 .reviews-hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;}
 .reviews-hero-caption{position:absolute;bottom:16px;left:20px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(245,242,235,0.7);background:rgba(8,8,8,0.6);padding:4px;}
@@ -250,7 +253,7 @@ body.lang-ja .en{display:none;}
 .final-cta{padding:72px 48px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--line);}
 .final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(255,214,0,0.1) 0%,transparent 65%);pointer-events:none;}
 .final-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,8vw,88px);line-height:0.95;letter-spacing:0.03em;margin-bottom:40px;position:relative;}
-.final-title .accent{color:var(--gold-deep);}
+.final-title .accent{color:var(--navy);}
 
 
 
@@ -348,7 +351,7 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 </div>
 <div class="topbar">
 <a class="nav-logo" href="https://shinrapocket.com">SHINRA POCKET</a>
-<div class="nav-right"><a class="nav-link" href="#games"><span class="ja">遊び方</span><span class="en">HOW TO PLAY</span></a><a class="nav-link nav-link-play" href="#mitsudomoe"><span class="ja">今すぐ遊ぶ</span><span class="en">PLAY NOW</span></a><button class="nav-hamburger" onclick="toggleNavMenu()" aria-label="メニュー">≡</button><div class="nav-menu" id="nav-menu"><a class="nav-menu-item" href="#games"><span class="ja">遊び方</span><span class="en">HOW TO PLAY</span></a><a class="nav-menu-item" href="#scenes"><span class="ja">どこでも</span><span class="en">ANYWHERE</span></a><a class="nav-menu-item" href="#video"><span class="ja">動画</span><span class="en">VIDEO</span></a><a class="nav-menu-item" href="#app"><span class="ja">アプリ</span><span class="en">APP</span></a><a class="nav-menu-item" href="#reviews"><span class="ja">レビュー</span><span class="en">REVIEWS</span></a><a class="nav-menu-item" href="#faq"><span class="ja">よくある質問</span><span class="en">FAQ</span></a><a class="nav-menu-item" href="https://shinratoys.base.shop" target="_blank"><span class="ja">ショップ</span><span class="en">SHOP</span></a><a class="nav-menu-item" href="https://shinrapocket.com" target="_blank"><span class="ja">ブランドサイト</span><span class="en">BRAND SITE</span></a><a class="nav-menu-item" href="#partner" class="ja"><span class="ja">クリエーター向け</span></a><a class="nav-menu-item" href="#partner" class="ja"><span class="ja">施設・団体向け</span></a></div>
+<div class="nav-right"><a class="nav-link" href="#games"><span class="ja">遊び方</span><span class="en">HOW TO PLAY</span></a><a class="nav-link nav-link-play" href="#mitsudomoe"><span class="ja">今すぐ遊ぶ</span><span class="en">PLAY NOW</span></a><button class="nav-hamburger" onclick="toggleNavMenu()" aria-label="メニュー">≡</button><div class="nav-menu" id="nav-menu"><a class="nav-menu-item" href="#games"><span class="ja">遊び方</span><span class="en">HOW TO PLAY</span></a><a class="nav-menu-item" href="#scenes"><span class="ja">どこでも</span><span class="en">ANYWHERE</span></a><a class="nav-menu-item" href="#video"><span class="ja">動画</span><span class="en">VIDEO</span></a><a class="nav-menu-item" href="#app"><span class="ja">アプリ</span><span class="en">APP</span></a><a class="nav-menu-item" href="#reviews"><span class="ja">レビュー</span><span class="en">REVIEWS</span></a><a class="nav-menu-item" href="#faq"><span class="ja">よくある質問</span><span class="en">FAQ</span></a><a class="nav-menu-item" href="https://shinratoys.base.shop" target="_blank"><span class="ja">ショップ</span><span class="en">SHOP</span></a><a class="nav-menu-item" href="https://shinrapocket.com" target="_blank"><span class="ja">ブランドサイト</span><span class="en">BRAND SITE</span></a></div>
 <div class="lang-toggle">
 <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')">JA</button>
 <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
@@ -359,7 +362,7 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 </div>
 </div>
 <section class="hero" id="hero">
-<div class="hero-bg"><img alt="しんらポケット — 子どもが笑顔で遊ぶ" src="hero1.jpg"/></div>
+<div class="hero-bg"><img alt="" class="hero-bg-deco" src="images/img_03.png"/></div>
 <div class="hero-content">
 <div class="hero-badges">
 <span class="badge"><span class="ja">ボードゲーム</span><span class="en">BOARD GAME</span></span>
@@ -367,9 +370,13 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 <span class="badge"><span class="ja">年齢・言語不問</span><span class="en">ANY AGE · ANY LANGUAGE</span></span>
 </div>
 <h1 class="hero-title">
-<span class="ja">三目並べだと<br/>思ったら、<br/><span class="accent">全然違った。</span></span>
-<span class="en">YOU THINK<br/>YOU KNOW<br/><span class="accent">THIS GAME.</span><br/>YOU DON'T.</span>
+<span class="ja">たった1面で<br/><span class="accent">3次元の思考戦。</span></span>
+<span class="en">ONE BOARD.<br/><span class="accent">A 3D BATTLE OF WITS.</span></span>
 </h1>
+<p class="hero-subcatch">
+<span class="ja">三目並べだと思ったら、全然違った。</span>
+<span class="en">You think you know this game. You don't.</span>
+</p>
 <p class="hero-sub">
 <span class="ja">ケース・輪っか・コイン。3つの道具だけ。<br/>でも、知っているはずの世界が、まるで違って見える。</span>
 <span class="en">A case, a ring, and 18 coins. Three tools.<br/>The world you thought you knew — completely different.</span>
@@ -420,7 +427,7 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 </section>
 <div class="product-grid" id="about">
 <div class="product-img-wrap">
-<img alt="しんらポケット — 手のひらサイズ" src="photo9.jpg" style="width:100%;height:100%;object-fit:cover;object-position:40% 50%;transform:scale(1.15);transform-origin:40% 50%;"/>
+<img alt="しんらポケット ケース・盤・コイン一式" src="images/real03_overview.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
 <div class="product-img-label" style="display:flex;flex-direction:column;gap:4px;align-items:flex-start;"><span class="ja" style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;background:#FFD600;color:#080808;font-weight:700;padding:3px 8px;">東海市推奨品</span><span id="design-badge3" class="ja" onclick="event.stopPropagation();var p=document.getElementById('design-popup3');p.style.display=p.style.display==='block'?'none':'block'" style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;border:1px solid rgba(255,214,0,0.4);color:#FFD600;padding:3px 8px;cursor:pointer;position:relative;">意匠登録済み<span id="design-popup3" style="display:none;position:absolute;bottom:calc(100% + 8px);left:0;background:#080808;border:1px solid rgba(255,214,0,0.3);padding:10px 14px;white-space:nowrap;font-size:10px;color:#F5F2EB;letter-spacing:0.05em;z-index:100;">意匠登録第1824153号 / 第1817830号</span></span><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.2em;color:#FFD600;">SHINRA POCKET</span></div>
 </div>
 <div class="product-text">
@@ -538,9 +545,9 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 </style>
 <!-- PRODUCT DETAIL -->
 <div class="product-detail-strip" id="detail-photos">
-<div class="pd-img pd-zoomable" onclick="openLightboxSlide(0)"><img alt="三つ巴" src="images/img_04.jpg"/></div>
-<div class="pd-img pd-zoomable" onclick="openLightboxSlide(1)"><img alt="輪っかを使ってバランスゲーム" src="images/img_05.jpg"/></div>
-<div class="pd-img pd-zoomable" onclick="openLightboxSlide(2)"><img alt="コインを投げて輪っかにゴール" src="images/img_06.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(0)"><img alt="しんらポケット 手に取る瞬間" src="images/real01_hero_hand.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(1)"><img alt="コインの質感" src="images/real05_coin_macro.jpg"/></div>
+<div class="pd-img pd-zoomable" onclick="openLightboxSlide(2)"><img alt="数字とエレメントのコイン" src="images/real06_element_top.jpg"/></div>
 </div>
 <style>
 .pd-zoomable{position:relative;cursor:zoom-in;}
@@ -706,27 +713,19 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 <h2 class="sec-title reveal"><span class="ja">どこでも、誰とでも遊べる。</span><span class="en">ANYWHERE. ANYONE. ANYTIME.</span></h2>
 <div class="scenes-grid">
 <div class="scene-card reveal">
-<div class="scene-img-wrap">
-<img alt="マルシェで3人が囲んで遊ぶ" src="images/img_07.jpg"/>
-</div>
+<div class="scene-img-wrap"><img alt="手でコインをつまむ" src="images/real02_hand_pinch.jpg"/></div>
 <p class="scene-caption"><span class="ja">気づけば、夢中になってる</span><span class="en">Before you know it, you're hooked</span></p>
 </div>
 <div class="scene-card reveal">
-<div class="scene-img-wrap">
-<img alt="おじいちゃんが真剣に遊ぶ" src="images/img_08.jpg"/>
-</div>
+<div class="scene-img-wrap"><img alt="数字とエレメントのコインを操作する手元" src="images/real09_hand_element.jpg"/></div>
 <p class="scene-caption"><span class="ja">年齢関係なく、真剣になる</span><span class="en">Gets serious at any age</span></p>
 </div>
 <div class="scene-card reveal">
-<div class="scene-img-wrap">
-<img alt="親子でマルシェ体験" src="images/img_09.jpg"/>
-</div>
+<div class="scene-img-wrap"><img alt="月と太陽のコインが並ぶ盤面" src="images/real04_moonsun.jpg"/></div>
 <p class="scene-caption"><span class="ja">親子でも楽しめる</span><span class="en">Fun for families too</span></p>
 </div>
 <div class="scene-card reveal">
-<div class="scene-img-wrap">
-<img alt="外国人と日本人がマルシェで対戦" src="images/img_10.jpg"/>
-</div>
+<div class="scene-img-wrap"><img alt="数字とエレメントのコイン盤面（斜め）" src="images/real07_element_angle.jpg"/></div>
 <p class="scene-caption"><span class="ja">言葉が違っても、通じる</span><span class="en">No shared language needed</span></p>
 </div>
 </div>
@@ -739,6 +738,7 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 <div class="modes-grid">
 <div class="mode-card reveal">
 <span class="mode-bg-num">01</span>
+<div class="mode-photo"><img alt="月と太陽のコインで遊ぶ三目並べ" src="images/real08_tictactoe.jpg"/></div>
 <div class="mode-tag"><span class="ja">入口</span><span class="en">ENTRY</span></div>
 <div class="mode-title"><span class="ja">三目並べ</span><span class="en">Tic-Tac-Toe</span></div>
 <div class="mode-players"><span class="ja">2人用</span><span class="en">2 PLAYERS</span></div>
@@ -746,6 +746,7 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 </div>
 <div class="mode-card reveal">
 <span class="mode-bg-num">02</span>
+<div class="mode-photo"><img alt="数字とエレメントのコインで遊ぶ一騎討ち" src="images/real06_element_top.jpg"/></div>
 <div class="mode-tag">ORIGINAL</div>
 <div class="mode-title"><span class="ja">一騎討ち</span><span class="en">Duel</span></div>
 <div class="mode-players"><span class="ja">2人用</span><span class="en">2 PLAYERS</span></div>
@@ -760,6 +761,7 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 <div class="mode-en"><span class="ja">3人で遊ぶ駆け引きゲーム</span><span class="en">a three-way battle game</span></div>
 <div class="mode-players"><span class="ja">3人用</span><span class="en">3 PLAYERS</span></div>
 <p class="mode-desc"><span class="ja">敵か、味方か。3人になると、関係は一瞬で変わる。</span><span class="en">Three players changes everything. Attack one, and another benefits. Everyone is enemy — and ally.</span></p>
+<div class="mode-photo mode-photo-wide"><img alt="数字とエレメントのコイン盤面（斜め）" src="images/real07_element_angle.jpg"/></div>
 <div class="mitsu-rules" style="margin-top:16px;">
 <div class="mitsu-rule-item"><span class="mitsu-rule-num">01</span><div><strong><span class="ja">エレメントを選ぶ</span><span class="en">Choose element</span></strong><p><span class="ja">🔥火・💧水・🌀風</span><span class="en">Fire · Water · Wind</span></p></div></div>
 <div class="mitsu-rule-item"><span class="mitsu-rule-num">02</span><div><strong><span class="ja">置く・重ねる・動かす</span><span class="en">Place · Stack · Move</span></strong><p><span class="ja">大きい数字が小さい数字に重ねられる</span><span class="en">Higher numbers stack on lower</span></p></div></div>
@@ -866,10 +868,10 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 
 </style>
 <!-- CHALLENGE section removed from LP: purchaser-only content, doesn't belong in a pre-purchase funnel. JS (toggleChallenge/chalLoadLevel/LV_DATA) left intact below but now unused — needs a new home (existing-owner page or note) before it's linked from anywhere again. -->
-<!-- BLACK SHIRT PHOTO -->
+<!-- PRODUCT PHOTO (people photo removed) -->
 <div class="sec" style="padding:0;">
 <div class="reviews-hero-img reveal">
-<img src="images/img_11.jpg" alt="20代男性3人が真剣に遊ぶ" style="object-position:60% center;">
+<img src="images/real01_hero_hand.jpg" alt="コインを手に取る瞬間" style="object-position:center 35%;">
 <p class="reviews-hero-caption"><span class="ja">遊びが、会話になる。</span><span class="en">Play becomes conversation.</span></p>
 </div>
 </div>
@@ -941,25 +943,6 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 <a class="btn-primary reveal" href="https://shinratoys.base.shop" rel="noopener" style="font-size:14px;padding:18px 48px;" target="_blank">
 <span class="ja">ショップで購入する</span><span class="en">BUY SHINRA POCKET</span> →
     </a>
-</div>
-</div>
-<!-- PARTNER --><a id="partner"></a>
-<div class="sec" id="partner-section" style="border-top:1px solid var(--line);">
-<p class="sec-label reveal">— PARTNER</p>
-<p class="sec-sub reveal" style="margin-bottom:28px;"><span class="ja">しんらポケットを気に入ってくれた方へ。クリエーター活動や施設での活用を応援する制度です。</span><span class="en">For those who love Shinra Pocket. A program to support creators and facility use.</span></p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-<div style="padding:24px;border:1px solid rgba(255,214,0,0.4);background:rgba(255,214,0,0.06);">
-<p style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:#8B6508;margin-bottom:10px;">CREATOR</p>
-<p style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:#0E0E0E;margin-bottom:8px;"><span class="ja">クリエーターの方はこちら</span><span class="en">For Creators</span></p>
-<p style="font-size:12px;color:#5b5a53;line-height:1.7;margin-bottom:20px;"><span class="ja">SNS・動画・ブログなどでしんらポケットを紹介したい方向け。</span><span class="en">For those who want to introduce Shinra Pocket on SNS, video, or blogs.</span></p>
-<a href="https://forms.gle/Tk6sZan3QvUHQGjZA" target="_blank" rel="noopener" style="display:inline-block;background:#FFD600;color:#080808;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;padding:10px 20px;text-decoration:none;"><span class="ja">申請する →</span><span class="en">Apply →</span></a>
-</div>
-<div style="padding:24px;border:1px solid rgba(14,14,14,0.1);background:#F0EFE8;">
-<p style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:#8B6508;margin-bottom:10px;">FACILITY</p>
-<p style="font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:#0E0E0E;margin-bottom:8px;"><span class="ja">施設・団体の方はこちら</span><span class="en">For Facilities</span></p>
-<p style="font-size:12px;color:#5b5a53;line-height:1.7;margin-bottom:20px;"><span class="ja">保育園・学童・児童館・福祉施設やイベントでの活用を検討している方向け。</span><span class="en">For nurseries, after-school programs, community centers, and events.</span></p>
-<a href="https://forms.gle/zdfcjEjwobKoxogX8" target="_blank" rel="noopener" style="display:inline-block;border:1px solid rgba(14,14,14,0.35);color:#0E0E0E;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:10px 20px;text-decoration:none;"><span class="ja">申請する →</span><span class="en">Apply →</span></a>
-</div>
 </div>
 </div>
 <div class="final-cta" style="border-top:1px solid var(--line);">
@@ -2048,7 +2031,7 @@ function toggleChatBox(){
 .quick-info-num{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(38px,4vw,58px);
-  color:var(--gold-deep);
+  color:var(--ink);
   line-height:1;
   letter-spacing:0.04em;
 }
@@ -2409,7 +2392,7 @@ body.lang-ja .en{display:none !important;}
 body.lang-en .ja{display:none !important;}
 body.lang-ja .ja{display:inline !important;}
 
-body.lang-en .en{display:inline !important;}body.lang-en #partner-section{display:none !important;}
+body.lang-en .en{display:inline !important;}
 
 body.lang-ja .games-title-ja{display:block !important;}
 body.lang-en .games-title-en{display:block !important;}
@@ -2451,9 +2434,9 @@ body.lang-en .games-title-ja{display:none !important;}
 <style>@media(max-width:768px){.hero-badges{flex-wrap:nowrap;gap:3px;}.hero-badges .badge{font-size:8px!important;letter-spacing:0!important;padding:2px 5px!important;white-space:nowrap!important;}}</style>
 <script>
 const lbSlides = [
-  {src:'images/img_04.jpg', ja:'三つ巴', en:'Mitsudomoe'},
-  {src:'images/img_05.jpg', ja:'輪っかを使ってバランスゲーム', en:'Balance game using the ring'},
-  {src:'images/img_06.jpg', ja:'コインを投げて輪っかにゴール', en:'Toss a coin through the ring'}
+  {src:'images/real01_hero_hand.jpg', ja:'手に取る瞬間', en:'The moment you pick it up'},
+  {src:'images/real05_coin_macro.jpg', ja:'コインの質感', en:'Coin texture'},
+  {src:'images/real06_element_top.jpg', ja:'数字とエレメントのコイン', en:'Number & element coins'}
 ];
 let lbCurrentIndex = 0;
 
