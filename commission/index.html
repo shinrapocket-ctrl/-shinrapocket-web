@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>制作・撮影のご依頼 | Shinra Pocket</title>
+<meta name="description" content="動画制作（撮影・編集・ショート動画）とオーダーメイド制作（3Dかちぽちキーホルダー）のご依頼窓口です。料金の目安・お問い合わせ先をまとめています。">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0E0E0E;--ink-muted:#57564f;--paper:#FAFAF7;--mist:#F0EFE8;--gold-deep:#8B6508;--line:rgba(14,14,14,.12);--navy:#12172A}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.8}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem;border-bottom:1px solid var(--line);max-width:1000px;margin:0 auto}
+.topbar a{color:var(--ink);opacity:.6;text-decoration:none;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em}
+.topbar a:hover{opacity:1}
+.topbar .home{font-weight:700;opacity:1;font-size:.8rem}
+
+.wrap{max-width:1000px;margin:0 auto;padding:0 2rem}
+
+/* HEAD */
+.page-head{padding:3.2rem 0 2.4rem;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:.9rem}
+h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:.8rem;letter-spacing:.02em}
+.page-sub{color:var(--ink-muted);font-size:.92rem;max-width:600px;margin-bottom:1.6rem}
+.proof{display:inline-flex;align-items:center;gap:.6rem;background:var(--mist);border:1px solid var(--line);padding:.7rem 1.1rem;font-size:.8rem;color:var(--ink-muted)}
+.proof strong{color:var(--ink);font-weight:700}
+
+/* JUMP NAV */
+.jumpnav{display:flex;gap:1.2rem;padding:1.2rem 0;flex-wrap:wrap}
+.jumpnav a{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:.55rem 1rem;transition:background .2s,border-color .2s}
+.jumpnav a:hover{background:var(--mist);border-color:rgba(14,14,14,.25)}
+
+/* SECTION */
+.sec{padding:3.4rem 0;border-bottom:1px solid var(--line)}
+.sec:last-of-type{border-bottom:none}
+.sec-label{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.22em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:.8rem}
+h2{font-size:clamp(1.35rem,3vw,1.8rem);font-weight:700;margin-bottom:.6rem}
+.sec-note{color:var(--ink-muted);font-size:.88rem;max-width:620px;margin-bottom:2rem}
+
+/* PRICE TABLE */
+table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:.86rem}
+th,td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--ink);color:var(--paper);font-weight:500;font-size:.72rem;letter-spacing:.08em;font-family:'DM Mono',monospace}
+td.price{font-weight:700;color:var(--gold-deep);white-space:nowrap;text-align:right}
+tr:nth-child(even) td{background:var(--mist)}
+.table-note{font-size:.76rem;color:var(--ink-muted);margin-bottom:2rem;line-height:1.9}
+.table-title{font-weight:700;font-size:.95rem;margin:1.6rem 0 .6rem}
+.table-title:first-of-type{margin-top:0}
+
+.notes-box{background:var(--mist);border:1px solid var(--line);padding:1.3rem 1.5rem;font-size:.82rem;color:var(--ink-muted);margin-top:1.2rem}
+.notes-box li{margin-left:1.1rem;margin-bottom:.4rem}
+.notes-box li:last-child{margin-bottom:0}
+
+/* CTA */
+.cta-box{background:var(--ink);color:var(--paper);padding:2.4rem 2rem;text-align:center;margin-top:1rem}
+.cta-box p{color:rgba(250,250,247,.7);font-size:.85rem;margin-bottom:1.2rem}
+.cta-box h3{font-size:1.15rem;margin-bottom:.5rem}
+.btn-mail{display:inline-flex;align-items:center;gap:.5rem;background:var(--paper);color:var(--ink);padding:.8rem 1.8rem;text-decoration:none;font-weight:700;font-size:.85rem;border-radius:6px}
+.btn-mail:hover{background:#eceae0}
+.cta-sub{font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(250,250,247,.4);margin-top:1rem}
+
+.btn-quote{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(14,14,14,.25);color:var(--ink);padding:.8rem 1.8rem;text-decoration:none;font-weight:700;font-size:.85rem;border-radius:6px;transition:background .2s}
+.btn-quote:hover{background:var(--mist)}
+
+/* FOOTER */
+footer{padding:2.4rem 2rem;text-align:center;border-top:1px solid var(--line);margin-top:1rem}
+footer a{color:var(--ink-muted);text-decoration:none;font-size:.78rem}
+footer a:hover{color:var(--ink)}
+.footer-copy{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--ink-muted);margin-top:.8rem;letter-spacing:.06em}
+
+@media(max-width:640px){
+  .topbar{padding:1rem 1.2rem}
+  .wrap{padding:0 1.2rem}
+  table{font-size:.78rem}
+  th,td{padding:.6rem .6rem}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="home" href="https://shinrapocket.com">← Shinra Pocket</a>
+  <a href="mailto:shinrapocket@gmail.com">shinrapocket@gmail.com</a>
+</div>
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">Commission / Order</div>
+    <h1>制作・撮影のご依頼</h1>
+    <p class="page-sub">個人事業者・店舗・団体さま向けに、動画制作（撮影・編集・ショート動画）とオーダーメイド制作（3Dかちぽちキーホルダー）を承っています。料金の目安を先にご案内しますので、まずはご覧ください。</p>
+    <div class="proof">運営SNSにて ショート動画 累計視聴 <strong>748万回超</strong> の実績</div>
+  </div>
+
+  <div class="jumpnav">
+    <a href="#video">動画制作の料金 →</a>
+    <a href="#keychain">オーダーキーホルダーの料金 →</a>
+  </div>
+
+  <!-- VIDEO PRICING -->
+  <section class="sec" id="video">
+    <div class="sec-label">Video Production</div>
+    <h2>動画制作 料金表</h2>
+    <p class="sec-note">撮影・編集・ショート動画制作。企画から編集まで対応します。</p>
+
+    <div class="table-title">ショート動画（60秒以内）</div>
+    <table>
+      <tr><th>内容</th><th>料金</th></tr>
+      <tr><td>撮影＋編集 一式</td><td class="price">8万円〜</td></tr>
+    </table>
+
+    <div class="table-title">動画編集（完成尺の目安）</div>
+    <table>
+      <tr><th>尺</th><th>料金</th></tr>
+      <tr><td>ショート（〜1分）<br><span style="font-size:.78rem;color:var(--ink-muted)">カット・構成のベース。装飾はオプションで追加</span></td><td class="price">1万円〜</td></tr>
+      <tr><td>〜10分の動画<br><span style="font-size:.78rem;color:var(--ink-muted)">ベース。テロップ・BGM等はオプション</span></td><td class="price">5万円〜</td></tr>
+      <tr><td>〜30分の動画<br><span style="font-size:.78rem;color:var(--ink-muted)">ベース。長尺は素材の量により変動</span></td><td class="price">12万円〜</td></tr>
+    </table>
+
+    <div class="table-title">オプション（必要な分だけ）</div>
+    <table>
+      <tr><th>内容</th><th>料金</th></tr>
+      <tr><td>テロップ入れ</td><td class="price">完成尺により +6万〜</td></tr>
+      <tr><td>BGM・効果音</td><td class="price">完成尺により +1万〜</td></tr>
+      <tr><td>出張撮影の移動費</td><td class="price">実費</td></tr>
+      <tr><td>追加修正（2回まで込み・超過分）</td><td class="price">応相談</td></tr>
+    </table>
+
+    <div class="notes-box">
+      <ul>
+        <li>表示は目安です。内容により変動します。まずはお気軽にご相談ください。</li>
+        <li>修正は2回まで料金に含みます。継続・複数本は割引をご相談いただけます。</li>
+      </ul>
+    </div>
+
+    <div class="table-title">ご依頼の流れ</div>
+    <div class="notes-box">
+      <ul>
+        <li>メールでお気軽にご相談ください（内容・ご予算感などお聞かせください）</li>
+        <li>内容・お見積りをすり合わせ、ご発注</li>
+        <li>ご発注後、撮影の進め方など詳細をご案内し、制作開始</li>
+      </ul>
+    </div>
+
+    <div class="cta-box">
+      <h3>動画制作のご相談・お見積り</h3>
+      <p>まずはお気軽にご連絡ください</p>
+      <a class="btn-mail" href="mailto:shinrapocket@gmail.com?subject=%E5%8B%95%E7%94%BB%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">shinrapocket@gmail.com</a>
+    </div>
+  </section>
+
+  <!-- KEYCHAIN PRICING -->
+  <section class="sec" id="keychain">
+    <div class="sec-label">Order Keychain</div>
+    <h2>オーダーキーホルダー 価格表</h2>
+    <p class="sec-note">オリジナル 3D かちぽち。団体・イベントノベルティなどのオーダーメイド制作にも対応します。</p>
+
+    <div class="table-title">3Dデータ制作費</div>
+    <table>
+      <tr><th>プラン</th><th>料金</th></tr>
+      <tr><td>スタンダード</td><td class="price">10,000円</td></tr>
+      <tr><td>複雑デザイン<br><span style="font-size:.78rem;color:var(--ink-muted)">例：細かい模様が多い／形状が複雑／細い線が多いデザイン など</span></td><td class="price">45,000円</td></tr>
+    </table>
+
+    <div class="table-title">オプション</div>
+    <table>
+      <tr><th>内容</th><th>料金</th></tr>
+      <tr><td>基本仕様（4色以内）</td><td class="price">—</td></tr>
+      <tr><td>5色以上</td><td class="price">要相談</td></tr>
+      <tr><td>タグ追加</td><td class="price">＋1,000円／個</td></tr>
+    </table>
+    <p class="table-note">カラーによっては材料費が別途かかる場合があります。まずはお見積りをご依頼ください。</p>
+
+    <div class="table-title">製作費（1個あたり）</div>
+    <table>
+      <tr><th>数量</th><th>単価</th></tr>
+      <tr><td>1〜50個</td><td class="price">600円</td></tr>
+      <tr><td>51〜100個</td><td class="price">580円</td></tr>
+      <tr><td>101〜200個</td><td class="price">560円</td></tr>
+      <tr><td>201個以上</td><td class="price">要お見積り</td></tr>
+    </table>
+    <div class="notes-box">
+      <ul>
+        <li>数量割引は各数量帯を超えた分から適用されます。<br>例）51個の場合 → 50個 × 600円 ＋ 1個 × 580円</li>
+      </ul>
+    </div>
+
+    <div class="cta-box">
+      <h3>オーダーメイドのご相談・お見積り</h3>
+      <p>デザイン・数量など、まずはお気軽にご相談ください</p>
+      <a class="btn-quote" href="https://form.run/@shinrapocket-KEeQ8CYSIlUIBgJqIy09" target="_blank">無料見積もりを取る →</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <a href="https://shinrapocket.com">Shinra Pocket トップへ戻る</a>
+  <div class="footer-copy">© 2025 Shinra Pocket · shinrapocket.com</div>
+</footer>
+
+</body>
+</html>
